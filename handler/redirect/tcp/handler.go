@@ -14,15 +14,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	xio "github.com/dolfly/x/internal/io"
+	netpkg "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/registry"
 	dissector "github.com/go-gost/tls-dissector"
-	xio "github.com/go-gost/x/internal/io"
-	netpkg "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/registry"
 )
 
 func init() {

@@ -8,15 +8,15 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	ctxvalue "github.com/dolfly/x/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	serial "github.com/dolfly/x/internal/util/serial"
+	"github.com/dolfly/x/limiter/traffic/wrapper"
+	"github.com/dolfly/x/stats"
+	stats_wrapper "github.com/dolfly/x/stats/wrapper"
 	"github.com/go-gost/relay"
-	ctxvalue "github.com/go-gost/x/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	serial "github.com/go-gost/x/internal/util/serial"
-	"github.com/go-gost/x/limiter/traffic/wrapper"
-	"github.com/go-gost/x/stats"
-	stats_wrapper "github.com/go-gost/x/stats/wrapper"
 )
 
 func (h *relayHandler) handleConnect(ctx context.Context, conn net.Conn, network, address string, log logger.Logger) (err error) {

@@ -14,9 +14,9 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	tls_util "github.com/go-gost/x/internal/util/tls"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	tls_util "github.com/dolfly/x/internal/util/tls"
 )
 
 var (

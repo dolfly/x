@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/handler"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {

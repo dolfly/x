@@ -7,11 +7,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/x/internal/plugin"
-	"github.com/go-gost/x/service"
-	"github.com/go-gost/x/stats"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/x/internal/plugin"
+	"github.com/dolfly/x/service"
+	"github.com/dolfly/x/stats"
 )
 
 type observeRequest struct {

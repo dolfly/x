@@ -1,7 +1,7 @@
 package serial
 
 import (
-	md "github.com/go-gost/core/metadata"
+	md "github.com/dolfly/core/metadata"
 )
 
 type metadata struct {

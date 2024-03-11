@@ -5,11 +5,11 @@ import (
 	"io"
 	"net"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/resolver"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/resolver"
+	ctxvalue "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/plugin"
 	"github.com/go-gost/plugin/resolver/proto"
-	ctxvalue "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/plugin"
 	"google.golang.org/grpc"
 )
 

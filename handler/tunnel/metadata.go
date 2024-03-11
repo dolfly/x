@@ -4,15 +4,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/logger"
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/core/metadata/util"
-	"github.com/go-gost/core/sd"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/logger"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/core/metadata/util"
+	"github.com/dolfly/core/sd"
+	xingress "github.com/dolfly/x/ingress"
+	"github.com/dolfly/x/internal/util/mux"
+	"github.com/dolfly/x/registry"
 	"github.com/go-gost/relay"
-	xingress "github.com/go-gost/x/ingress"
-	"github.com/go-gost/x/internal/util/mux"
-	"github.com/go-gost/x/registry"
 )
 
 const (

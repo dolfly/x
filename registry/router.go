@@ -4,7 +4,7 @@ import (
 	"context"
 	"net"
 
-	"github.com/go-gost/core/router"
+	"github.com/dolfly/core/router"
 )
 
 type routerRegistry struct {

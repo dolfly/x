@@ -3,7 +3,7 @@ package stats
 import (
 	"sync/atomic"
 
-	"github.com/go-gost/core/observer"
+	"github.com/dolfly/core/observer"
 )
 
 type Kind int

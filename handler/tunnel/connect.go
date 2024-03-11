@@ -6,12 +6,12 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	ctxvalue "github.com/dolfly/x/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/limiter/traffic/wrapper"
 	"github.com/go-gost/relay"
-	ctxvalue "github.com/go-gost/x/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/limiter/traffic/wrapper"
 )
 
 func (h *tunnelHandler) handleConnect(ctx context.Context, req *relay.Request, conn net.Conn, network, srcAddr string, dstAddr string, tunnelID relay.TunnelID, log logger.Logger) error {

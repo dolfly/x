@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/logger"
-	ctxvalue "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/logger"
+	ctxvalue "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/plugin"
 )
 
 type httpPluginRequest struct {

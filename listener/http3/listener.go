@@ -5,12 +5,12 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	xnet "github.com/go-gost/x/internal/net"
-	mdx "github.com/go-gost/x/metadata"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	xnet "github.com/dolfly/x/internal/net"
+	mdx "github.com/dolfly/x/metadata"
+	"github.com/dolfly/x/registry"
 	"github.com/quic-go/quic-go"
 	"github.com/quic-go/quic-go/http3"
 )

@@ -6,10 +6,10 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/logger"
+	netpkg "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/util/mux"
 	"github.com/go-gost/gosocks5"
-	netpkg "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/util/mux"
 )
 
 func (h *socks5Handler) handleMuxBind(ctx context.Context, conn net.Conn, network, address string, log logger.Logger) error {

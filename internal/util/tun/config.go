@@ -3,7 +3,7 @@ package tun
 import (
 	"net"
 
-	"github.com/go-gost/core/router"
+	"github.com/dolfly/core/router"
 )
 
 type Config struct {

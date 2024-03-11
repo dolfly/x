@@ -4,7 +4,7 @@ import (
 	"sort"
 	"sync/atomic"
 
-	limiter "github.com/go-gost/core/limiter/conn"
+	limiter "github.com/dolfly/core/limiter/conn"
 )
 
 type llimiter struct {

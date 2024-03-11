@@ -8,10 +8,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-gost/core/connector"
-	md "github.com/go-gost/core/metadata"
+	"github.com/dolfly/core/connector"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/x/registry"
 	"github.com/go-gost/gosocks4"
-	"github.com/go-gost/x/registry"
 )
 
 func init() {

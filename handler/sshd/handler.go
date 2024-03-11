@@ -9,13 +9,13 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	netpkg "github.com/go-gost/x/internal/net"
-	sshd_util "github.com/go-gost/x/internal/util/sshd"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	netpkg "github.com/dolfly/x/internal/net"
+	sshd_util "github.com/dolfly/x/internal/util/sshd"
+	"github.com/dolfly/x/registry"
 	"golang.org/x/crypto/ssh"
 )
 

@@ -4,9 +4,9 @@ import (
 	"context"
 	"net"
 
-	"github.com/go-gost/core/connector"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/connector"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {

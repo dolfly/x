@@ -5,11 +5,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/sd"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/x/internal/util/mux"
+	"github.com/dolfly/x/selector"
 	"github.com/go-gost/relay"
-	"github.com/go-gost/x/internal/util/mux"
-	"github.com/go-gost/x/selector"
 	"github.com/google/uuid"
 )
 

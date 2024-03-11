@@ -6,14 +6,14 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/common/bufpool"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/x/internal/util/relay"
-	"github.com/go-gost/x/internal/util/ss"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/common/bufpool"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/x/internal/util/relay"
+	"github.com/dolfly/x/internal/util/ss"
+	"github.com/dolfly/x/registry"
 	"github.com/shadowsocks/go-shadowsocks2/core"
 )
 

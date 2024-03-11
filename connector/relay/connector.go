@@ -7,11 +7,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/connector"
-	md "github.com/go-gost/core/metadata"
+	"github.com/dolfly/core/connector"
+	md "github.com/dolfly/core/metadata"
+	relay_util "github.com/dolfly/x/internal/util/relay"
+	"github.com/dolfly/x/registry"
 	"github.com/go-gost/relay"
-	relay_util "github.com/go-gost/x/internal/util/relay"
-	"github.com/go-gost/x/registry"
 )
 
 func init() {

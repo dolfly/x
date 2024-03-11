@@ -6,11 +6,11 @@ import (
 	"encoding/hex"
 	"net"
 
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/sd"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/x/internal/util/mux"
 	"github.com/go-gost/relay"
-	"github.com/go-gost/x/internal/util/mux"
 	"github.com/google/uuid"
 )
 

@@ -6,10 +6,10 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/router"
-	"github.com/go-gost/x/internal/plugin"
-	xrouter "github.com/go-gost/x/router"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/router"
+	"github.com/dolfly/x/internal/plugin"
+	xrouter "github.com/dolfly/x/router"
 )
 
 type httpPluginGetRouteRequest struct {

@@ -7,7 +7,7 @@ import (
 	"net"
 	"time"
 
-	mdata "github.com/go-gost/core/metadata"
+	mdata "github.com/dolfly/core/metadata"
 )
 
 type conn struct {

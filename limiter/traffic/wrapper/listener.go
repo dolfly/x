@@ -3,7 +3,7 @@ package wrapper
 import (
 	"net"
 
-	limiter "github.com/go-gost/core/limiter/traffic"
+	limiter "github.com/dolfly/core/limiter/traffic"
 )
 
 type listener struct {

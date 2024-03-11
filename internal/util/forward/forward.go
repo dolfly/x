@@ -10,8 +10,8 @@ import (
 	"net/http"
 	"strings"
 
+	xio "github.com/dolfly/x/internal/io"
 	dissector "github.com/go-gost/tls-dissector"
-	xio "github.com/go-gost/x/internal/io"
 )
 
 func Sniffing(ctx context.Context, rdw io.ReadWriter) (rw io.ReadWriter, host string, protocol string, err error) {

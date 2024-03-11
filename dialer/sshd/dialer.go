@@ -6,10 +6,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/dialer"
-	md "github.com/go-gost/core/metadata"
-	ssh_util "github.com/go-gost/x/internal/util/ssh"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/dialer"
+	md "github.com/dolfly/core/metadata"
+	ssh_util "github.com/dolfly/x/internal/util/ssh"
+	"github.com/dolfly/x/registry"
 	"golang.org/x/crypto/ssh"
 )
 

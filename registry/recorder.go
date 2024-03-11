@@ -3,7 +3,7 @@ package registry
 import (
 	"context"
 
-	"github.com/go-gost/core/recorder"
+	"github.com/dolfly/core/recorder"
 )
 
 type recorderRegistry struct {

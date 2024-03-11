@@ -5,8 +5,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/common/bufpool"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/common/bufpool"
+	"github.com/dolfly/core/logger"
 	"github.com/go-gost/gosocks5"
 )
 

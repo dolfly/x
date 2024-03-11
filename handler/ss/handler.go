@@ -6,14 +6,14 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	md "github.com/go-gost/core/metadata"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	md "github.com/dolfly/core/metadata"
+	ctxvalue "github.com/dolfly/x/ctx"
+	netpkg "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/util/ss"
+	"github.com/dolfly/x/registry"
 	"github.com/go-gost/gosocks5"
-	ctxvalue "github.com/go-gost/x/ctx"
-	netpkg "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/util/ss"
-	"github.com/go-gost/x/registry"
 	"github.com/shadowsocks/go-shadowsocks2/core"
 )
 

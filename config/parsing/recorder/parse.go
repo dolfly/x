@@ -4,11 +4,11 @@ import (
 	"crypto/tls"
 	"strings"
 
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/plugin"
-	xrecorder "github.com/go-gost/x/recorder"
-	recorder_plugin "github.com/go-gost/x/recorder/plugin"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/plugin"
+	xrecorder "github.com/dolfly/x/recorder"
+	recorder_plugin "github.com/dolfly/x/recorder/plugin"
 )
 
 func ParseRecorder(cfg *config.RecorderConfig) (r recorder.Recorder) {

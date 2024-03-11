@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/registry"
+	"github.com/dolfly/x/service"
+	"github.com/dolfly/x/stats"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/registry"
-	"github.com/go-gost/x/service"
-	"github.com/go-gost/x/stats"
 )
 
 type serviceStatus interface {

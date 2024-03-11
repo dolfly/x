@@ -3,7 +3,7 @@ package wrapper
 import (
 	"net"
 
-	xmetrics "github.com/go-gost/x/metrics"
+	xmetrics "github.com/dolfly/x/metrics"
 )
 
 type listener struct {

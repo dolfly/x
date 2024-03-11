@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"time"
 
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/core/metadata/util"
-	kcp_util "github.com/go-gost/x/internal/util/kcp"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/core/metadata/util"
+	kcp_util "github.com/dolfly/x/internal/util/kcp"
 )
 
 type metadata struct {

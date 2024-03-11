@@ -3,16 +3,16 @@ package udp
 import (
 	"net"
 
-	"github.com/go-gost/core/common/net/udp"
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	admission "github.com/go-gost/x/admission/wrapper"
-	xnet "github.com/go-gost/x/internal/net"
-	limiter "github.com/go-gost/x/limiter/traffic/wrapper"
-	metrics "github.com/go-gost/x/metrics/wrapper"
-	"github.com/go-gost/x/registry"
-	stats "github.com/go-gost/x/stats/wrapper"
+	"github.com/dolfly/core/common/net/udp"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	admission "github.com/dolfly/x/admission/wrapper"
+	xnet "github.com/dolfly/x/internal/net"
+	limiter "github.com/dolfly/x/limiter/traffic/wrapper"
+	metrics "github.com/dolfly/x/metrics/wrapper"
+	"github.com/dolfly/x/registry"
+	stats "github.com/dolfly/x/stats/wrapper"
 )
 
 func init() {

@@ -5,15 +5,15 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/logger"
-	mdata "github.com/go-gost/core/metadata"
-	xnet "github.com/go-gost/x/internal/net"
-	limiter "github.com/go-gost/x/limiter/traffic/wrapper"
-	mdx "github.com/go-gost/x/metadata"
-	metrics "github.com/go-gost/x/metrics/wrapper"
-	"github.com/go-gost/x/registry"
-	stats "github.com/go-gost/x/stats/wrapper"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/logger"
+	mdata "github.com/dolfly/core/metadata"
+	xnet "github.com/dolfly/x/internal/net"
+	limiter "github.com/dolfly/x/limiter/traffic/wrapper"
+	mdx "github.com/dolfly/x/metadata"
+	metrics "github.com/dolfly/x/metrics/wrapper"
+	"github.com/dolfly/x/registry"
+	stats "github.com/dolfly/x/stats/wrapper"
 )
 
 func init() {

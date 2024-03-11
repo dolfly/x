@@ -8,13 +8,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hop"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/router"
-	tun_util "github.com/go-gost/x/internal/util/tun"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hop"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/router"
+	tun_util "github.com/dolfly/x/internal/util/tun"
+	"github.com/dolfly/x/registry"
 	"github.com/songgao/water/waterutil"
 )
 

@@ -10,9 +10,9 @@ import (
 	"sync"
 	"time"
 
-	limiter "github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/internal/loader"
+	limiter "github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/internal/loader"
 	"github.com/yl2chen/cidranger"
 )
 

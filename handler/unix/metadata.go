@@ -1,7 +1,7 @@
 package unix
 
 import (
-	mdata "github.com/go-gost/core/metadata"
+	mdata "github.com/dolfly/core/metadata"
 )
 
 type metadata struct {

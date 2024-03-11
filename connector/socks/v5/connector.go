@@ -8,12 +8,12 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/x/internal/util/socks"
+	"github.com/dolfly/x/registry"
 	"github.com/go-gost/gosocks5"
-	"github.com/go-gost/x/internal/util/socks"
-	"github.com/go-gost/x/registry"
 )
 
 func init() {

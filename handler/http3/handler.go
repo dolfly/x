@@ -9,13 +9,13 @@ import (
 	"net/http/httputil"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	ctxvalue "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	ctxvalue "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {

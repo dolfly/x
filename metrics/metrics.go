@@ -1,6 +1,6 @@
 package metrics
 
-import "github.com/go-gost/core/metrics"
+import "github.com/dolfly/core/metrics"
 
 const (
 	// Number of services. Labels: host.

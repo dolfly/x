@@ -4,8 +4,8 @@ import (
 	"context"
 	"net"
 
-	"github.com/go-gost/core/admission"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/admission"
+	"github.com/dolfly/core/logger"
 )
 
 type listener struct {

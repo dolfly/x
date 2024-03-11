@@ -1,10 +1,10 @@
 package selector
 
 import (
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/selector"
-	"github.com/go-gost/x/config"
-	xs "github.com/go-gost/x/selector"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/selector"
+	"github.com/dolfly/x/config"
+	xs "github.com/dolfly/x/selector"
 )
 
 func ParseChainSelector(cfg *config.SelectorConfig) selector.Selector[chain.Chainer] {

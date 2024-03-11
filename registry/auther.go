@@ -3,7 +3,7 @@ package registry
 import (
 	"context"
 
-	"github.com/go-gost/core/auth"
+	"github.com/dolfly/core/auth"
 )
 
 type autherRegistry struct {

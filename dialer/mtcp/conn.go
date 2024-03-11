@@ -3,7 +3,7 @@ package mtcp
 import (
 	"net"
 
-	"github.com/go-gost/x/internal/util/mux"
+	"github.com/dolfly/x/internal/util/mux"
 )
 
 type muxSession struct {

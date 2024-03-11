@@ -1,8 +1,8 @@
 package tcp
 
 import (
-	md "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/core/metadata/util"
+	md "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/core/metadata/util"
 )
 
 type metadata struct {

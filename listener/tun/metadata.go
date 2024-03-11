@@ -4,13 +4,13 @@ import (
 	"net"
 	"strings"
 
-	"github.com/go-gost/core/logger"
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/core/metadata/util"
-	"github.com/go-gost/core/router"
-	tun_util "github.com/go-gost/x/internal/util/tun"
-	"github.com/go-gost/x/registry"
-	xrouter "github.com/go-gost/x/router"
+	"github.com/dolfly/core/logger"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/core/metadata/util"
+	"github.com/dolfly/core/router"
+	tun_util "github.com/dolfly/x/internal/util/tun"
+	"github.com/dolfly/x/registry"
+	xrouter "github.com/dolfly/x/router"
 )
 
 const (

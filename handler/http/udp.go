@@ -8,9 +8,9 @@ import (
 	"net/http/httputil"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/internal/net/udp"
-	"github.com/go-gost/x/internal/util/socks"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/internal/net/udp"
+	"github.com/dolfly/x/internal/util/socks"
 )
 
 func (h *httpHandler) handleUDP(ctx context.Context, conn net.Conn, log logger.Logger) error {

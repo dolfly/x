@@ -5,7 +5,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/go-gost/core/common/bufpool"
+	"github.com/dolfly/core/common/bufpool"
 )
 
 const (

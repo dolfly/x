@@ -1,8 +1,8 @@
 package rate
 
 import (
-	"github.com/go-gost/core/limiter/rate"
-	limiter "github.com/go-gost/core/limiter/rate"
+	"github.com/dolfly/core/limiter/rate"
+	limiter "github.com/dolfly/core/limiter/rate"
 )
 
 type RateLimitGenerator interface {

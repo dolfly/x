@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/logger"
 	"github.com/sirupsen/logrus"
 )
 

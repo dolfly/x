@@ -7,14 +7,14 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hop"
-	md "github.com/go-gost/core/metadata"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hop"
+	md "github.com/dolfly/core/metadata"
+	ctxvalue "github.com/dolfly/x/ctx"
+	stats_util "github.com/dolfly/x/internal/util/stats"
+	"github.com/dolfly/x/registry"
 	"github.com/go-gost/relay"
-	ctxvalue "github.com/go-gost/x/ctx"
-	stats_util "github.com/go-gost/x/internal/util/stats"
-	"github.com/go-gost/x/registry"
 )
 
 var (

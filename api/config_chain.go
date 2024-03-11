@@ -3,11 +3,11 @@ package api
 import (
 	"net/http"
 
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	parser "github.com/dolfly/x/config/parsing/chain"
+	"github.com/dolfly/x/registry"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	parser "github.com/go-gost/x/config/parsing/chain"
-	"github.com/go-gost/x/registry"
 )
 
 // swagger:parameters createChainRequest
