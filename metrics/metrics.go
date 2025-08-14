@@ -3,7 +3,7 @@ package metrics
 import (
 	"sync/atomic"
 
-	"github.com/go-gost/core/metrics"
+	"github.com/dolfly/core/metrics"
 )
 
 const (

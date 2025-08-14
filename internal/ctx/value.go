@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"context"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/metadata"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/metadata"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 type bufferKey struct{}

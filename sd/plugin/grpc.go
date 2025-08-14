@@ -4,10 +4,10 @@ import (
 	"context"
 	"io"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/plugin/sd/proto"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/plugin/sd/proto"
+	"github.com/dolfly/x/internal/plugin"
 	"google.golang.org/grpc"
 )
 

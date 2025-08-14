@@ -5,7 +5,7 @@ import (
 	"io"
 	"sync"
 
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/logger"
 	"gvisor.dev/gvisor/pkg/buffer"
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/header"

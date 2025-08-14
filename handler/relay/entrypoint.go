@@ -5,15 +5,15 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/listener"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/relay"
-	admission "github.com/go-gost/x/admission/wrapper"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	"github.com/go-gost/x/internal/util/mux"
-	metrics "github.com/go-gost/x/metrics/wrapper"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/listener"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/relay"
+	admission "github.com/dolfly/x/admission/wrapper"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	"github.com/dolfly/x/internal/util/mux"
+	metrics "github.com/dolfly/x/metrics/wrapper"
 )
 
 type tcpListener struct {

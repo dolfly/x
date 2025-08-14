@@ -6,12 +6,12 @@ import (
 	"net"
 	"strconv"
 
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/relay"
-	"github.com/go-gost/x/internal/net/udp"
-	"github.com/go-gost/x/internal/util/mux"
-	relay_util "github.com/go-gost/x/internal/util/relay"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/relay"
+	"github.com/dolfly/x/internal/net/udp"
+	"github.com/dolfly/x/internal/util/mux"
+	relay_util "github.com/dolfly/x/internal/util/relay"
 )
 
 // Bind implements connector.Binder.

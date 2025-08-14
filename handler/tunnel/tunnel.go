@@ -6,17 +6,17 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/relay"
-	"github.com/go-gost/x/internal/util/mux"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/relay"
+	"github.com/dolfly/x/internal/util/mux"
 
-	"github.com/go-gost/core/observer/stats"
-	traffic_wrapper "github.com/go-gost/x/limiter/traffic/wrapper"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	"github.com/go-gost/x/selector"
+	"github.com/dolfly/core/observer/stats"
+	traffic_wrapper "github.com/dolfly/x/limiter/traffic/wrapper"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	"github.com/dolfly/x/selector"
 	"github.com/google/uuid"
 )
 

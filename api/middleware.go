@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/logger"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/logger"
 )
 
 func mwLogger() gin.HandlerFunc {

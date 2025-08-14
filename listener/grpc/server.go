@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	xctx "github.com/go-gost/x/ctx"
-	pb "github.com/go-gost/x/internal/util/grpc/proto"
+	"github.com/dolfly/core/logger"
+	xctx "github.com/dolfly/x/ctx"
+	pb "github.com/dolfly/x/internal/util/grpc/proto"
 	mdata "google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/peer"
 )

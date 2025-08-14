@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	ctx_pkg "github.com/go-gost/x/ctx"
-	xio "github.com/go-gost/x/internal/io"
+	ctx_pkg "github.com/dolfly/x/ctx"
+	xio "github.com/dolfly/x/internal/io"
 	"github.com/gorilla/websocket"
 )
 

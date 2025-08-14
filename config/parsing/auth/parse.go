@@ -8,14 +8,14 @@ import (
 	"os"
 	"strings"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/logger"
-	xauth "github.com/go-gost/x/auth"
-	auth_plugin "github.com/go-gost/x/auth/plugin"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/loader"
-	"github.com/go-gost/x/internal/plugin"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/logger"
+	xauth "github.com/dolfly/x/auth"
+	auth_plugin "github.com/dolfly/x/auth/plugin"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/loader"
+	"github.com/dolfly/x/internal/plugin"
+	"github.com/dolfly/x/registry"
 )
 
 func ParseAuther(cfg *config.AutherConfig) auth.Authenticator {

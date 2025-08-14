@@ -6,13 +6,13 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/common/bufpool"
-	"github.com/go-gost/core/connector"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/gosocks5"
-	ctxvalue "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/util/ss"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/common/bufpool"
+	"github.com/dolfly/core/connector"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/gosocks5"
+	ctxvalue "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/util/ss"
+	"github.com/dolfly/x/registry"
 	"github.com/shadowsocks/go-shadowsocks2/core"
 )
 

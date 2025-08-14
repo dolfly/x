@@ -3,9 +3,9 @@ package router
 import (
 	"bytes"
 
-	"github.com/go-gost/core/common/bufpool"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/relay"
+	"github.com/dolfly/core/common/bufpool"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/relay"
 )
 
 func (h *routerHandler) handleEntrypoint(log logger.Logger) error {

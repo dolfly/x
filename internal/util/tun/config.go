@@ -3,7 +3,7 @@ package tun
 import (
 	"net"
 
-	"github.com/go-gost/core/router"
+	"github.com/dolfly/core/router"
 )
 
 type Config struct {
@@ -14,5 +14,5 @@ type Config struct {
 	MTU     int
 	Gateway net.IP
 	Router  router.Router
-	DNS []net.IP
+	DNS     []net.IP
 }

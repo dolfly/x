@@ -4,10 +4,10 @@ import (
 	"crypto/tls"
 	"strings"
 
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/plugin"
-	sd_plugin "github.com/go-gost/x/sd/plugin"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/plugin"
+	sd_plugin "github.com/dolfly/x/sd/plugin"
 )
 
 func ParseSD(cfg *config.SDConfig) sd.SD {

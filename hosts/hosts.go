@@ -9,10 +9,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/hosts"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/internal/loader"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/hosts"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/internal/loader"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 type Mapping struct {

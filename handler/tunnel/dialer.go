@@ -5,8 +5,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/sd"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/sd"
 )
 
 type Dialer struct {

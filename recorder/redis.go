@@ -3,9 +3,9 @@ package recorder
 import (
 	"context"
 
-	"github.com/go-gost/core/metrics"
-	"github.com/go-gost/core/recorder"
-	xmetrics "github.com/go-gost/x/metrics"
+	"github.com/dolfly/core/metrics"
+	"github.com/dolfly/core/recorder"
+	xmetrics "github.com/dolfly/x/metrics"
 	"github.com/go-redis/redis/v8"
 )
 

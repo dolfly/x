@@ -6,10 +6,10 @@ import (
 	"errors"
 	"io"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/plugin/recorder/proto"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/plugin/recorder/proto"
+	"github.com/dolfly/x/internal/plugin"
 	"google.golang.org/grpc"
 )
 

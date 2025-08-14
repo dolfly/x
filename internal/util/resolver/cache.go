@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	ctxvalue "github.com/go-gost/x/ctx"
+	"github.com/dolfly/core/logger"
+	ctxvalue "github.com/dolfly/x/ctx"
 	"github.com/miekg/dns"
 )
 

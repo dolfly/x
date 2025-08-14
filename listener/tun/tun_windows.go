@@ -7,7 +7,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/go-gost/core/router"
+	"github.com/dolfly/core/router"
 	"golang.org/x/sys/windows"
 	"golang.zx2c4.com/wireguard/tun"
 )

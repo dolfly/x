@@ -4,10 +4,10 @@ import (
 	"net"
 	"net/http"
 
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/service"
+	"github.com/dolfly/x/api"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/service"
-	"github.com/go-gost/x/api"
 )
 
 type options struct {

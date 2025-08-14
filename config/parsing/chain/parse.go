@@ -1,15 +1,15 @@
 package chain
 
 import (
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/metadata"
-	xchain "github.com/go-gost/x/chain"
-	"github.com/go-gost/x/config"
-	hop_parser "github.com/go-gost/x/config/parsing/hop"
-	mdx "github.com/go-gost/x/metadata"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/metadata"
+	xchain "github.com/dolfly/x/chain"
+	"github.com/dolfly/x/config"
+	hop_parser "github.com/dolfly/x/config/parsing/hop"
+	mdx "github.com/dolfly/x/metadata"
+	"github.com/dolfly/x/registry"
 )
 
 func ParseChain(cfg *config.ChainConfig, log logger.Logger) (chain.Chainer, error) {

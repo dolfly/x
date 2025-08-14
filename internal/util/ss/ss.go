@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"net"
 
-	xio "github.com/go-gost/x/internal/io"
+	xio "github.com/dolfly/x/internal/io"
 	"github.com/shadowsocks/go-shadowsocks2/core"
 )
 

@@ -1,20 +1,18 @@
-module github.com/go-gost/x
+module github.com/dolfly/x
 
-go 1.24
-
-toolchain go1.24.5
+go 1.24.5
 
 require (
 	github.com/alecthomas/units v0.0.0-20211218093645-b94a6e3cc137
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d
+	github.com/dolfly/core v0.3.3
+	github.com/dolfly/gosocks4 v0.0.2
+	github.com/dolfly/gosocks5 v0.4.3
+	github.com/dolfly/plugin v0.2.1
+	github.com/dolfly/relay v0.5.1
+	github.com/dolfly/tls-dissector v0.1.2
 	github.com/gin-contrib/cors v1.7.2
 	github.com/gin-gonic/gin v1.10.1
-	github.com/go-gost/core v0.3.2
-	github.com/go-gost/gosocks4 v0.0.1
-	github.com/go-gost/gosocks5 v0.4.2
-	github.com/go-gost/plugin v0.2.0
-	github.com/go-gost/relay v0.5.0
-	github.com/go-gost/tls-dissector v0.1.1
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/gobwas/glob v0.2.3
 	github.com/golang/snappy v0.0.4

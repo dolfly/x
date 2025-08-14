@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
-	limiter "github.com/go-gost/core/limiter/conn"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/internal/loader"
-	xlogger "github.com/go-gost/x/logger"
+	limiter "github.com/dolfly/core/limiter/conn"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/internal/loader"
+	xlogger "github.com/dolfly/x/logger"
 	"github.com/yl2chen/cidranger"
 )
 

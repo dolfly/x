@@ -4,17 +4,17 @@ import (
 	"crypto/tls"
 	"strings"
 
-	"github.com/go-gost/core/limiter/conn"
-	"github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/loader"
-	"github.com/go-gost/x/internal/plugin"
-	xconn "github.com/go-gost/x/limiter/conn"
-	xrate "github.com/go-gost/x/limiter/rate"
-	xtraffic "github.com/go-gost/x/limiter/traffic"
-	traffic_plugin "github.com/go-gost/x/limiter/traffic/plugin"
+	"github.com/dolfly/core/limiter/conn"
+	"github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/loader"
+	"github.com/dolfly/x/internal/plugin"
+	xconn "github.com/dolfly/x/limiter/conn"
+	xrate "github.com/dolfly/x/limiter/rate"
+	xtraffic "github.com/dolfly/x/limiter/traffic"
+	traffic_plugin "github.com/dolfly/x/limiter/traffic/plugin"
 )
 
 func ParseTrafficLimiter(cfg *config.LimiterConfig) (lim traffic.TrafficLimiter) {

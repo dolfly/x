@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/observer/stats"
+	"github.com/dolfly/core/observer/stats"
 )
 
 const (

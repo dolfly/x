@@ -1,9 +1,9 @@
 package mtls
 
 import (
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/x/internal/util/mux"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/x/internal/util/mux"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 const (

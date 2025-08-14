@@ -7,15 +7,15 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	net_dialer "github.com/go-gost/x/internal/net/dialer"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	mdx "github.com/go-gost/x/metadata"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	net_dialer "github.com/dolfly/x/internal/net/dialer"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	mdx "github.com/dolfly/x/metadata"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {

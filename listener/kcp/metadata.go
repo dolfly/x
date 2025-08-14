@@ -3,9 +3,9 @@ package kcp
 import (
 	"encoding/json"
 
-	mdata "github.com/go-gost/core/metadata"
-	kcp_util "github.com/go-gost/x/internal/util/kcp"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	kcp_util "github.com/dolfly/x/internal/util/kcp"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 const (

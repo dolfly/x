@@ -4,9 +4,9 @@ import (
 	"errors"
 	"time"
 
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/relay"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/relay"
+	mdutil "github.com/dolfly/x/metadata/util"
 	"github.com/google/uuid"
 )
 

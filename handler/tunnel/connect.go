@@ -6,9 +6,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/relay"
-	xnet "github.com/go-gost/x/internal/net"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/relay"
+	xnet "github.com/dolfly/x/internal/net"
 )
 
 func (h *tunnelHandler) handleConnect(ctx context.Context, req *relay.Request, conn net.Conn, network, srcAddr string, dstAddr string, tunnelID relay.TunnelID, log logger.Logger) error {

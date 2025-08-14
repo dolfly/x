@@ -6,10 +6,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/relay"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/relay"
 
-	"github.com/go-gost/x/selector"
+	"github.com/dolfly/x/selector"
 	"github.com/google/uuid"
 )
 

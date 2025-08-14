@@ -5,7 +5,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/x/ctx"
+	"github.com/dolfly/x/ctx"
 	smux "github.com/xtaci/smux"
 )
 

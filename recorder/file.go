@@ -4,9 +4,9 @@ import (
 	"context"
 	"io"
 
-	"github.com/go-gost/core/metrics"
-	"github.com/go-gost/core/recorder"
-	xmetrics "github.com/go-gost/x/metrics"
+	"github.com/dolfly/core/metrics"
+	"github.com/dolfly/core/recorder"
+	xmetrics "github.com/dolfly/x/metrics"
 )
 
 type fileRecorderOptions struct {

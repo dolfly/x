@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/dolfly/x/config"
+	parser "github.com/dolfly/x/config/parsing/service"
+	"github.com/dolfly/x/registry"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/x/config"
-	parser "github.com/go-gost/x/config/parsing/service"
-	"github.com/go-gost/x/registry"
 )
 
 // swagger:parameters getServiceListRequest
@@ -23,7 +23,7 @@ type getServiceListResponse struct {
 }
 
 type serviceList struct {
-	Count int                       `json:"count"`
+	Count int                     `json:"count"`
 	List  []*config.ServiceConfig `json:"list"`
 }
 

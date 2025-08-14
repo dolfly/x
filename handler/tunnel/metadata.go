@@ -4,15 +4,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/logger"
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/relay"
-	xingress "github.com/go-gost/x/ingress"
-	"github.com/go-gost/x/internal/util/mux"
-	mdutil "github.com/go-gost/x/metadata/util"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/logger"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/relay"
+	xingress "github.com/dolfly/x/ingress"
+	"github.com/dolfly/x/internal/util/mux"
+	mdutil "github.com/dolfly/x/metadata/util"
+	"github.com/dolfly/x/registry"
 )
 
 const (
@@ -31,11 +31,11 @@ type metadata struct {
 	sniffingWebsocket           bool
 	sniffingWebsocketSampleRate float64
 
-	directTunnel           bool
-	tunnelTTL              time.Duration
-	ingress                ingress.Ingress
-	sd                     sd.SD
-	muxCfg                 *mux.Config
+	directTunnel bool
+	tunnelTTL    time.Duration
+	ingress      ingress.Ingress
+	sd           sd.SD
+	muxCfg       *mux.Config
 
 	observerPeriod       time.Duration
 	observerResetTraffic bool

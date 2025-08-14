@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	xnet "github.com/go-gost/x/internal/net"
+	xnet "github.com/dolfly/x/internal/net"
 	"github.com/gobwas/glob"
 	"github.com/yl2chen/cidranger"
 )

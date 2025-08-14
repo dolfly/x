@@ -4,10 +4,10 @@ import (
 	"context"
 	"net"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/core/dialer"
-	net_dialer "github.com/go-gost/x/internal/net/dialer"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/core/dialer"
+	net_dialer "github.com/dolfly/x/internal/net/dialer"
 )
 
 type Transport struct {

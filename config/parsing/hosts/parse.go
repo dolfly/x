@@ -5,13 +5,13 @@ import (
 	"net"
 	"strings"
 
-	"github.com/go-gost/core/hosts"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	xhosts "github.com/go-gost/x/hosts"
-	hosts_plugin "github.com/go-gost/x/hosts/plugin"
-	"github.com/go-gost/x/internal/loader"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/hosts"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	xhosts "github.com/dolfly/x/hosts"
+	hosts_plugin "github.com/dolfly/x/hosts/plugin"
+	"github.com/dolfly/x/internal/loader"
+	"github.com/dolfly/x/internal/plugin"
 )
 
 func ParseHostMapper(cfg *config.HostsConfig) hosts.HostMapper {

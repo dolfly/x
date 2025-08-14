@@ -4,10 +4,10 @@ import (
 	"context"
 	"net"
 
-	"github.com/go-gost/core/connector"
-	md "github.com/go-gost/core/metadata"
-	ctxvalue "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/connector"
+	md "github.com/dolfly/core/metadata"
+	ctxvalue "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {

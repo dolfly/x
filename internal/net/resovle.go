@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/go-gost/core/hosts"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/resolver"
-	ctxvalue "github.com/go-gost/x/ctx"
+	"github.com/dolfly/core/hosts"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/resolver"
+	ctxvalue "github.com/dolfly/x/ctx"
 )
 
 func Resolve(ctx context.Context, network, addr string, r resolver.Resolver, hosts hosts.HostMapper, log logger.Logger) (string, error) {

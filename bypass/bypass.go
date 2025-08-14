@@ -11,13 +11,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/logger"
-	ctxvalue "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/loader"
-	"github.com/go-gost/x/internal/matcher"
-	xnet "github.com/go-gost/x/internal/net"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/logger"
+	ctxvalue "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/loader"
+	"github.com/dolfly/x/internal/matcher"
+	xnet "github.com/dolfly/x/internal/net"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 var (

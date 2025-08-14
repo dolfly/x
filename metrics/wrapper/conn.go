@@ -7,12 +7,12 @@ import (
 	"net"
 	"syscall"
 
-	"github.com/go-gost/core/metrics"
-	"github.com/go-gost/x/ctx"
-	xio "github.com/go-gost/x/internal/io"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/net/udp"
-	xmetrics "github.com/go-gost/x/metrics"
+	"github.com/dolfly/core/metrics"
+	"github.com/dolfly/x/ctx"
+	xio "github.com/dolfly/x/internal/io"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/net/udp"
+	xmetrics "github.com/dolfly/x/metrics"
 )
 
 var (

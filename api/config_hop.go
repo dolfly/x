@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	parser "github.com/dolfly/x/config/parsing/hop"
+	"github.com/dolfly/x/registry"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	parser "github.com/go-gost/x/config/parsing/hop"
-	"github.com/go-gost/x/registry"
 )
 
 // swagger:parameters getHopListRequest
@@ -24,7 +24,7 @@ type getHopListResponse struct {
 }
 
 type hopList struct {
-	Count int                       `json:"count"`
+	Count int                 `json:"count"`
 	List  []*config.HopConfig `json:"list"`
 }
 

@@ -6,14 +6,14 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/plugin/hop/proto"
-	"github.com/go-gost/x/config"
-	node_parser "github.com/go-gost/x/config/parsing/node"
-	xctx "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/plugin/hop/proto"
+	"github.com/dolfly/x/config"
+	node_parser "github.com/dolfly/x/config/parsing/node"
+	xctx "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/plugin"
 	"google.golang.org/grpc"
 )
 

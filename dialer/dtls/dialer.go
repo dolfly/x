@@ -5,13 +5,13 @@ import (
 	"crypto/tls"
 	"net"
 
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	xctx "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	xdtls "github.com/go-gost/x/internal/util/dtls"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	xctx "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	xdtls "github.com/dolfly/x/internal/util/dtls"
+	"github.com/dolfly/x/registry"
 	"github.com/pion/dtls/v2"
 )
 
