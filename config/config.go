@@ -15,9 +15,9 @@ var (
 )
 
 func init() {
-	v.SetConfigName("gost")
-	v.AddConfigPath("/etc/gost/")
-	v.AddConfigPath("$HOME/.gost/")
+	v.SetConfigName("tnet")
+	v.AddConfigPath("/etc/tnet/")
+	v.AddConfigPath("$HOME/.tnet/")
 	v.AddConfigPath(".")
 }
 

@@ -18,11 +18,11 @@ import (
 type server struct {
 	cqueue    chan net.Conn
 	localAddr net.Addr
-	pb.UnimplementedGostTunelServer
+	pb.UnimplementedTnetTunelServer
 	logger logger.Logger
 }
 
-func (s *server) Tunnel(srv pb.GostTunel_TunnelServer) error {
+func (s *server) Tunnel(srv pb.TnetTunel_TunnelServer) error {
 	c := &conn{
 		s:          srv,
 		localAddr:  s.localAddr,
@@ -82,7 +82,7 @@ func getClientIP(md mdata.MD) net.IP {
 }
 
 type conn struct {
-	s          pb.GostTunel_TunnelServer
+	s          pb.TnetTunel_TunnelServer
 	rb         []byte
 	localAddr  net.Addr
 	remoteAddr net.Addr

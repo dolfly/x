@@ -148,7 +148,7 @@ func (h *socks5Handler) serveMuxBind(ctx context.Context, conn net.Conn, ln net.
 			}
 			defer sc.Close()
 
-			// incompatible with GOST v2.x
+			// incompatible with TNET v2.x
 			if !h.md.compatibilityMode {
 				addr := gosocks5.Addr{}
 				addr.ParseFrom(c.RemoteAddr().String())

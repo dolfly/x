@@ -23,7 +23,7 @@ func init() {
 }
 
 type grpcDialer struct {
-	clients     map[string]pb.GostTunelClientX
+	clients     map[string]pb.TnetTunelClientX
 	clientMutex sync.Mutex
 	md          metadata
 	options     dialer.Options
@@ -36,7 +36,7 @@ func NewDialer(opts ...dialer.Option) dialer.Dialer {
 	}
 
 	return &grpcDialer{
-		clients: make(map[string]pb.GostTunelClientX),
+		clients: make(map[string]pb.TnetTunelClientX),
 		options: options,
 	}
 }
@@ -111,7 +111,7 @@ func (d *grpcDialer) Dial(ctx context.Context, addr string, opts ...dialer.DialO
 			d.options.Logger.Error(err)
 			return nil, err
 		}
-		client = pb.NewGostTunelClientX(cc)
+		client = pb.NewTnetTunelClientX(cc)
 		d.clients[addr] = client
 	}
 

@@ -24,7 +24,7 @@ const (
 )
 
 var (
-	magicHeader = []byte("GOST")
+	magicHeader = []byte("TNET")
 )
 
 func (h *tunHandler) handleClient(ctx context.Context, conn net.Conn, network string, raddr string, config *tun_util.Config, log logger.Logger) error {

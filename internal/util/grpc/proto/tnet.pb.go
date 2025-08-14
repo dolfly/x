@@ -2,15 +2,16 @@
 // versions:
 // 	protoc-gen-go v1.26.0
 // 	protoc        v3.12.4
-// source: gost.proto
+// source: tnet.proto
 
 package proto
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -31,7 +32,7 @@ type Chunk struct {
 func (x *Chunk) Reset() {
 	*x = Chunk{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gost_proto_msgTypes[0]
+		mi := &file_tnet_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -44,7 +45,7 @@ func (x *Chunk) String() string {
 func (*Chunk) ProtoMessage() {}
 
 func (x *Chunk) ProtoReflect() protoreflect.Message {
-	mi := &file_gost_proto_msgTypes[0]
+	mi := &file_tnet_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +58,7 @@ func (x *Chunk) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Chunk.ProtoReflect.Descriptor instead.
 func (*Chunk) Descriptor() ([]byte, []int) {
-	return file_gost_proto_rawDescGZIP(), []int{0}
+	return file_tnet_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Chunk) GetData() []byte {
@@ -67,9 +68,9 @@ func (x *Chunk) GetData() []byte {
 	return nil
 }
 
-var File_gost_proto protoreflect.FileDescriptor
+var File_tnet_proto protoreflect.FileDescriptor
 
-var file_gost_proto_rawDesc = []byte{
+var file_tnet_proto_rawDesc = []byte{
 	0x0a, 0x0a, 0x67, 0x6f, 0x73, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x1b, 0x0a, 0x05,
 	0x43, 0x68, 0x75, 0x6e, 0x6b, 0x12, 0x12, 0x0a, 0x04, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x0c, 0x52, 0x04, 0x64, 0x61, 0x74, 0x61, 0x32, 0x29, 0x0a, 0x09, 0x47, 0x6f, 0x73,
@@ -83,24 +84,24 @@ var file_gost_proto_rawDesc = []byte{
 }
 
 var (
-	file_gost_proto_rawDescOnce sync.Once
-	file_gost_proto_rawDescData = file_gost_proto_rawDesc
+	file_tnet_proto_rawDescOnce sync.Once
+	file_tnet_proto_rawDescData = file_tnet_proto_rawDesc
 )
 
-func file_gost_proto_rawDescGZIP() []byte {
-	file_gost_proto_rawDescOnce.Do(func() {
-		file_gost_proto_rawDescData = protoimpl.X.CompressGZIP(file_gost_proto_rawDescData)
+func file_tnet_proto_rawDescGZIP() []byte {
+	file_tnet_proto_rawDescOnce.Do(func() {
+		file_tnet_proto_rawDescData = protoimpl.X.CompressGZIP(file_tnet_proto_rawDescData)
 	})
-	return file_gost_proto_rawDescData
+	return file_tnet_proto_rawDescData
 }
 
-var file_gost_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_gost_proto_goTypes = []any{
+var file_tnet_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_tnet_proto_goTypes = []any{
 	(*Chunk)(nil), // 0: Chunk
 }
-var file_gost_proto_depIdxs = []int32{
-	0, // 0: GostTunel.Tunnel:input_type -> Chunk
-	0, // 1: GostTunel.Tunnel:output_type -> Chunk
+var file_tnet_proto_depIdxs = []int32{
+	0, // 0: TnetTunel.Tunnel:input_type -> Chunk
+	0, // 1: TnetTunel.Tunnel:output_type -> Chunk
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -108,13 +109,13 @@ var file_gost_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_gost_proto_init() }
-func file_gost_proto_init() {
-	if File_gost_proto != nil {
+func init() { file_tnet_proto_init() }
+func file_tnet_proto_init() {
+	if File_tnet_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_gost_proto_msgTypes[0].Exporter = func(v any, i int) any {
+		file_tnet_proto_msgTypes[0].Exporter = func(v any, i int) any {
 			switch v := v.(*Chunk); i {
 			case 0:
 				return &v.state
@@ -131,18 +132,18 @@ func file_gost_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_gost_proto_rawDesc,
+			RawDescriptor: file_tnet_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_gost_proto_goTypes,
-		DependencyIndexes: file_gost_proto_depIdxs,
-		MessageInfos:      file_gost_proto_msgTypes,
+		GoTypes:           file_tnet_proto_goTypes,
+		DependencyIndexes: file_tnet_proto_depIdxs,
+		MessageInfos:      file_tnet_proto_msgTypes,
 	}.Build()
-	File_gost_proto = out.File
-	file_gost_proto_rawDesc = nil
-	file_gost_proto_goTypes = nil
-	file_gost_proto_depIdxs = nil
+	File_tnet_proto = out.File
+	file_tnet_proto_rawDesc = nil
+	file_tnet_proto_goTypes = nil
+	file_tnet_proto_depIdxs = nil
 }

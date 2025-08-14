@@ -166,13 +166,13 @@ func (h *http2Handler) roundTrip(ctx context.Context, w http.ResponseWriter, req
 	}
 
 	// Try to get the actual host.
-	// Compatible with GOST 2.x.
-	if v := req.Header.Get("Gost-Target"); v != "" {
+	// Compatible with TNET 2.x.
+	if v := req.Header.Get("Tnet-Target"); v != "" {
 		if h, err := h.decodeServerName(v); err == nil {
 			req.Host = h
 		}
 	}
-	if v := req.Header.Get("X-Gost-Target"); v != "" {
+	if v := req.Header.Get("X-Tnet-Target"); v != "" {
 		if h, err := h.decodeServerName(v); err == nil {
 			req.Host = h
 		}
@@ -251,8 +251,8 @@ func (h *http2Handler) roundTrip(ctx context.Context, w http.ResponseWriter, req
 	// delete the proxy related headers.
 	req.Header.Del("Proxy-Authorization")
 	req.Header.Del("Proxy-Connection")
-	req.Header.Del("Gost-Target")
-	req.Header.Del("X-Gost-Target")
+	req.Header.Del("Tnet-Target")
+	req.Header.Del("X-Tnet-Target")
 
 	switch h.md.hash {
 	case "host":

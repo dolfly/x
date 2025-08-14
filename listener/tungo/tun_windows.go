@@ -19,7 +19,7 @@ const (
 )
 
 func init() {
-	tun.WintunTunnelType = "GOST"
+	tun.WintunTunnelType = "TNET"
 }
 
 func (l *tunListener) createTun() (ifce io.ReadWriteCloser, name string, ip net.IP, err error) {

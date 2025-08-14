@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	DefaultRedisKey = "gost"
+	DefaultRedisKey = "tnet"
 )
 
 type redisLoaderOptions struct {

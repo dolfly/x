@@ -103,7 +103,7 @@ type saveConfigRequest struct {
 	// output format, one of yaml|json, default is yaml.
 	// in: query
 	Format string `form:"format" json:"format"`
-	// file path, default is gost.yaml|gost.json in current working directory.
+	// file path, default is tnet.yaml|tnet.json in current working directory.
 	// in: query
 	Path string `form:"path" json:"path"`
 }
@@ -117,7 +117,7 @@ type saveConfigResponse struct {
 func saveConfig(ctx *gin.Context) {
 	// swagger:route POST /config Config saveConfigRequest
 	//
-	// Save current config to file (gost.yaml or gost.json).
+	// Save current config to file (tnet.yaml or tnet.json).
 	//
 	//     Security:
 	//       basicAuth: []
@@ -128,10 +128,10 @@ func saveConfig(ctx *gin.Context) {
 	var req saveConfigRequest
 	ctx.ShouldBindQuery(&req)
 
-	file := "gost.yaml"
+	file := "tnet.yaml"
 	switch req.Format {
 	case "json":
-		file = "gost.json"
+		file = "tnet.json"
 	default:
 		req.Format = "yaml"
 	}

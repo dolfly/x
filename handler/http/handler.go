@@ -200,20 +200,20 @@ func (h *httpHandler) handleRequest(ctx context.Context, conn net.Conn, req *htt
 		req.URL.Scheme = "http"
 	}
 
-	network := req.Header.Get("X-Gost-Protocol")
+	network := req.Header.Get("X-Tnet-Protocol")
 	if network != "udp" {
 		network = "tcp"
 	}
 	ro.Network = network
 
 	// Try to get the actual host.
-	// Compatible with GOST 2.x.
-	if v := req.Header.Get("Gost-Target"); v != "" {
+	// Compatible with TNET 2.x.
+	if v := req.Header.Get("Tnet-Target"); v != "" {
 		if h, err := h.decodeServerName(v); err == nil {
 			req.Host = h
 		}
 	}
-	if v := req.Header.Get("X-Gost-Target"); v != "" {
+	if v := req.Header.Get("X-Tnet-Target"); v != "" {
 		if h, err := h.decodeServerName(v); err == nil {
 			req.Host = h
 		}
@@ -526,8 +526,8 @@ func (h *httpHandler) proxyRoundTrip(ctx context.Context, rw io.ReadWriteCloser,
 
 	req.Header.Del("Proxy-Authorization")
 	req.Header.Del("Proxy-Connection")
-	req.Header.Del("Gost-Target")
-	req.Header.Del("X-Gost-Target")
+	req.Header.Del("Tnet-Target")
+	req.Header.Del("X-Tnet-Target")
 
 	res := &http.Response{
 		ProtoMajor: req.ProtoMajor,

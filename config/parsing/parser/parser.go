@@ -83,22 +83,22 @@ func (p *parser) Parse() (*config.Config, error) {
 		}
 	}
 
-	if v := os.Getenv("GOST_LOGGER_LEVEL"); v != "" {
+	if v := os.Getenv("TNET_LOGGER_LEVEL"); v != "" {
 		cfg.Log = &config.LogConfig{
 			Level: v,
 		}
 	}
-	if v := os.Getenv("GOST_API"); v != "" {
+	if v := os.Getenv("TNET_API"); v != "" {
 		cfg.API = &config.APIConfig{
 			Addr: v,
 		}
 	}
-	if v := os.Getenv("GOST_METRICS"); v != "" {
+	if v := os.Getenv("TNET_METRICS"); v != "" {
 		cfg.Metrics = &config.MetricsConfig{
 			Addr: v,
 		}
 	}
-	if v := os.Getenv("GOST_PROFILING"); v != "" {
+	if v := os.Getenv("TNET_PROFILING"); v != "" {
 		cfg.Profiling = &config.ProfilingConfig{
 			Addr: v,
 		}

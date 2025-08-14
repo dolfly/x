@@ -15,8 +15,8 @@ import (
 )
 
 const (
-	defaultRealm      = "gost"
-	defaultProxyAgent = "gost/3.0"
+	defaultRealm      = "tnet"
+	defaultProxyAgent = "tnet/3.0"
 )
 
 type metadata struct {

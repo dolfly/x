@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	GostSSHTunnelRequest = "gost-tunnel" // extended request type for ssh tunnel
+	TnetSSHTunnelRequest = "tnet-tunnel" // extended request type for ssh tunnel
 )
 
 var (

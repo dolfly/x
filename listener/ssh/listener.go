@@ -150,7 +150,7 @@ func (l *sshListener) serveConn(conn net.Conn) {
 			// Check the type of channel
 			t := newChannel.ChannelType()
 			switch t {
-			case ssh_util.GostSSHTunnelRequest:
+			case ssh_util.TnetSSHTunnelRequest:
 				channel, requests, err := newChannel.Accept()
 				if err != nil {
 					l.logger.Warnf("could not accept channel: %s", err.Error())

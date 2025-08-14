@@ -94,7 +94,7 @@ func (d *sshDialer) Dial(ctx context.Context, addr string, opts ...dialer.DialOp
 
 		d.sessions[addr] = session
 	}
-	channel, reqs, err := session.OpenChannel(ssh_util.GostSSHTunnelRequest)
+	channel, reqs, err := session.OpenChannel(ssh_util.TnetSSHTunnelRequest)
 	if err != nil {
 		return nil, err
 	}

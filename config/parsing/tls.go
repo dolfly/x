@@ -84,10 +84,10 @@ func generateKeyPair(validity time.Duration, org string, cn string) (rawCert, ra
 		validity = time.Hour * 24 * 365 // one year
 	}
 	if org == "" {
-		org = "GOST"
+		org = "TNET"
 	}
 	if cn == "" {
-		cn = "gost.run"
+		cn = "tnet.cofire.cn"
 	}
 
 	validFor := validity

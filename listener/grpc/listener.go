@@ -97,7 +97,7 @@ func (l *grpcListener) Init(md md.Metadata) (err error) {
 	l.cqueue = make(chan net.Conn, l.md.backlog)
 	l.errChan = make(chan error, 1)
 
-	pb.RegisterGostTunelServerX(l.server, &server{
+	pb.RegisterTnetTunelServerX(l.server, &server{
 		cqueue:    l.cqueue,
 		localAddr: l.addr,
 		logger:    l.options.Logger,

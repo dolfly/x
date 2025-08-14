@@ -82,7 +82,7 @@ func (c *httpConnector) Connect(ctx context.Context, conn net.Conn, network, add
 			return nil, err
 		}
 	case "udp", "udp4", "udp6":
-		req.Header.Set("X-Gost-Protocol", "udp")
+		req.Header.Set("X-Tnet-Protocol", "udp")
 	default:
 		err := fmt.Errorf("network %s is unsupported", network)
 		log.Error(err)

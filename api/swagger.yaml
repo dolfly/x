@@ -1478,7 +1478,7 @@ paths:
                   name: format
                   type: string
                   x-go-name: Format
-                - description: file path, default is gost.yaml|gost.json in current working directory.
+                - description: file path, default is tnet.yaml|tnet.json in current working directory.
                   in: query
                   name: path
                   type: string
@@ -1489,7 +1489,7 @@ paths:
             security:
                 - basicAuth:
                       - "[]"
-            summary: Save current config to file (gost.yaml or gost.json).
+            summary: Save current config to file (tnet.yaml or tnet.json).
             tags:
                 - Config
     /config/admissions:

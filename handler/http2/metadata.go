@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	defaultRealm = "gost"
+	defaultRealm = "tnet"
 )
 
 type metadata struct {

@@ -46,8 +46,8 @@ import (
 )
 
 const (
-	httpHeaderSID           = "Gost-Sid"
-	httpHeaderForwardedNode = "Gost-Forwarded-Node"
+	httpHeaderSID           = "Tnet-Sid"
+	httpHeaderForwardedNode = "Tnet-Forwarded-Node"
 )
 
 type entrypoint struct {

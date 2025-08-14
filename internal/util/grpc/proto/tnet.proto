@@ -5,6 +5,6 @@ message Chunk {
   bytes data = 1;
 }
 
-service GostTunel {
+service TnetTunel {
   rpc Tunnel (stream Chunk) returns (stream Chunk);
 }

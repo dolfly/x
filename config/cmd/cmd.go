@@ -361,7 +361,7 @@ func cutHost(s string) (host, remain string) {
 
 func buildServiceConfig(url *url.URL) ([]*config.ServiceConfig, error) {
 	namePrefix := ""
-	if v := os.Getenv("_GOST_ID"); v != "" {
+	if v := os.Getenv("_TNET_ID"); v != "" {
 		namePrefix = fmt.Sprintf("go-%s@", v)
 	}
 
