@@ -27,7 +27,7 @@ func (c *tnetTunelClientX) TunnelX(ctx context.Context, method string, opts ...g
 	if err != nil {
 		return nil, err
 	}
-	x := &tnetTunelTunnelClient{stream}
+	x := &grpc.GenericClientStream[Chunk, Chunk]{ClientStream: stream}
 	return x, nil
 }
 
