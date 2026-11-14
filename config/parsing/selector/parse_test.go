@@ -6,9 +6,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/x/config"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/x/config"
 )
 
 func TestParseChainSelector_Nil(t *testing.T) {

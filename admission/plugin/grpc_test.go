@@ -7,10 +7,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/go-gost/core/admission"
-	"github.com/go-gost/plugin/admission/proto"
-	"github.com/go-gost/x/internal/plugin"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/admission"
+	"github.com/dolfly/plugin/admission/proto"
+	"github.com/dolfly/x/internal/plugin"
+	xlogger "github.com/dolfly/x/logger"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc"
@@ -18,7 +18,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/status"
 
-	corelogger "github.com/go-gost/core/logger"
+	corelogger "github.com/dolfly/core/logger"
 )
 
 func TestMain(m *testing.M) {

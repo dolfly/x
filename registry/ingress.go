@@ -3,7 +3,7 @@ package registry
 import (
 	"context"
 
-	"github.com/go-gost/core/ingress"
+	"github.com/dolfly/core/ingress"
 )
 
 // ingressRegistry implements a hot-reload-safe registry for ingress.Ingress.

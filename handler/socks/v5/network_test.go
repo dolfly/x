@@ -3,7 +3,7 @@ package v5
 import (
 	"testing"
 
-	"github.com/go-gost/gosocks5"
+	"github.com/dolfly/gosocks5"
 )
 
 func TestNetworkAddr(t *testing.T) {

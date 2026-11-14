@@ -9,18 +9,18 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/metadata"
-	reg "github.com/go-gost/core/registry"
-	"github.com/go-gost/x/config"
-	xlogger "github.com/go-gost/x/logger"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/metadata"
+	reg "github.com/dolfly/core/registry"
+	"github.com/dolfly/x/config"
+	xlogger "github.com/dolfly/x/logger"
+	"github.com/dolfly/x/registry"
 
-	_ "github.com/go-gost/x/connector/http"
-	_ "github.com/go-gost/x/dialer/tcp"
+	_ "github.com/dolfly/x/connector/http"
+	_ "github.com/dolfly/x/dialer/tcp"
 )
 
 func TestMain(m *testing.M) {

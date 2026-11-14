@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	xio "github.com/go-gost/x/internal/io"
+	xio "github.com/dolfly/x/internal/io"
 )
 
 type connWithCloseRead struct {

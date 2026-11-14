@@ -1,5 +1,5 @@
 // Package masque implements a MASQUE (Multiplexed Application Substrate over
-// QUIC Encryption) proxy handler for GOST. MASQUE is an IETF standard for
+// QUIC Encryption) proxy handler for TNET. MASQUE is an IETF standard for
 // tunneling IP traffic over HTTP/3, used by systems like Apple's iCloud
 // Private Relay.
 //
@@ -25,7 +25,7 @@
 //
 // # Cross-cutting concerns
 //
-// The handler integrates with GOST's cross-cutting infrastructure: HTTP Basic
+// The handler integrates with TNET's cross-cutting infrastructure: HTTP Basic
 // proxy authentication, bypass rules, rate limiting, traffic limiting, Prometheus
 // metrics, observer event reporting, and traffic recording.
 //
@@ -46,36 +46,36 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	xbypass "github.com/go-gost/x/bypass"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/net/udp"
-	masque_util "github.com/go-gost/x/internal/util/masque"
-	stats_util "github.com/go-gost/x/internal/util/stats"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	cache_limiter "github.com/go-gost/x/limiter/traffic/cache"
-	traffic_wrapper "github.com/go-gost/x/limiter/traffic/wrapper"
-	metrics "github.com/go-gost/x/metrics/wrapper"
-	xstats "github.com/go-gost/x/observer/stats"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	xbypass "github.com/dolfly/x/bypass"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/net/udp"
+	masque_util "github.com/dolfly/x/internal/util/masque"
+	stats_util "github.com/dolfly/x/internal/util/stats"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	cache_limiter "github.com/dolfly/x/limiter/traffic/cache"
+	traffic_wrapper "github.com/dolfly/x/limiter/traffic/wrapper"
+	metrics "github.com/dolfly/x/metrics/wrapper"
+	xstats "github.com/dolfly/x/observer/stats"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
+	"github.com/dolfly/x/registry"
 	"github.com/quic-go/quic-go/http3"
 )
 
 // init registers the MASQUE handler in the global handler registry under the
-// name "masque". This enables the handler to be referenced by name in GOST
+// name "masque". This enables the handler to be referenced by name in TNET
 // configuration files and CLI flags (e.g., handler.type: masque).
 func init() {
 	registry.HandlerRegistry().Register("masque", NewHandler)
@@ -83,11 +83,11 @@ func init() {
 
 var (
 	// ErrBadRequest indicates the request was malformed or invalid.
-	ErrBadRequest         = errors.New("masque: bad request")
+	ErrBadRequest = errors.New("masque: bad request")
 	// ErrMethodNotAllowed indicates the request method is not CONNECT.
-	ErrMethodNotAllowed   = errors.New("masque: method not allowed")
+	ErrMethodNotAllowed = errors.New("masque: method not allowed")
 	// ErrCapsuleRequired indicates the Capsule-Protocol header is missing or invalid.
-	ErrCapsuleRequired    = errors.New("masque: capsule-protocol header required")
+	ErrCapsuleRequired = errors.New("masque: capsule-protocol header required")
 	// ErrDatagramNotSupport indicates that the QUIC connection does not support HTTP/3 datagrams.
 	ErrDatagramNotSupport = errors.New("masque: datagrams not supported")
 )
@@ -96,7 +96,7 @@ var (
 // It processes HTTP/3 CONNECT requests to tunnel UDP (RFC 9298) or TCP
 // (RFC 9114) traffic through an HTTP/3 (QUIC) connection.
 //
-// The handler integrates with GOST's cross-cutting infrastructure:
+// The handler integrates with TNET's cross-cutting infrastructure:
 //   - Authentication via HTTP Basic Proxy Authentication
 //   - Bypass rules for selective target filtering
 //   - Rate limiting and traffic limiting
@@ -104,12 +104,12 @@ var (
 //   - Prometheus metrics collection
 //   - Traffic recording for audit/logging
 type masqueHandler struct {
-	md       metadata                  // parsed configuration metadata
-	options  handler.Options           // handler options (auth, bypass, router, etc.)
-	stats    *stats_util.HandlerStats  // per-client connection statistics for observer
-	limiter  traffic.TrafficLimiter    // cached traffic limiter wrapping the global limiter
-	cancel   context.CancelFunc        // cancels the background observer goroutine
-	recorder recorder.RecorderObject   // traffic recorder for handler-level events
+	md       metadata                 // parsed configuration metadata
+	options  handler.Options          // handler options (auth, bypass, router, etc.)
+	stats    *stats_util.HandlerStats // per-client connection statistics for observer
+	limiter  traffic.TrafficLimiter   // cached traffic limiter wrapping the global limiter
+	cancel   context.CancelFunc       // cancels the background observer goroutine
+	recorder recorder.RecorderObject  // traffic recorder for handler-level events
 }
 
 // NewHandler creates a new MASQUE handler instance. It supports CONNECT-UDP

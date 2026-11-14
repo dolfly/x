@@ -12,14 +12,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	xio "github.com/go-gost/x/internal/io"
-	xhttp "github.com/go-gost/x/internal/net/http"
-	xstats "github.com/go-gost/x/observer/stats"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	xio "github.com/dolfly/x/internal/io"
+	xhttp "github.com/dolfly/x/internal/net/http"
+	xstats "github.com/dolfly/x/observer/stats"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
 	"golang.org/x/net/http2"
 )
 
@@ -97,10 +97,10 @@ func (h *h2Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	ro := &xrecorder.HandlerRecorderObject{}
 	*ro = *h.recorderObject
 
-	if v := r.Header.Get("Gost-Record"); v != "" {
+	if v := r.Header.Get("Tnet-Record"); v != "" {
 		ro.RecordMode = strings.ToLower(v)
 	}
-	r.Header.Del("Gost-Record")
+	r.Header.Del("Tnet-Record")
 
 	ro.Time = time.Now()
 

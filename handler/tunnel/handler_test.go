@@ -9,17 +9,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	core_rate "github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/observer/stats"
-	coremeta "github.com/go-gost/core/metadata"
-	"github.com/go-gost/relay"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	stats_util "github.com/go-gost/x/internal/util/stats"
-	mdx "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/handler"
+	core_rate "github.com/dolfly/core/limiter/rate"
+	coremeta "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/relay"
+	stats_util "github.com/dolfly/x/internal/util/stats"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	mdx "github.com/dolfly/x/metadata"
 
-	epkg "github.com/go-gost/x/handler/tunnel/entrypoint"
+	epkg "github.com/dolfly/x/handler/tunnel/entrypoint"
 )
 
 func newTestMetadata() coremeta.Metadata {
@@ -281,7 +281,6 @@ func TestHandler_observeStats(t *testing.T) {
 		// Second tick: Observe succeeds on pending events, then also flushes new events.
 		<-observeC // first call (fails)
 
-
 		// Inject a fresh event so the recovery tick has new data to flush after
 		// the pending batch is retried (exercises the fall-through flush path).
 		s2 := h.stats.Stats("client2")
@@ -464,5 +463,3 @@ func TestHandler_Handle_RateLimitExceeded(t *testing.T) {
 		t.Errorf("expected ErrRateLimit, got %v", err)
 	}
 }
-
-

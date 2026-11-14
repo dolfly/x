@@ -6,12 +6,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/connector"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/connector"
 
-	xchain "github.com/go-gost/x/chain"
-	xlogger "github.com/go-gost/x/logger"
-	xs "github.com/go-gost/x/selector"
+	xchain "github.com/dolfly/x/chain"
+	xlogger "github.com/dolfly/x/logger"
+	xs "github.com/dolfly/x/selector"
 )
 
 // fakeTransport dials a real TCP address for probe testing.

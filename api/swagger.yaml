@@ -31,7 +31,7 @@ definitions:
                 type: boolean
                 x-go-name: Whitelist
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     AuthConfig:
         properties:
             file:
@@ -44,7 +44,7 @@ definitions:
                 type: string
                 x-go-name: Username
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     AutherConfig:
         properties:
             auths:
@@ -66,7 +66,7 @@ definitions:
             reload:
                 $ref: '#/definitions/Duration'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     BypassConfig:
         properties:
             file:
@@ -99,7 +99,7 @@ definitions:
                 type: boolean
                 x-go-name: Whitelist
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     CacheConfig:
         description: |-
             CacheConfig defines a named cache store. Only the Memory backend is
@@ -111,7 +111,7 @@ definitions:
                 type: string
                 x-go-name: Name
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ChainConfig:
         properties:
             hops:
@@ -127,7 +127,7 @@ definitions:
                 type: string
                 x-go-name: Name
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ChainGroupConfig:
         properties:
             chains:
@@ -138,7 +138,7 @@ definitions:
             selector:
                 $ref: '#/definitions/SelectorConfig'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ConnectorConfig:
         properties:
             auth:
@@ -153,7 +153,7 @@ definitions:
                 type: string
                 x-go-name: Type
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     DialerConfig:
         properties:
             auth:
@@ -168,7 +168,7 @@ definitions:
                 type: string
                 x-go-name: Type
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     Duration:
         description: |-
             A Duration represents the elapsed time between two instants
@@ -183,7 +183,7 @@ definitions:
                 type: string
                 x-go-name: Path
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     FileRecorder:
         properties:
             path:
@@ -195,7 +195,7 @@ definitions:
                 type: string
                 x-go-name: Sep
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ForwardNodeConfig:
         properties:
             addr:
@@ -247,7 +247,7 @@ definitions:
             tls:
                 $ref: '#/definitions/TLSNodeConfig'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ForwarderConfig:
         properties:
             hop:
@@ -267,7 +267,7 @@ definitions:
             selector:
                 $ref: '#/definitions/SelectorConfig'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     HTTPBodyRewriteConfig:
         properties:
             Match:
@@ -286,7 +286,7 @@ definitions:
                 type: string
                 x-go-name: Rewriter
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     HTTPLoader:
         properties:
             timeout:
@@ -295,7 +295,7 @@ definitions:
                 type: string
                 x-go-name: URL
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     HTTPNodeConfig:
         properties:
             auth:
@@ -360,7 +360,7 @@ definitions:
                 type: array
                 x-go-name: RewriteURL
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     HTTPRecorder:
         properties:
             header:
@@ -374,7 +374,7 @@ definitions:
                 type: string
                 x-go-name: URL
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     HTTPURLRewriteConfig:
         properties:
             Match:
@@ -382,7 +382,7 @@ definitions:
             Replacement:
                 type: string
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     HandlerConfig:
         properties:
             auth:
@@ -420,7 +420,7 @@ definitions:
                 type: string
                 x-go-name: Type
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     HopConfig:
         properties:
             bypass:
@@ -469,7 +469,7 @@ definitions:
             sockopts:
                 $ref: '#/definitions/SockOptsConfig'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     HostMappingConfig:
         properties:
             aliases:
@@ -484,7 +484,7 @@ definitions:
                 type: string
                 x-go-name: IP
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     HostsConfig:
         properties:
             file:
@@ -506,7 +506,7 @@ definitions:
             reload:
                 $ref: '#/definitions/Duration'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     IngressConfig:
         properties:
             file:
@@ -528,7 +528,7 @@ definitions:
                 type: array
                 x-go-name: Rules
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     IngressRuleConfig:
         properties:
             endpoint:
@@ -538,7 +538,7 @@ definitions:
                 type: string
                 x-go-name: Hostname
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     LimiterConfig:
         properties:
             file:
@@ -560,7 +560,7 @@ definitions:
             reload:
                 $ref: '#/definitions/Duration'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ListenerConfig:
         properties:
             auth:
@@ -588,7 +588,7 @@ definitions:
                 type: string
                 x-go-name: Type
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     LogRotationConfig:
         properties:
             compress:
@@ -630,7 +630,7 @@ definitions:
                 type: integer
                 x-go-name: MaxSize
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     MemoryCache:
         properties:
             cleanupInterval:
@@ -650,7 +650,7 @@ definitions:
                 $ref: '#/definitions/Duration'
         title: MemoryCache configures the in-memory cache backend.
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     NameserverConfig:
         properties:
             addr:
@@ -679,7 +679,7 @@ definitions:
             ttl:
                 $ref: '#/definitions/Duration'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     NodeConfig:
         properties:
             addr:
@@ -736,7 +736,7 @@ definitions:
             tls:
                 $ref: '#/definitions/TLSNodeConfig'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     NodeFilterConfig:
         properties:
             host:
@@ -749,7 +749,7 @@ definitions:
                 type: string
                 x-go-name: Protocol
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     NodeMatcherConfig:
         description: |-
             Priority controls election among multiple matching nodes:
@@ -778,7 +778,7 @@ definitions:
                 x-go-name: Rule
         title: NodeMatcherConfig defines a routing-rule matcher for a hop node.
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ObserverConfig:
         properties:
             name:
@@ -787,7 +787,7 @@ definitions:
             plugin:
                 $ref: '#/definitions/PluginConfig'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     PluginConfig:
         properties:
             addr:
@@ -804,7 +804,7 @@ definitions:
                 type: string
                 x-go-name: Type
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ProbeConfig:
         properties:
             addr:
@@ -837,7 +837,7 @@ definitions:
                 x-go-name: Type
         title: ProbeConfig holds the configuration for a node-level liveness probe.
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     QuotaConfig:
         description: |-
             QuotaConfig is a named cumulative traffic-volume limiter; the same name
@@ -866,7 +866,7 @@ definitions:
             store:
                 $ref: '#/definitions/QuotaStoreConfig'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     QuotaRedisConfig:
         properties:
             addr:
@@ -886,7 +886,7 @@ definitions:
                 type: string
                 x-go-name: Username
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     QuotaStatus:
         properties:
             active:
@@ -918,7 +918,7 @@ definitions:
                 type: integer
                 x-go-name: Used
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     QuotaStoreConfig:
         properties:
             file:
@@ -930,7 +930,7 @@ definitions:
                 type: string
                 x-go-name: Type
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     RecorderConfig:
         properties:
             file:
@@ -947,7 +947,7 @@ definitions:
             tcp:
                 $ref: '#/definitions/TCPRecorder'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     RecorderObject:
         properties:
             metadata:
@@ -961,7 +961,7 @@ definitions:
                 type: string
                 x-go-name: Record
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     RedisLoader:
         properties:
             addr:
@@ -984,7 +984,7 @@ definitions:
                 type: string
                 x-go-name: Username
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     RedisRecorder:
         properties:
             addr:
@@ -1007,7 +1007,7 @@ definitions:
                 type: string
                 x-go-name: Username
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ResolverConfig:
         properties:
             name:
@@ -1021,7 +1021,7 @@ definitions:
             plugin:
                 $ref: '#/definitions/PluginConfig'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     RouterConfig:
         properties:
             file:
@@ -1043,7 +1043,7 @@ definitions:
                 type: array
                 x-go-name: Routes
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     RouterRouteConfig:
         properties:
             dst:
@@ -1058,7 +1058,7 @@ definitions:
                 x-deprecated: true
                 x-go-name: Net
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     SDConfig:
         properties:
             name:
@@ -1067,7 +1067,7 @@ definitions:
             plugin:
                 $ref: '#/definitions/PluginConfig'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     SelectorConfig:
         properties:
             failTimeout:
@@ -1082,7 +1082,7 @@ definitions:
                 type: string
                 x-go-name: Strategy
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ServiceConfig:
         properties:
             addr:
@@ -1169,7 +1169,7 @@ definitions:
             status:
                 $ref: '#/definitions/ServiceStatus'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ServiceEvent:
         properties:
             msg:
@@ -1180,7 +1180,7 @@ definitions:
                 type: integer
                 x-go-name: Time
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ServiceQuota:
         properties:
             active:
@@ -1215,7 +1215,7 @@ definitions:
                 type: integer
                 x-go-name: Used
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ServiceStats:
         properties:
             currentConns:
@@ -1239,7 +1239,7 @@ definitions:
                 type: integer
                 x-go-name: TotalErrs
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     ServiceStatus:
         properties:
             createTime:
@@ -1265,7 +1265,7 @@ definitions:
                 type: boolean
                 x-go-name: StoppedByLimit
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     SockOptsConfig:
         properties:
             mark:
@@ -1273,7 +1273,7 @@ definitions:
                 type: integer
                 x-go-name: Mark
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     TCPRecorder:
         properties:
             addr:
@@ -1282,7 +1282,7 @@ definitions:
             timeout:
                 $ref: '#/definitions/Duration'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     TLSConfig:
         properties:
             caFile:
@@ -1319,7 +1319,7 @@ definitions:
             validity:
                 $ref: '#/definitions/Duration'
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     TLSNodeConfig:
         properties:
             options:
@@ -1331,7 +1331,7 @@ definitions:
                 type: string
                 x-go-name: ServerName
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     TLSOptions:
         properties:
             alpn:
@@ -1351,7 +1351,7 @@ definitions:
                 type: string
                 x-go-name: MinVersion
         type: object
-        x-go-package: github.com/go-gost/x/config
+        x-go-package: github.com/dolfly/x/config
     admissionList:
         properties:
             count:
@@ -1364,7 +1364,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     autherList:
         properties:
             count:
@@ -1377,7 +1377,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     bypassList:
         properties:
             count:
@@ -1390,7 +1390,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     cacheList:
         properties:
             count:
@@ -1403,7 +1403,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     chainList:
         properties:
             count:
@@ -1416,7 +1416,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     connLimiterList:
         properties:
             count:
@@ -1429,7 +1429,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     hopList:
         properties:
             count:
@@ -1442,7 +1442,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     hostsList:
         properties:
             count:
@@ -1455,7 +1455,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     ingressList:
         properties:
             count:
@@ -1468,7 +1468,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     limiterList:
         properties:
             count:
@@ -1481,7 +1481,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     observerList:
         properties:
             count:
@@ -1494,7 +1494,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     quotaList:
         properties:
             count:
@@ -1507,7 +1507,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     rateLimiterList:
         properties:
             count:
@@ -1520,7 +1520,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     recorderList:
         properties:
             count:
@@ -1533,7 +1533,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     resetQuotaData:
         properties:
             used:
@@ -1541,7 +1541,7 @@ definitions:
                 type: integer
                 x-go-name: Used
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     resolverList:
         properties:
             count:
@@ -1554,7 +1554,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     routerList:
         properties:
             count:
@@ -1567,7 +1567,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     sdList:
         properties:
             count:
@@ -1580,7 +1580,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
     serviceList:
         properties:
             count:
@@ -1593,7 +1593,7 @@ definitions:
                 type: array
                 x-go-name: List
         type: object
-        x-go-package: github.com/go-gost/x/api
+        x-go-package: github.com/dolfly/x/api
 info:
     title: Documentation of Web API.
     version: 1.0.0
@@ -1623,7 +1623,7 @@ paths:
                   name: format
                   type: string
                   x-go-name: Format
-                - description: file path, default is gost.yaml|gost.json in current working directory.
+                - description: file path, default is tnet.yaml|tnet.json in current working directory.
                   in: query
                   name: path
                   type: string
@@ -1633,7 +1633,7 @@ paths:
                     $ref: '#/responses/saveConfigResponse'
             security:
                 - basicAuth: []
-            summary: Save current config to file (gost.yaml or gost.json).
+            summary: Save current config to file (tnet.yaml or tnet.json).
             tags:
                 - Config
     /config/admissions:

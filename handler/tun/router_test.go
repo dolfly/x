@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/auth"
+	"github.com/dolfly/core/auth"
 )
 
 // keepAliveFrame builds the registration frame the tun client sends: a 4-byte

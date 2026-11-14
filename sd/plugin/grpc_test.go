@@ -5,8 +5,8 @@ import (
 	"io"
 	"testing"
 
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/plugin/sd/proto"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/plugin/sd/proto"
 	"google.golang.org/grpc"
 )
 

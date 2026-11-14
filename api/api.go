@@ -6,9 +6,9 @@ import (
 	"embed"
 	"net/http"
 
+	"github.com/dolfly/core/auth"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/core/auth"
 )
 
 var (

@@ -15,19 +15,19 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/observer/stats"
-	xbypass "github.com/go-gost/x/bypass"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xio "github.com/go-gost/x/internal/io"
-	xnet "github.com/go-gost/x/internal/net"
-	xhttp "github.com/go-gost/x/internal/net/http"
-	traffic_wrapper "github.com/go-gost/x/limiter/traffic/wrapper"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/observer/stats"
+	xbypass "github.com/dolfly/x/bypass"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xio "github.com/dolfly/x/internal/io"
+	xnet "github.com/dolfly/x/internal/net"
+	xhttp "github.com/dolfly/x/internal/net/http"
+	traffic_wrapper "github.com/dolfly/x/limiter/traffic/wrapper"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // NOTE: there is an issue (golang/go#43989) will cause the client hangs
@@ -39,13 +39,13 @@ func (h *http2Handler) roundTrip(ctx context.Context, w http.ResponseWriter, req
 	}
 
 	// Try to get the actual host.
-	// Compatible with GOST 2.x.
-	if v := req.Header.Get("Gost-Target"); v != "" {
+	// Compatible with TNET 2.x.
+	if v := req.Header.Get("Tnet-Target"); v != "" {
 		if h, err := h.decodeServerName(v); err == nil {
 			req.Host = h
 		}
 	}
-	if v := req.Header.Get("X-Gost-Target"); v != "" {
+	if v := req.Header.Get("X-Tnet-Target"); v != "" {
 		if h, err := h.decodeServerName(v); err == nil {
 			req.Host = h
 		}
@@ -136,8 +136,8 @@ func (h *http2Handler) roundTrip(ctx context.Context, w http.ResponseWriter, req
 	// delete the proxy related headers.
 	req.Header.Del("Proxy-Authorization")
 	req.Header.Del("Proxy-Connection")
-	req.Header.Del("Gost-Target")
-	req.Header.Del("X-Gost-Target")
+	req.Header.Del("Tnet-Target")
+	req.Header.Del("X-Tnet-Target")
 
 	for k := range h.md.header {
 		w.Header().Set(k, h.md.header.Get(k))

@@ -5,7 +5,7 @@ import (
 	"net"
 	"strconv"
 
-	xio "github.com/go-gost/x/internal/io"
+	xio "github.com/dolfly/x/internal/io"
 	proxyproto "github.com/pires/go-proxyproto"
 )
 

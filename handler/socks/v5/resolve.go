@@ -5,11 +5,11 @@ import (
 	"errors"
 	"net"
 
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/gosocks5"
-	xctx "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/util/socks"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/gosocks5"
+	xctx "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/util/socks"
 )
 
 // handleResolve handles a Tor SOCKS5 RESOLVE command (0xF0).

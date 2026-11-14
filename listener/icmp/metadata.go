@@ -3,8 +3,8 @@ package quic
 import (
 	"time"
 
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 const (
@@ -16,7 +16,7 @@ type metadata struct {
 	handshakeTimeout time.Duration
 	maxIdleTimeout   time.Duration
 
-	backlog                int
+	backlog int
 }
 
 func (l *icmpListener) parseMetadata(md mdata.Metadata) (err error) {

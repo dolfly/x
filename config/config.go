@@ -20,9 +20,9 @@ var (
 )
 
 func init() {
-	v.SetConfigName("gost")
-	v.AddConfigPath("/etc/gost/")
-	v.AddConfigPath("$HOME/.gost/")
+	v.SetConfigName("tnet")
+	v.AddConfigPath("/etc/tnet/")
+	v.AddConfigPath("$HOME/.tnet/")
 	v.AddConfigPath(".")
 }
 
@@ -31,7 +31,7 @@ var (
 	globalMux sync.RWMutex
 
 	// configFile remembers the last file loaded via ReadFile so the API can
-	// save back to the same location (issue go-gost/x#123).
+	// save back to the same location (issue dolfly/x#123).
 	configFile atomic.Value // string
 )
 
@@ -371,7 +371,7 @@ type RedisCache struct {
 	Username string        `yaml:",omitempty" json:"username,omitempty"`
 	Password string        `yaml:",omitempty" json:"password,omitempty"`
 	TTL      time.Duration `yaml:",omitempty" json:"ttl,omitempty"`
-	Key      string        `yaml:",omitempty" json:"key,omitempty"` // key prefix, default "gost:cache:"
+	Key      string        `yaml:",omitempty" json:"key,omitempty"` // key prefix, default "tnet:cache:"
 }
 
 // MemoryCache configures the in-memory cache backend.
@@ -706,11 +706,11 @@ type ChainGroupEntry struct {
 	Probe   *ProbeConfig       `yaml:",omitempty" json:"probe,omitempty"`
 }
 
-// gostDecodeHook is a composite mapstructure decode hook that handles custom
-// type conversions needed by GOST config fields. viper's internal unmarshalling
+// tnetDecodeHook is a composite mapstructure decode hook that handles custom
+// type conversions needed by TNET config fields. viper's internal unmarshalling
 // never calls yaml.Unmarshaler / json.Unmarshaler on leaf types, so the hook is
 // the only way to support these.
-func gostDecodeHook() mapstructure.DecodeHookFunc {
+func tnetDecodeHook() mapstructure.DecodeHookFunc {
 	return func(f, t reflect.Type, data any) (any, error) {
 		// Plain string → ChainGroupEntry: backward compat for "chains: [a, b]".
 		if t == reflect.TypeOf(ChainGroupEntry{}) {
@@ -815,7 +815,7 @@ func (c *Config) Load() error {
 		return err
 	}
 
-	return v.Unmarshal(c, viper.DecodeHook(gostDecodeHook()))
+	return v.Unmarshal(c, viper.DecodeHook(tnetDecodeHook()))
 }
 
 func (c *Config) Read(r io.Reader, configType string) error {
@@ -824,7 +824,7 @@ func (c *Config) Read(r io.Reader, configType string) error {
 		return err
 	}
 
-	return v.Unmarshal(c, viper.DecodeHook(gostDecodeHook()))
+	return v.Unmarshal(c, viper.DecodeHook(tnetDecodeHook()))
 }
 
 func (c *Config) ReadFile(file string) error {
@@ -834,7 +834,7 @@ func (c *Config) ReadFile(file string) error {
 		return err
 	}
 	configFile.Store(file)
-	return v.Unmarshal(c, viper.DecodeHook(gostDecodeHook()))
+	return v.Unmarshal(c, viper.DecodeHook(tnetDecodeHook()))
 }
 
 func (c *Config) Write(w io.Writer, format string) error {

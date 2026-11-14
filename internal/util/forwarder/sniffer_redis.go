@@ -8,10 +8,10 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/hop"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/util/sniffing"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/hop"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/util/sniffing"
 )
 
 // HandleRedis proxies a sniffed Redis connection through a hop-selected node.

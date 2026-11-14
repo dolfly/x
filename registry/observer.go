@@ -4,7 +4,7 @@ import (
 	"context"
 	"io"
 
-	"github.com/go-gost/core/observer"
+	"github.com/dolfly/core/observer"
 )
 
 // observerRegistry implements a hot-reload-safe registry for observer.Observer.

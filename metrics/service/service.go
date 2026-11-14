@@ -6,12 +6,12 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/service"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/service"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
-	xmetrics "github.com/go-gost/x/metrics"
+	xmetrics "github.com/dolfly/x/metrics"
 )
 
 const (
@@ -50,7 +50,7 @@ type metricService struct {
 }
 
 // NewService creates a metrics Service that exposes Prometheus metrics over HTTP.
-// It serves from the GOST custom registry rather than the default one so that
+// It serves from the TNET custom registry rather than the default one so that
 // process metrics are available on all platforms.
 func NewService(network, addr string, opts ...Option) (service.Service, error) {
 	if network == "" {

@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/core/sd"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/core/sd"
 )
 
 // Config carries dependencies from the tunnel handler into the entrypoint.

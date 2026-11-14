@@ -17,9 +17,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/dialer"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/dialer"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 	"github.com/miekg/dns"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/crypto/cryptobyte"

@@ -3,7 +3,7 @@ package registry
 import (
 	"context"
 
-	"github.com/go-gost/core/cache"
+	"github.com/dolfly/core/cache"
 )
 
 // cacheRegistry implements a hot-reload-safe registry for cache.Cache.

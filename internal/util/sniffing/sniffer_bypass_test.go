@@ -14,12 +14,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	xbypass "github.com/go-gost/x/bypass"
-	xcache "github.com/go-gost/x/cache"
-	"github.com/go-gost/x/internal/util/httpcache"
-	xlogger "github.com/go-gost/x/logger"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	xbypass "github.com/dolfly/x/bypass"
+	xcache "github.com/dolfly/x/cache"
+	"github.com/dolfly/x/internal/util/httpcache"
+	xlogger "github.com/dolfly/x/logger"
+	xrecorder "github.com/dolfly/x/recorder"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 )

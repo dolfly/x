@@ -6,11 +6,11 @@ import (
 	"net"
 	"time"
 
-	pb "github.com/go-gost/x/internal/util/grpc/proto"
+	pb "github.com/dolfly/x/internal/util/grpc/proto"
 )
 
 type conn struct {
-	c          pb.GostTunel_TunnelClient
+	c          pb.TnetTunel_TunnelClient
 	rb         []byte
 	localAddr  net.Addr
 	remoteAddr net.Addr

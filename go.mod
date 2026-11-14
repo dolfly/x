@@ -1,20 +1,20 @@
-module github.com/go-gost/x
+module github.com/dolfly/x
 
 go 1.26.3
 
 require (
 	github.com/alecthomas/units v0.0.0-20211218093645-b94a6e3cc137
 	github.com/andybalholm/brotli v1.2.2
+	github.com/dolfly/core v0.6.1
+	github.com/dolfly/go-shadowsocks2 v0.1.4
+	github.com/dolfly/gosocks4 v0.1.0
+	github.com/dolfly/gosocks5 v0.5.0
+	github.com/dolfly/plugin v0.8.1
+	github.com/dolfly/quic-dissector v0.1.0
+	github.com/dolfly/relay v0.7.0
+	github.com/dolfly/tls-dissector v0.3.1
 	github.com/gin-contrib/cors v1.7.2
 	github.com/gin-gonic/gin v1.12.0
-	github.com/go-gost/core v0.6.1
-	github.com/go-gost/go-shadowsocks2 v0.1.4
-	github.com/go-gost/gosocks4 v0.1.0
-	github.com/go-gost/gosocks5 v0.5.0
-	github.com/go-gost/plugin v0.8.1
-	github.com/go-gost/quic-dissector v0.1.0
-	github.com/go-gost/relay v0.7.0
-	github.com/go-gost/tls-dissector v0.3.1
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/gobwas/glob v0.2.3
 	github.com/goccy/go-yaml v1.19.2

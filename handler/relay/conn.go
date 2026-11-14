@@ -41,7 +41,7 @@ func (c *tcpConn) Write(b []byte) (n int, err error) {
 
 // udpConn wraps UDP datagrams over a stream connection.
 //
-// When the GOST relay protocol carries UDP over a TCP/stream transport,
+// When the TNET relay protocol carries UDP over a TCP/stream transport,
 // a 2-byte big-endian length prefix frames each datagram. TCP is a stream
 // protocol without message boundaries, so this framing is necessary.
 //

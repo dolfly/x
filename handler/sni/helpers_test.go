@@ -17,13 +17,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/recorder"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/recorder"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 // ---------------------------------------------------------------------------
@@ -114,7 +114,7 @@ func newStringConn(data []byte) *stringConn {
 }
 
 func (c *stringConn) Read(b []byte) (int, error)  { return c.readBuf.Read(b) }
-func (c *stringConn) Write(b []byte) (int, error)  { return c.writeBuf.Write(b) }
+func (c *stringConn) Write(b []byte) (int, error) { return c.writeBuf.Write(b) }
 func (c *stringConn) Close() error {
 	c.mu.Lock()
 	defer c.mu.Unlock()

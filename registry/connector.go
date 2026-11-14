@@ -1,8 +1,8 @@
 package registry
 
 import (
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/core/logger"
 )
 
 // NewConnector is a factory function that creates a new connector.Connector

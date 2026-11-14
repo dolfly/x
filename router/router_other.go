@@ -3,7 +3,7 @@
 package router
 
 import (
-	"github.com/go-gost/core/router"
+	"github.com/dolfly/core/router"
 )
 
 // setSysRoutes is a no-op on non-Linux platforms.

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	xctx "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/loader"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/auth"
+	xctx "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/loader"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // --- mock types ---

@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/internal/loader"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/internal/loader"
+	xlogger "github.com/dolfly/x/logger"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -667,7 +667,7 @@ func TestBypassGroup_IsWhitelist(t *testing.T) {
 	assert.False(t, g.IsWhitelist())
 }
 
-// gost#899: in whitelist mode a domain-only allowlist must not reject the
+// tnet#899: in whitelist mode a domain-only allowlist must not reject the
 // destination IP before sniffing runs (the sniffer checks the sniffed host).
 func TestBypassGroup_WhitelistDomainNoMatch(t *testing.T) {
 	g := BypassGroup(

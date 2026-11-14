@@ -4,41 +4,43 @@ import (
 	"context"
 	"net"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/observer"
-	cmdata "github.com/go-gost/core/metadata"
-	xmetadata "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	cmdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer"
+	xmetadata "github.com/dolfly/x/metadata"
 )
 
 // --- Shared test helpers ---
 
 type testLogger struct{}
 
-func (l *testLogger) WithFields(map[string]any) logger.Logger   { return l }
-func (l *testLogger) Debug(...any)                               {}
-func (l *testLogger) Debugf(string, ...any)                      {}
-func (l *testLogger) Info(...any)                                {}
-func (l *testLogger) Infof(string, ...any)                       {}
-func (l *testLogger) Warn(...any)                                {}
-func (l *testLogger) Warnf(string, ...any)                       {}
-func (l *testLogger) Error(...any)                               {}
-func (l *testLogger) Errorf(string, ...any)                      {}
-func (l *testLogger) Fatal(...any)                               {}
-func (l *testLogger) Fatalf(string, ...any)                      {}
-func (l *testLogger) GetLevel() logger.LogLevel                  { return logger.InfoLevel }
-func (l *testLogger) IsLevelEnabled(logger.LogLevel) bool        { return false }
-func (l *testLogger) Trace(...any)                               {}
-func (l *testLogger) Tracef(string, ...any)                      {}
+func (l *testLogger) WithFields(map[string]any) logger.Logger { return l }
+func (l *testLogger) Debug(...any)                            {}
+func (l *testLogger) Debugf(string, ...any)                   {}
+func (l *testLogger) Info(...any)                             {}
+func (l *testLogger) Infof(string, ...any)                    {}
+func (l *testLogger) Warn(...any)                             {}
+func (l *testLogger) Warnf(string, ...any)                    {}
+func (l *testLogger) Error(...any)                            {}
+func (l *testLogger) Errorf(string, ...any)                   {}
+func (l *testLogger) Fatal(...any)                            {}
+func (l *testLogger) Fatalf(string, ...any)                   {}
+func (l *testLogger) GetLevel() logger.LogLevel               { return logger.InfoLevel }
+func (l *testLogger) IsLevelEnabled(logger.LogLevel) bool     { return false }
+func (l *testLogger) Trace(...any)                            {}
+func (l *testLogger) Tracef(string, ...any)                   {}
 
 type testObserver struct{}
 
-func (o *testObserver) Observe(context.Context, []observer.Event, ...observer.Option) error { return nil }
+func (o *testObserver) Observe(context.Context, []observer.Event, ...observer.Option) error {
+	return nil
+}
 
 func testMD(m map[string]any) cmdata.Metadata { return xmetadata.NewMetadata(m) }
 
@@ -61,8 +63,8 @@ func newStubRateLimiter() *stubRateLimiter {
 }
 
 func (l *stubRateLimiter) Limiter(key string) rate.Limiter { return l }
-func (l *stubRateLimiter) Allow(n int) bool                 { return l.allow }
-func (l *stubRateLimiter) Limit() float64                   { return 0 }
+func (l *stubRateLimiter) Allow(n int) bool                { return l.allow }
+func (l *stubRateLimiter) Limit() float64                  { return 0 }
 
 type stubTrafficLimiter struct{}
 

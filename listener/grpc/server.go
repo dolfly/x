@@ -9,9 +9,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	xctx "github.com/go-gost/x/ctx"
-	pb "github.com/go-gost/x/internal/util/grpc/proto"
+	"github.com/dolfly/core/logger"
+	xctx "github.com/dolfly/x/ctx"
+	pb "github.com/dolfly/x/internal/util/grpc/proto"
 	mdata "google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/peer"
 )
@@ -19,11 +19,11 @@ import (
 type server struct {
 	cqueue    chan net.Conn
 	localAddr net.Addr
-	pb.UnimplementedGostTunelServer
+	pb.UnimplementedTnetTunelServer
 	logger logger.Logger
 }
 
-func (s *server) Tunnel(srv pb.GostTunel_TunnelServer) error {
+func (s *server) Tunnel(srv pb.TnetTunel_TunnelServer) error {
 	c := &conn{
 		s:          srv,
 		localAddr:  s.localAddr,
@@ -83,7 +83,7 @@ func getClientIP(md mdata.MD) net.IP {
 }
 
 type conn struct {
-	s          pb.GostTunel_TunnelServer
+	s          pb.TnetTunel_TunnelServer
 	rb         []byte
 	localAddr  net.Addr
 	remoteAddr net.Addr

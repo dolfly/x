@@ -9,11 +9,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/router"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/router"
+	xlogger "github.com/dolfly/x/logger"
 
-	"github.com/go-gost/x/internal/loader"
+	"github.com/dolfly/x/internal/loader"
 )
 
 type options struct {

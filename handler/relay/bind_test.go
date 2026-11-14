@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hosts"
-	"github.com/go-gost/core/resolver"
-	"github.com/go-gost/relay"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hosts"
+	"github.com/dolfly/core/resolver"
+	"github.com/dolfly/relay"
 )
 
 // handleBind tests use a real TCP listener on port 0 to verify the bind flow.

@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	core_metadata "github.com/go-gost/core/metadata"
-	xmetadata "github.com/go-gost/x/metadata"
+	core_metadata "github.com/dolfly/core/metadata"
+	xmetadata "github.com/dolfly/x/metadata"
 )
 
 func TestParseMetadata_Defaults(t *testing.T) {
@@ -177,9 +177,9 @@ func TestParseMetadata_Observer(t *testing.T) {
 func TestParseMetadata_Sniffing(t *testing.T) {
 	h := &relayHandler{}
 	h.parseMetadata(testMD(map[string]any{
-		"sniffing":                   true,
-		"sniffing.timeout":           "2s",
-		"sniffing.websocket":         true,
+		"sniffing":                      true,
+		"sniffing.timeout":              "2s",
+		"sniffing.websocket":            true,
 		"sniffing.websocket.sampleRate": 0.5,
 	}))
 	if !h.md.sniffing {

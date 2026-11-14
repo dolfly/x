@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/go-gost/x/config"
+	"github.com/dolfly/x/config"
 )
 
 func TestMergeConfig_NilBoth(t *testing.T) {
@@ -316,7 +316,7 @@ func writeAPIConfigFile(t *testing.T, cfg *config.Config) string {
 // to a wildcard TCP listener.
 func TestParse_APIUnixSocketAddr(t *testing.T) {
 	Init(Args{
-		ApiAddr: "unix:///var/run/gost.sock",
+		ApiAddr: "unix:///var/run/tnet.sock",
 	})
 
 	got, err := Parse()
@@ -326,15 +326,15 @@ func TestParse_APIUnixSocketAddr(t *testing.T) {
 	if got.API == nil {
 		t.Fatal("API config not set")
 	}
-	if got.API.Addr != "unix:///var/run/gost.sock" {
-		t.Fatalf("API addr: got %q, want %q", got.API.Addr, "unix:///var/run/gost.sock")
+	if got.API.Addr != "unix:///var/run/tnet.sock" {
+		t.Fatalf("API addr: got %q, want %q", got.API.Addr, "unix:///var/run/tnet.sock")
 	}
 }
 
-// The GOST_API environment variable accepts the same syntax as the -api flag,
+// The TNET_API environment variable accepts the same syntax as the -api flag,
 // including inline credentials.
 func TestParse_APIEnvVarWithCredentials(t *testing.T) {
-	t.Setenv("GOST_API", "user:pass@:18099")
+	t.Setenv("TNET_API", "user:pass@:18099")
 
 	Init(Args{
 		Services: []string{"http://:8080"},
@@ -351,14 +351,14 @@ func TestParse_APIEnvVarWithCredentials(t *testing.T) {
 		t.Fatalf("API addr: got %q, want %q", got.API.Addr, ":18099")
 	}
 	if got.API.Auth == nil {
-		t.Fatal("API auth not set from GOST_API")
+		t.Fatal("API auth not set from TNET_API")
 	}
 	if got.API.Auth.Username != "user" || got.API.Auth.Password != "pass" {
 		t.Fatalf("API auth: got %+v, want user/pass", got.API.Auth)
 	}
 }
 
-// GOST_API takes the same place as the -api flag: it replaces the api
+// TNET_API takes the same place as the -api flag: it replaces the api
 // section of the configuration file as a whole.
 func TestParse_APIEnvVarOverridesConfigFile(t *testing.T) {
 	file := writeAPIConfigFile(t, &config.Config{
@@ -367,7 +367,7 @@ func TestParse_APIEnvVarOverridesConfigFile(t *testing.T) {
 			Auth: &config.AuthConfig{Username: "user", Password: "pass"},
 		},
 	})
-	t.Setenv("GOST_API", ":19090")
+	t.Setenv("TNET_API", ":19090")
 
 	Init(Args{
 		CfgFiles: []string{file},
@@ -384,14 +384,14 @@ func TestParse_APIEnvVarOverridesConfigFile(t *testing.T) {
 		t.Fatalf("API addr: got %q, want %q", got.API.Addr, ":19090")
 	}
 	if got.API.Auth != nil {
-		t.Fatalf("API auth: got %+v, want nil, GOST_API replaces the api section", got.API.Auth)
+		t.Fatalf("API auth: got %+v, want nil, TNET_API replaces the api section", got.API.Auth)
 	}
 }
 
-// The GOST_METRICS environment variable accepts the same syntax as the
+// The TNET_METRICS environment variable accepts the same syntax as the
 // -metrics flag, including inline credentials.
 func TestParse_MetricsEnvVarWithCredentials(t *testing.T) {
-	t.Setenv("GOST_METRICS", "user:pass@:9090")
+	t.Setenv("TNET_METRICS", "user:pass@:9090")
 
 	Init(Args{
 		Services: []string{"http://:8080"},
@@ -408,14 +408,14 @@ func TestParse_MetricsEnvVarWithCredentials(t *testing.T) {
 		t.Fatalf("Metrics addr: got %q, want %q", got.Metrics.Addr, ":9090")
 	}
 	if got.Metrics.Auth == nil {
-		t.Fatal("Metrics auth not set from GOST_METRICS")
+		t.Fatal("Metrics auth not set from TNET_METRICS")
 	}
 	if got.Metrics.Auth.Username != "user" || got.Metrics.Auth.Password != "pass" {
 		t.Fatalf("Metrics auth: got %+v, want user/pass", got.Metrics.Auth)
 	}
 }
 
-// GOST_METRICS takes the same place as the -metrics flag: it replaces the
+// TNET_METRICS takes the same place as the -metrics flag: it replaces the
 // metrics section of the configuration file as a whole.
 func TestParse_MetricsEnvVarOverridesConfigFile(t *testing.T) {
 	file := writeAPIConfigFile(t, &config.Config{
@@ -425,7 +425,7 @@ func TestParse_MetricsEnvVarOverridesConfigFile(t *testing.T) {
 			Auth: &config.AuthConfig{Username: "user", Password: "pass"},
 		},
 	})
-	t.Setenv("GOST_METRICS", ":9090")
+	t.Setenv("TNET_METRICS", ":9090")
 
 	Init(Args{
 		CfgFiles: []string{file},
@@ -442,7 +442,7 @@ func TestParse_MetricsEnvVarOverridesConfigFile(t *testing.T) {
 		t.Fatalf("Metrics addr: got %q, want %q", got.Metrics.Addr, ":9090")
 	}
 	if got.Metrics.Auth != nil {
-		t.Fatalf("Metrics auth: got %+v, want nil, GOST_METRICS replaces the metrics section", got.Metrics.Auth)
+		t.Fatalf("Metrics auth: got %+v, want nil, TNET_METRICS replaces the metrics section", got.Metrics.Auth)
 	}
 }
 

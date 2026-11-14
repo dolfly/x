@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/go-gost/core/handler"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/handler"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 func TestHandleUDP_Disabled_WritesForbidden(t *testing.T) {

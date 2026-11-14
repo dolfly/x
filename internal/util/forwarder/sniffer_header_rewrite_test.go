@@ -7,8 +7,8 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/rewriter"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/rewriter"
 )
 
 // headerRewriter is a rewriter.Rewriter that records the metadata it receives.

@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	xnet "github.com/go-gost/x/internal/net"
-	xrecorder "github.com/go-gost/x/recorder"
+	xnet "github.com/dolfly/x/internal/net"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // ParseRedisMetadata reads a single RESP message from r and populates

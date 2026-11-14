@@ -7,9 +7,9 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/rewriter"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/rewriter"
+	"github.com/dolfly/x/internal/plugin"
 )
 
 type httpPluginRequest struct {

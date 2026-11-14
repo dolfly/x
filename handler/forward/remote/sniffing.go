@@ -8,17 +8,17 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/recorder"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	"github.com/go-gost/x/internal/util/forwarder"
-	"github.com/go-gost/x/internal/util/httpcache"
-	"github.com/go-gost/x/internal/util/sniffing"
-	tls_util "github.com/go-gost/x/internal/util/tls"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/recorder"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	"github.com/dolfly/x/internal/util/forwarder"
+	"github.com/dolfly/x/internal/util/httpcache"
+	"github.com/dolfly/x/internal/util/sniffing"
+	tls_util "github.com/dolfly/x/internal/util/tls"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // SnifferBuilder holds configuration for creating per-connection protocol sniffers.
@@ -36,7 +36,7 @@ type SnifferBuilder struct {
 	// ReadTimeout is the timeout for reading upstream HTTP response headers
 	// and TLS ServerHello during sniffing. Passed through to forwarder.Sniffer.
 	// See forwarder.Sniffer.ReadTimeout for details.
-	ReadTimeout         time.Duration
+	ReadTimeout time.Duration
 	// Cache is the HTTP response cache (nil when caching is disabled).
 	Cache *httpcache.Cache
 }

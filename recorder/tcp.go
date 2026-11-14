@@ -5,10 +5,10 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/metrics"
-	"github.com/go-gost/core/recorder"
-	xmetrics "github.com/go-gost/x/metrics"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/metrics"
+	"github.com/dolfly/core/recorder"
+	xmetrics "github.com/dolfly/x/metrics"
 )
 
 type tcpRecorderOptions struct {

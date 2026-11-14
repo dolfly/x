@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/selector"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/selector"
 )
 
 type latencyFilter[T any] struct {

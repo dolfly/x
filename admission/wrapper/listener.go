@@ -15,16 +15,16 @@ import (
 	"context"
 	"net"
 
-	"github.com/go-gost/core/admission"
-	"github.com/go-gost/core/logger"
-	xctx "github.com/go-gost/x/ctx"
+	"github.com/dolfly/core/admission"
+	"github.com/dolfly/core/logger"
+	xctx "github.com/dolfly/x/ctx"
 )
 
 // listener wraps a net.Listener and performs admission checks on each
 // accepted connection. Connections from denied addresses are silently
 // closed and the accept loop continues.
 type listener struct {
-	service   string
+	service string
 	net.Listener
 	admission admission.Admission
 	log       logger.Logger

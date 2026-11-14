@@ -12,10 +12,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/handler"
-	xstats "github.com/go-gost/x/observer/stats"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/handler"
+	xstats "github.com/dolfly/x/observer/stats"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 func TestProxyRoundTrip_BasicGET(t *testing.T) {
@@ -165,7 +165,6 @@ func TestProxyRoundTrip_HTTP10(t *testing.T) {
 	}
 }
 
-
 func TestHandleUpgradeResponse_Mismatch(t *testing.T) {
 	h := &httpHandler{}
 	h.md.proxyAgent = defaultProxyAgent
@@ -233,8 +232,8 @@ func TestProxyRoundTrip_HeaderCleanup(t *testing.T) {
 	req, _ := http.NewRequest("GET", ts.URL, nil)
 	req.Header.Set("Proxy-Authorization", "Basic xyz")
 	req.Header.Set("Proxy-Connection", "keep-alive")
-	req.Header.Set("Gost-Target", "hidden")
-	req.Header.Set("X-Gost-Target", "also-hidden")
+	req.Header.Set("Tnet-Target", "hidden")
+	req.Header.Set("X-Tnet-Target", "also-hidden")
 
 	ro := &xrecorder.HandlerRecorderObject{
 		RemoteAddr: "127.0.0.1:12345",
@@ -250,7 +249,7 @@ func TestProxyRoundTrip_HeaderCleanup(t *testing.T) {
 
 func TestProxyRoundTrip_OriginFormHost(t *testing.T) {
 	// Origin-form request (GET / + Host header), as sent by nginx
-	// proxy_pass. Mirrors go-gost/gost#679: the transport must not fail
+	// proxy_pass. Mirrors dolfly/tnet#679: the transport must not fail
 	// with "http: no Host in request URL".
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.Host != "myoniondomain.onion" {
@@ -423,9 +422,8 @@ func TestProxyRoundTrip_HTTP10_KeepAlive(t *testing.T) {
 	}
 }
 
-
 // TestProxyRoundTrip_TargetHeaderDialsHeaderAuthority is a regression test for
-// the destination-policy bypass where a valid Gost-Target header replaced
+// the destination-policy bypass where a valid Tnet-Target header replaced
 // req.Host (checked by bypass) but left req.URL.Host (dialed by the transport)
 // as the absolute-URL authority. The transport must dial the same authority
 // the policy evaluated.
@@ -453,7 +451,7 @@ func TestProxyRoundTrip_TargetHeaderDialsHeaderAuthority(t *testing.T) {
 	h.md.readTimeout = 15
 
 	req, _ := http.NewRequest("GET", "http://blocked.example.com/secret", nil)
-	req.Header.Set("Gost-Target", encodeName("allowed.example.com:80"))
+	req.Header.Set("Tnet-Target", encodeName("allowed.example.com:80"))
 	normalizeRequest(req)
 
 	ro := &xrecorder.HandlerRecorderObject{RemoteAddr: "127.0.0.1:12345"}
@@ -472,7 +470,7 @@ type testReadWriteCloser struct {
 	buf *strings.Builder
 }
 
-func (rw *testReadWriteCloser) Read(p []byte) (int, error)  { return 0, io.EOF }
+func (rw *testReadWriteCloser) Read(p []byte) (int, error) { return 0, io.EOF }
 func (rw *testReadWriteCloser) Write(p []byte) (int, error) {
 	if rw.buf != nil {
 		return rw.buf.Write(p)

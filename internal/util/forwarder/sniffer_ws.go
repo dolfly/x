@@ -7,10 +7,10 @@ import (
 	"math"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/internal/util/sniffing"
-	ws_util "github.com/go-gost/x/internal/util/ws"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/internal/util/sniffing"
+	ws_util "github.com/dolfly/x/internal/util/ws"
+	xrecorder "github.com/dolfly/x/recorder"
 	"golang.org/x/time/rate"
 )
 
@@ -146,4 +146,3 @@ func (h *Sniffer) copyWebsocketFrame(w io.Writer, r io.Reader, buf *bytes.Buffer
 
 	return nil
 }
-

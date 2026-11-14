@@ -5,8 +5,8 @@ import (
 	"io"
 	"testing"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/relay"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/relay"
 	"github.com/google/uuid"
 )
 

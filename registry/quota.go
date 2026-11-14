@@ -1,6 +1,6 @@
 package registry
 
-import "github.com/go-gost/x/limiter/quota"
+import "github.com/dolfly/x/limiter/quota"
 
 // quotaLimiterRegistry holds shared quota limiters; Unregister closes them.
 type quotaLimiterRegistry struct {

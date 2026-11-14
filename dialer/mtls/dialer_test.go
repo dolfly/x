@@ -14,11 +14,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/listener"
-	mtls_listener "github.com/go-gost/x/listener/mtls"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/listener"
+	mtls_listener "github.com/dolfly/x/listener/mtls"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 type netDialer struct{}

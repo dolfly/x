@@ -8,15 +8,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/bypass"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
+	"github.com/dolfly/x/registry"
 )
 
 const (
-	defaultRealm      = "gost"
-	defaultProxyAgent = "gost/3.0"
+	defaultRealm      = "tnet"
+	defaultProxyAgent = "tnet/3.0"
 )
 
 // metadata holds all configuration parsed from the handler's metadata map.
@@ -37,7 +37,7 @@ type metadata struct {
 	header         http.Header // additional response headers added to every proxy response
 	hash           string      // hash strategy for hop selection ("host" or empty)
 	authBasicRealm string      // custom realm for Basic auth 407 responses
-	proxyAgent     string      // Proxy-Agent header value; default "gost/3.0"
+	proxyAgent     string      // Proxy-Agent header value; default "tnet/3.0"
 
 	observerPeriod       time.Duration // stats reporting interval; default 5s, min 1s
 	observerResetTraffic bool          // reset traffic counters after each observation
@@ -47,10 +47,10 @@ type metadata struct {
 	sniffingWebsocket           bool          // enable WebSocket frame recording
 	sniffingWebsocketSampleRate float64       // max frames recorded per second
 
-	certificate *x509.Certificate  // MITM CA certificate (for TLS decryption)
-	privateKey  crypto.PrivateKey  // MITM CA private key
-	alpn        string             // ALPN protocol to negotiate during MITM
-	mitmBypass  bypass.Bypass      // bypass rules that skip MITM decryption
+	certificate *x509.Certificate // MITM CA certificate (for TLS decryption)
+	privateKey  crypto.PrivateKey // MITM CA private key
+	alpn        string            // ALPN protocol to negotiate during MITM
+	mitmBypass  bypass.Bypass     // bypass rules that skip MITM decryption
 
 	limiterRefreshInterval time.Duration // traffic limiter cache refresh interval
 	limiterCleanupInterval time.Duration // traffic limiter cache cleanup interval
@@ -58,7 +58,7 @@ type metadata struct {
 
 // parseMetadata reads all configuration values from the metadata map into
 // the handler's metadata struct. It applies defaults for readTimeout (15s),
-// observerPeriod (5s, min 1s), and proxyAgent ("gost/3.0"). MITM TLS is
+// observerPeriod (5s, min 1s), and proxyAgent ("tnet/3.0"). MITM TLS is
 // enabled when both mitm.certFile and mitm.keyFile are provided.
 func (h *httpHandler) parseMetadata(md mdata.Metadata) error {
 	h.md.recorderPeriod = mdutil.GetDuration(md, "recorder.period", "recorder.reportPeriod")

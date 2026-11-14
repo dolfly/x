@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/handler"
-	md "github.com/go-gost/core/metadata"
-	xmetrics "github.com/go-gost/x/metrics"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/handler"
+	md "github.com/dolfly/core/metadata"
+	xmetrics "github.com/dolfly/x/metrics"
+	"github.com/dolfly/x/registry"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 

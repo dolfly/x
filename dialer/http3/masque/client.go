@@ -7,7 +7,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/logger"
 	"github.com/quic-go/quic-go"
 	"github.com/quic-go/quic-go/http3"
 )
@@ -16,7 +16,7 @@ var errReadWriteNotSupported = errors.New("masque: direct Read/Write not support
 
 // Client manages HTTP/3 connections for MASQUE proxying.
 // It wraps a QUIC connection and HTTP/3 client, following the session pattern
-// used by other gost dialers (ssh, quic, mws, etc.).
+// used by other tnet dialers (ssh, quic, mws, etc.).
 type Client struct {
 	host       string
 	addr       string
@@ -28,7 +28,7 @@ type Client struct {
 }
 
 // IsClosed returns true if the underlying connection is closed.
-// This follows the pattern used by other gost session wrappers.
+// This follows the pattern used by other tnet session wrappers.
 func (c *Client) IsClosed() bool {
 	if c.clientConn == nil {
 		return true
@@ -87,7 +87,7 @@ func (c *Client) Dial(ctx context.Context, addr string) (net.Conn, error) {
 }
 
 // MasqueConn wraps an HTTP/3 client connection for use with the MASQUE connector.
-// It implements net.Conn for compatibility with the gost connector interface,
+// It implements net.Conn for compatibility with the tnet connector interface,
 // but the actual data transfer happens via datagrams through the pre-opened RequestStream.
 type MasqueConn struct {
 	clientConn *http3.ClientConn

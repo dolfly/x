@@ -1,6 +1,6 @@
 // Package tunnel implements a reverse proxy tunnel handler for NAT traversal.
 //
-// Architecture overview
+// # Architecture overview
 //
 // The tunnel handler is deployed on the public-facing (server) side. It acts as a
 // bridge between external clients and internal services behind NAT/firewall.
@@ -42,9 +42,9 @@
 //
 // Entrypoint protocol dispatch (first-byte sniffing):
 //
-//	  relay.Version1 (0x52 'R') → handleConnect (relay protocol)
-//	  dissector.Handshake (0x16) → handleTLS (TLS passthrough)
-//	  otherwise                  → handleHTTP (HTTP forward proxy)
+//	relay.Version1 (0x52 'R') → handleConnect (relay protocol)
+//	dissector.Handshake (0x16) → handleTLS (TLS passthrough)
+//	otherwise                  → handleHTTP (HTTP forward proxy)
 //
 // SD fallback: when ConnectorPool.Get() returns nil (no local tunnel registered),
 // Dialer queries service discovery for a remote node address and establishes a
@@ -58,20 +58,20 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/service"
-	"github.com/go-gost/relay"
-	xctx "github.com/go-gost/x/ctx"
-	stats_util "github.com/go-gost/x/internal/util/stats"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	cache_limiter "github.com/go-gost/x/limiter/traffic/cache"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/service"
+	"github.com/dolfly/relay"
+	xctx "github.com/dolfly/x/ctx"
+	stats_util "github.com/dolfly/x/internal/util/stats"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	cache_limiter "github.com/dolfly/x/limiter/traffic/cache"
+	"github.com/dolfly/x/registry"
 	"github.com/google/uuid"
 )
 

@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	xio "github.com/go-gost/x/internal/io"
-	"github.com/go-gost/x/internal/util/quictest"
+	xio "github.com/dolfly/x/internal/io"
+	"github.com/dolfly/x/internal/util/quictest"
 	"github.com/quic-go/quic-go"
 )
 

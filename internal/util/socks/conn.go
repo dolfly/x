@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/go-gost/core/common/bufpool"
-	"github.com/go-gost/gosocks5"
+	"github.com/dolfly/core/common/bufpool"
+	"github.com/dolfly/gosocks5"
 )
 
 // udpTunConn frames UDP datagrams onto a stream connection as SOCKS5 UDP

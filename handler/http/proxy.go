@@ -13,18 +13,18 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/logger"
-	stats "github.com/go-gost/core/observer/stats"
-	xbypass "github.com/go-gost/x/bypass"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xio "github.com/go-gost/x/internal/io"
-	xnet "github.com/go-gost/x/internal/net"
-	xhttp "github.com/go-gost/x/internal/net/http"
-	"github.com/go-gost/x/internal/util/sniffing"
-	xstats "github.com/go-gost/x/observer/stats"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/logger"
+	stats "github.com/dolfly/core/observer/stats"
+	xbypass "github.com/dolfly/x/bypass"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xio "github.com/dolfly/x/internal/io"
+	xnet "github.com/dolfly/x/internal/net"
+	xhttp "github.com/dolfly/x/internal/net/http"
+	"github.com/dolfly/x/internal/util/sniffing"
+	xstats "github.com/dolfly/x/observer/stats"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // handleProxy implements HTTP forward proxy semantics. It wraps the
@@ -76,7 +76,7 @@ func (h *httpHandler) handleProxy(ctx context.Context, conn net.Conn, req *http.
 //   - Clones the recorder object for per-request isolation.
 //   - Normalises the host and adds a default port if missing.
 //   - Adjusts HTTP/1.0 Connection headers for compatibility.
-//   - Strips proxy-specific headers (Proxy-Authorization, Gost-Target, etc.).
+//   - Strips proxy-specific headers (Proxy-Authorization, Tnet-Target, etc.).
 //   - Checks bypass rules — forbidden hosts get a 403.
 //   - Optionally captures the request body for recording.
 //   - Sends the request through the upstream transport.
@@ -94,10 +94,10 @@ func (h *httpHandler) proxyRoundTrip(ctx context.Context, rw io.ReadWriteCloser,
 	*ro2 = *ro
 	ro = ro2
 
-	if v := req.Header.Get("Gost-Record"); v != "" {
+	if v := req.Header.Get("Tnet-Record"); v != "" {
 		ro.RecordMode = strings.ToLower(v)
 	}
-	req.Header.Del("Gost-Record")
+	req.Header.Del("Tnet-Record")
 
 	// Origin-form requests ("GET / HTTP/1.1" + Host header, e.g. sent by
 	// nginx proxy_pass) carry their target only in req.Host, which
@@ -169,8 +169,8 @@ func (h *httpHandler) proxyRoundTrip(ctx context.Context, rw io.ReadWriteCloser,
 	// Strip hop-by-hop proxy headers before forwarding.
 	req.Header.Del("Proxy-Authorization")
 	req.Header.Del("Proxy-Connection")
-	req.Header.Del("Gost-Target")
-	req.Header.Del("X-Gost-Target")
+	req.Header.Del("Tnet-Target")
+	req.Header.Del("X-Tnet-Target")
 
 	res := &http.Response{
 		ProtoMajor: req.ProtoMajor,

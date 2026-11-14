@@ -16,9 +16,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/common/bufpool"
-	"github.com/go-gost/core/logger"
-	xnet "github.com/go-gost/x/internal/net"
+	"github.com/dolfly/core/common/bufpool"
+	"github.com/dolfly/core/logger"
+	xnet "github.com/dolfly/x/internal/net"
 	"github.com/quic-go/quic-go"
 	"github.com/quic-go/quic-go/http3"
 	"github.com/rs/xid"

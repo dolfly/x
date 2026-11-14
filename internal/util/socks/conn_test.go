@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/gosocks5"
+	"github.com/dolfly/gosocks5"
 )
 
 // slowConn is a net.Conn that pauses inside every Write before appending.
@@ -52,7 +52,7 @@ func (c *slowConn) stream() []byte {
 
 // Test_udpTunConn_concurrentWriteTo checks that endpoints sharing one reverse
 // tunnel stream cannot interleave inside a datagram frame. Same defect as
-// gost#911 in the relay variant: concurrent UDP endpoints corrupted datagrams
+// tnet#911 in the relay variant: concurrent UDP endpoints corrupted datagrams
 // and left torn frames that the far end read as "unexpected EOF", rebuilding
 // the whole tunnel every second.
 func Test_udpTunConn_concurrentWriteTo(t *testing.T) {

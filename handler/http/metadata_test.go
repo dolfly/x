@@ -147,8 +147,8 @@ func TestParseMetadata_ProbeResistance_InvalidFormat(t *testing.T) {
 func TestParseMetadata_UDP(t *testing.T) {
 	h := &httpHandler{}
 	if err := h.parseMetadata(testMD(map[string]any{
-		"udp":            "true",
-		"udpBufferSize":  "4096",
+		"udp":           "true",
+		"udpBufferSize": "4096",
 	})); err != nil {
 		t.Fatal(err)
 	}
@@ -193,9 +193,9 @@ func TestParseMetadata_ObserverPeriod_Minimum(t *testing.T) {
 func TestParseMetadata_Sniffing(t *testing.T) {
 	h := &httpHandler{}
 	if err := h.parseMetadata(testMD(map[string]any{
-		"sniffing":                   "true",
-		"sniffing.timeout":           "5s",
-		"sniffing.websocket":         "true",
+		"sniffing":                      "true",
+		"sniffing.timeout":              "5s",
+		"sniffing.websocket":            "true",
 		"sniffing.websocket.sampleRate": "20.0",
 	})); err != nil {
 		t.Fatal(err)
@@ -320,10 +320,10 @@ func TestParseMetadata_Headers_AltKey(t *testing.T) {
 
 func TestParseMetadata_ProxyAgent_AltKey(t *testing.T) {
 	h := &httpHandler{}
-	if err := h.parseMetadata(testMD(map[string]any{"http.proxyAgent": "gost-alt/1.0"})); err != nil {
+	if err := h.parseMetadata(testMD(map[string]any{"http.proxyAgent": "tnet-alt/1.0"})); err != nil {
 		t.Fatal(err)
 	}
-	if h.md.proxyAgent != "gost-alt/1.0" {
-		t.Errorf("got proxyAgent %q, want gost-alt/1.0", h.md.proxyAgent)
+	if h.md.proxyAgent != "tnet-alt/1.0" {
+		t.Errorf("got proxyAgent %q, want tnet-alt/1.0", h.md.proxyAgent)
 	}
 }

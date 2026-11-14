@@ -5,12 +5,12 @@ import (
 	"crypto/tls"
 	"strings"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/plugin"
-	xp2p "github.com/go-gost/x/p2p"
-	p2p_plugin "github.com/go-gost/x/p2p/plugin"
-	xplugin "github.com/go-gost/x/plugin"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/plugin"
+	xp2p "github.com/dolfly/x/p2p"
+	p2p_plugin "github.com/dolfly/x/p2p/plugin"
+	xplugin "github.com/dolfly/x/plugin"
 )
 
 // ParseP2P converts a P2PConfig into a p2p.Tunnel backed by an

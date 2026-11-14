@@ -28,13 +28,13 @@
 //     proxy request), the Host header is validated with govalidator.
 //     A valid DNS name or IP address implies the scheme is "http".
 //
-//  2. Network detection — reads the X-Gost-Protocol header. If the
+//  2. Network detection — reads the X-Tnet-Protocol header. If the
 //     value is "udp" the request is treated as a UDP relay; otherwise
 //     it defaults to "tcp".
 //
-//  3. GOST v2 compatibility — decodes Gost-Target and X-Gost-Target
+//  3. TNET v2 compatibility — decodes Tnet-Target and X-Tnet-Target
 //     headers (base64+CRC32 encoding) to recover the actual target host
-//     from older GOST clients.
+//     from older TNET clients.
 //
 //  4. Host normalisation — appends ":80" if no port is present.
 //
@@ -44,7 +44,7 @@
 //     address matches, a 403 Forbidden is returned.
 //
 //  7. Routing:
-//     • X-Gost-Protocol: udp → handleUDP
+//     • X-Tnet-Protocol: udp → handleUDP
 //     • setupTrafficLimiter wraps the conn (per-client shaping + observer stats)
 //     • Method != CONNECT → handleProxy (forward proxy)
 //     • Method == CONNECT → handleConnect (tunnel)
@@ -61,7 +61,7 @@
 //   - Normalises the host (adds default port if missing).
 //   - Handles HTTP/1.0 compatibility (Connection: keep-alive / close).
 //   - Strips proxy-specific headers: Proxy-Authorization, Proxy-Connection,
-//     Gost-Target, X-Gost-Target.
+//     Tnet-Target, X-Tnet-Target.
 //   - Checks bypass rules (403 Forbidden on match).
 //   - Optionally intercepts the request body for recording (tee reader).
 //   - Sends the request through the upstream http.Transport (which dials
@@ -136,7 +136,7 @@
 //
 // # UDP relay (handleUDP)
 //
-// When X-Gost-Protocol is "udp":
+// When X-Tnet-Protocol is "udp":
 //   - If enableUDP is false, a 403 Forbidden is returned.
 //   - Otherwise a 200 OK is written, a UDP association is dialled through
 //     the proxy chain router, and the HTTP connection is wrapped as a
@@ -184,7 +184,7 @@
 //	mitm.bypass:      named bypass matcher to skip MITM decryption
 //	hash:             hop selection strategy ("host" for consistent hashing)
 //	observerPeriod:   stats reporting interval (default 5s, min 1s)
-//	proxyAgent:       Proxy-Agent header value (default "gost/3.0")
+//	proxyAgent:       Proxy-Agent header value (default "tnet/3.0")
 package http
 
 import (
@@ -199,29 +199,29 @@ import (
 	"net/http/httputil"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer"
-	stats "github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	xbypass "github.com/go-gost/x/bypass"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	xhttp "github.com/go-gost/x/internal/net/http"
-	"github.com/go-gost/x/internal/util/httpcache"
-	stats_util "github.com/go-gost/x/internal/util/stats"
-	tls_util "github.com/go-gost/x/internal/util/tls"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	cache_limiter "github.com/go-gost/x/limiter/traffic/cache"
-	xstats "github.com/go-gost/x/observer/stats"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer"
+	stats "github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	xbypass "github.com/dolfly/x/bypass"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	xhttp "github.com/dolfly/x/internal/net/http"
+	"github.com/dolfly/x/internal/util/httpcache"
+	stats_util "github.com/dolfly/x/internal/util/stats"
+	tls_util "github.com/dolfly/x/internal/util/tls"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	cache_limiter "github.com/dolfly/x/limiter/traffic/cache"
+	xstats "github.com/dolfly/x/observer/stats"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {
@@ -419,7 +419,7 @@ func (h *httpHandler) Handle(ctx context.Context, conn net.Conn, opts ...handler
 }
 
 // handleRequest is the central request dispatcher. It normalises the request
-// URL and host, extracts the target from GOST-compatible headers, validates
+// URL and host, extracts the target from TNET-compatible headers, validates
 // the method, authenticates the client, applies bypass rules, and routes
 // to one of three code paths:
 //

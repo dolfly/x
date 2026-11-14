@@ -9,22 +9,22 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	admission "github.com/go-gost/x/admission/wrapper"
-	xctx "github.com/go-gost/x/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	xhttp "github.com/go-gost/x/internal/net/http"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	xtls "github.com/go-gost/x/internal/util/tls"
-	ws_util "github.com/go-gost/x/internal/util/ws"
-	climiter "github.com/go-gost/x/limiter/conn/wrapper"
-	limiter_wrapper "github.com/go-gost/x/limiter/traffic/wrapper"
-	metrics "github.com/go-gost/x/metrics/wrapper"
-	stats "github.com/go-gost/x/observer/stats/wrapper"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	admission "github.com/dolfly/x/admission/wrapper"
+	xctx "github.com/dolfly/x/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	xhttp "github.com/dolfly/x/internal/net/http"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	xtls "github.com/dolfly/x/internal/util/tls"
+	ws_util "github.com/dolfly/x/internal/util/ws"
+	climiter "github.com/dolfly/x/limiter/conn/wrapper"
+	limiter_wrapper "github.com/dolfly/x/limiter/traffic/wrapper"
+	metrics "github.com/dolfly/x/metrics/wrapper"
+	stats "github.com/dolfly/x/observer/stats/wrapper"
+	"github.com/dolfly/x/registry"
 	"github.com/gorilla/websocket"
 )
 
@@ -88,7 +88,7 @@ func (l *wsListener) Init(md md.Metadata) (err error) {
 		Handler:           mux,
 		ReadHeaderTimeout: l.md.readHeaderTimeout,
 		// Route HTTP server errors (TLS handshake failures, malformed
-		// requests) to the GOST logger instead of the default stderr
+		// requests) to the TNET logger instead of the default stderr
 		// output via log.Printf. Without this, network scanners and
 		// protocol filters probing the WSS port produce uncontrolled
 		// noise: "http: TLS handshake error from ...".
@@ -221,10 +221,10 @@ func (l *wsListener) upgrade(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// logWriter adapts a GOST logger to the io.Writer interface required by
+// logWriter adapts a TNET logger to the io.Writer interface required by
 // http.Server.ErrorLog. It writes each log entry as a Debug-level message
 // so that HTTP server errors (TLS handshake failures, malformed requests)
-// are captured in GOST's logging pipeline instead of escaping to stderr
+// are captured in TNET's logging pipeline instead of escaping to stderr
 // via log.Printf.
 type logWriter struct {
 	log logger.Logger

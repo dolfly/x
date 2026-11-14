@@ -11,18 +11,18 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/hosts"
-	"github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/logger"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
-	resolver_util "github.com/go-gost/x/internal/util/resolver"
-	xrecorder "github.com/go-gost/x/recorder"
-	"github.com/go-gost/x/resolver/exchanger"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/hosts"
+	"github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/logger"
+	resolver_util "github.com/dolfly/x/internal/util/resolver"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
+	xrecorder "github.com/dolfly/x/recorder"
+	"github.com/dolfly/x/resolver/exchanger"
 	"github.com/miekg/dns"
 )
 
@@ -185,19 +185,22 @@ func newStringConn(data []byte) *stringConn {
 	}
 }
 
-func (c *stringConn) Read(b []byte) (int, error)               { return c.readBuf.Read(b) }
-func (c *stringConn) Write(b []byte) (int, error)              { return c.writeBuf.Write(b) }
-func (c *stringConn) Close() error                              { return nil }
-func (c *stringConn) LocalAddr() net.Addr                       { return c.local }
-func (c *stringConn) RemoteAddr() net.Addr                      { return c.remote }
-func (c *stringConn) SetDeadline(t time.Time) error             { return nil }
-func (c *stringConn) SetReadDeadline(t time.Time) error         { return nil }
-func (c *stringConn) SetWriteDeadline(t time.Time) error        { return nil }
+func (c *stringConn) Read(b []byte) (int, error)         { return c.readBuf.Read(b) }
+func (c *stringConn) Write(b []byte) (int, error)        { return c.writeBuf.Write(b) }
+func (c *stringConn) Close() error                       { return nil }
+func (c *stringConn) LocalAddr() net.Addr                { return c.local }
+func (c *stringConn) RemoteAddr() net.Addr               { return c.remote }
+func (c *stringConn) SetDeadline(t time.Time) error      { return nil }
+func (c *stringConn) SetReadDeadline(t time.Time) error  { return nil }
+func (c *stringConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // slowConn blocks on Read for the given duration.
 type slowConn struct{ readDelay time.Duration }
 
-func (c *slowConn) Read(b []byte) (int, error)  { time.Sleep(c.readDelay); return 0, errors.New("timeout") }
+func (c *slowConn) Read(b []byte) (int, error) {
+	time.Sleep(c.readDelay)
+	return 0, errors.New("timeout")
+}
 func (c *slowConn) Write(b []byte) (int, error) { return len(b), nil }
 func (c *slowConn) Close() error                { return nil }
 func (c *slowConn) LocalAddr() net.Addr {
@@ -206,9 +209,9 @@ func (c *slowConn) LocalAddr() net.Addr {
 func (c *slowConn) RemoteAddr() net.Addr {
 	return &net.TCPAddr{IP: net.ParseIP("10.0.0.1"), Port: 12345}
 }
-func (c *slowConn) SetDeadline(t time.Time) error             { return nil }
-func (c *slowConn) SetReadDeadline(t time.Time) error         { return nil }
-func (c *slowConn) SetWriteDeadline(t time.Time) error        { return nil }
+func (c *slowConn) SetDeadline(t time.Time) error      { return nil }
+func (c *slowConn) SetReadDeadline(t time.Time) error  { return nil }
+func (c *slowConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // ---------------------------------------------------------------------------
 // Tests: parseMetadata
@@ -1121,11 +1124,18 @@ type blockingWriteConn struct {
 	readBuf *bytes.Buffer
 }
 
-func (c *blockingWriteConn) Read(b []byte) (int, error)  { return c.readBuf.Read(b) }
-func (c *blockingWriteConn) Write(b []byte) (int, error) { time.Sleep(200 * time.Millisecond); return 0, errors.New("write deadline exceeded") }
-func (c *blockingWriteConn) Close() error                             { return nil }
-func (c *blockingWriteConn) LocalAddr() net.Addr                      { return &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 53} }
-func (c *blockingWriteConn) RemoteAddr() net.Addr                     { return &net.TCPAddr{IP: net.ParseIP("10.0.0.1"), Port: 12345} }
-func (c *blockingWriteConn) SetDeadline(t time.Time) error            { return nil }
-func (c *blockingWriteConn) SetReadDeadline(t time.Time) error        { return nil }
-func (c *blockingWriteConn) SetWriteDeadline(t time.Time) error       { return nil }
+func (c *blockingWriteConn) Read(b []byte) (int, error) { return c.readBuf.Read(b) }
+func (c *blockingWriteConn) Write(b []byte) (int, error) {
+	time.Sleep(200 * time.Millisecond)
+	return 0, errors.New("write deadline exceeded")
+}
+func (c *blockingWriteConn) Close() error { return nil }
+func (c *blockingWriteConn) LocalAddr() net.Addr {
+	return &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: 53}
+}
+func (c *blockingWriteConn) RemoteAddr() net.Addr {
+	return &net.TCPAddr{IP: net.ParseIP("10.0.0.1"), Port: 12345}
+}
+func (c *blockingWriteConn) SetDeadline(t time.Time) error      { return nil }
+func (c *blockingWriteConn) SetReadDeadline(t time.Time) error  { return nil }
+func (c *blockingWriteConn) SetWriteDeadline(t time.Time) error { return nil }

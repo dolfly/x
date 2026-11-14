@@ -3,7 +3,7 @@ package registry
 import (
 	"context"
 
-	"github.com/go-gost/core/bypass"
+	"github.com/dolfly/core/bypass"
 )
 
 // bypassRegistry implements a hot-reload-safe registry for bypass.Bypass.

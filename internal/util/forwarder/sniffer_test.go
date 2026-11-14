@@ -17,16 +17,16 @@ import (
 	"time"
 
 	"github.com/andybalholm/brotli"
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/core/rewriter"
-	xlogger "github.com/go-gost/x/logger"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/core/rewriter"
+	xlogger "github.com/dolfly/x/logger"
+	xrecorder "github.com/dolfly/x/recorder"
 	"github.com/klauspost/compress/zstd"
 
-	"github.com/go-gost/x/internal/util/sniffing"
+	"github.com/dolfly/x/internal/util/sniffing"
 )
 
 // =============================================================================

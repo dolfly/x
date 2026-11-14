@@ -8,9 +8,9 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/core/dialer"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/dialer"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/crypto/ssh"
 )
@@ -33,7 +33,7 @@ func testSigner(t *testing.T) ssh.Signer {
 }
 
 // startSSHServer runs a minimal SSH server that accepts any authentication and
-// accepts every channel, which is enough for the gost-tunnel dialer.
+// accepts every channel, which is enough for the tnet-tunnel dialer.
 func startSSHServer(t *testing.T, signer ssh.Signer) net.Listener {
 	t.Helper()
 

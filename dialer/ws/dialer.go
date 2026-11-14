@@ -6,13 +6,13 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/go-gost/core/dialer"
-	md "github.com/go-gost/core/metadata"
-	xctx "github.com/go-gost/x/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	ws_util "github.com/go-gost/x/internal/util/ws"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/dialer"
+	md "github.com/dolfly/core/metadata"
+	xctx "github.com/dolfly/x/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	ws_util "github.com/dolfly/x/internal/util/ws"
+	"github.com/dolfly/x/registry"
 	"github.com/gorilla/websocket"
 )
 

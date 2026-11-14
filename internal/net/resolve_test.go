@@ -5,8 +5,8 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/core/hosts"
-	"github.com/go-gost/core/resolver"
+	"github.com/dolfly/core/hosts"
+	"github.com/dolfly/core/resolver"
 	"github.com/stretchr/testify/require"
 )
 

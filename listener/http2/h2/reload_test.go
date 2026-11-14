@@ -8,12 +8,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/listener"
-	dh2 "github.com/go-gost/x/dialer/http2/h2"
-	lh2 "github.com/go-gost/x/listener/http2/h2"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/listener"
+	dh2 "github.com/dolfly/x/dialer/http2/h2"
+	lh2 "github.com/dolfly/x/listener/http2/h2"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 type netDialer struct{}

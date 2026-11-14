@@ -1,11 +1,11 @@
-// Package tunnel implements the GOST relay tunnel handler for NAT traversal,
+// Package tunnel implements the TNET relay tunnel handler for NAT traversal,
 // connecting public entrypoints to internal services behind NAT/firewall.
 //
 // See handler.go for a full architecture overview.
 package tunnel
 
 import (
-	"github.com/go-gost/relay"
+	"github.com/dolfly/relay"
 	"github.com/google/uuid"
 )
 

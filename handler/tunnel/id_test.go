@@ -3,7 +3,7 @@ package tunnel
 import (
 	"testing"
 
-	"github.com/go-gost/relay"
+	"github.com/dolfly/relay"
 	"github.com/google/uuid"
 )
 

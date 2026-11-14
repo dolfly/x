@@ -4,14 +4,14 @@ import (
 	"context"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/routing"
-	"github.com/go-gost/core/selector"
-	"github.com/go-gost/x/internal/probe"
-	xlogger "github.com/go-gost/x/logger"
-	xs "github.com/go-gost/x/selector"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/routing"
+	"github.com/dolfly/core/selector"
+	"github.com/dolfly/x/internal/probe"
+	xlogger "github.com/dolfly/x/logger"
+	xs "github.com/dolfly/x/selector"
 )
 
 // HopEntry wraps a hop.Hop with an optional matcher and an independent

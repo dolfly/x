@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/logger"
 )
 
 const udpAssociationBufferSize = 64 * 1024

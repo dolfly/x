@@ -8,7 +8,7 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/go-gost/core/chain"
+	"github.com/dolfly/core/chain"
 )
 
 // HTTPProber performs an HTTP GET request over an established tunnel connection

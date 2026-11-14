@@ -3,9 +3,9 @@ package stats
 import (
 	"sync"
 
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/observer/stats"
-	xstats "github.com/go-gost/x/observer/stats"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/observer/stats"
+	xstats "github.com/dolfly/x/observer/stats"
 )
 
 type HandlerStats struct {

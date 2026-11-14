@@ -8,13 +8,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/util/httpcache"
-	"github.com/go-gost/x/internal/util/sniffing"
-	tls_util "github.com/go-gost/x/internal/util/tls"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/util/httpcache"
+	"github.com/dolfly/x/internal/util/sniffing"
+	tls_util "github.com/dolfly/x/internal/util/tls"
 )
 
 const (

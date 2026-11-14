@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/go-gost/x/config"
+	"github.com/dolfly/x/config"
 )
 
 func TestDecodeSIP002Auth(t *testing.T) {
@@ -1832,15 +1832,15 @@ func TestBuildNodeConfig_UnixRelativeHost(t *testing.T) {
 
 func TestBuildServiceConfig_UnixAbsolutePath(t *testing.T) {
 	// three-slash: path is the absolute socket listen address, no forward target
-	svcs, err := buildServiceConfig(mustURL("unix:///var/run/gost.sock"))
+	svcs, err := buildServiceConfig(mustURL("unix:///var/run/tnet.sock"))
 	if err != nil {
 		t.Fatalf("buildServiceConfig: %v", err)
 	}
 	if len(svcs) != 1 {
 		t.Fatalf("len(svcs) = %d, want 1", len(svcs))
 	}
-	if svcs[0].Addr != "/var/run/gost.sock" {
-		t.Errorf("Addr = %q, want /var/run/gost.sock", svcs[0].Addr)
+	if svcs[0].Addr != "/var/run/tnet.sock" {
+		t.Errorf("Addr = %q, want /var/run/tnet.sock", svcs[0].Addr)
 	}
 	if svcs[0].Forwarder != nil {
 		t.Errorf("Forwarder = %+v, want nil (no forward target)", svcs[0].Forwarder)
@@ -1849,15 +1849,15 @@ func TestBuildServiceConfig_UnixAbsolutePath(t *testing.T) {
 
 func TestBuildServiceConfig_UnixPortForward(t *testing.T) {
 	// two-slash: host is the listen socket, path is a forward target socket
-	svcs, err := buildServiceConfig(mustURL("unix://gost.sock/gost2.sock"))
+	svcs, err := buildServiceConfig(mustURL("unix://tnet.sock/gost2.sock"))
 	if err != nil {
 		t.Fatalf("buildServiceConfig: %v", err)
 	}
 	if len(svcs) != 1 {
 		t.Fatalf("len(svcs) = %d, want 1", len(svcs))
 	}
-	if svcs[0].Addr != "gost.sock" {
-		t.Errorf("Addr = %q, want gost.sock", svcs[0].Addr)
+	if svcs[0].Addr != "tnet.sock" {
+		t.Errorf("Addr = %q, want tnet.sock", svcs[0].Addr)
 	}
 	if svcs[0].Forwarder == nil || len(svcs[0].Forwarder.Nodes) == 0 {
 		t.Fatalf("Forwarder = %+v, want a forward target node", svcs[0].Forwarder)

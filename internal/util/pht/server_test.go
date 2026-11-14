@@ -8,7 +8,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/logger"
 )
 
 func TestCreatePipeConcurrent(t *testing.T) {
@@ -149,18 +149,18 @@ func TestHandlePushEmptyData(t *testing.T) {
 // nopLogger implements logger.Logger with no-ops.
 type nopLogger struct{}
 
-func (l nopLogger) WithFields(map[string]any) logger.Logger         { return l }
-func (nopLogger) Debug(args ...any)                                  {}
-func (nopLogger) Debugf(format string, args ...any)                  {}
-func (nopLogger) Info(args ...any)                                   {}
-func (nopLogger) Infof(format string, args ...any)                   {}
-func (nopLogger) Warn(args ...any)                                   {}
-func (nopLogger) Warnf(format string, args ...any)                   {}
-func (nopLogger) Error(args ...any)                                  {}
-func (nopLogger) Errorf(format string, args ...any)                  {}
-func (nopLogger) Fatal(args ...any)                                  {}
-func (nopLogger) Fatalf(format string, args ...any)                  {}
-func (nopLogger) Trace(args ...any)                                  {}
-func (nopLogger) Tracef(format string, args ...any)                  {}
-func (nopLogger) GetLevel() logger.LogLevel                          { return logger.InfoLevel }
-func (nopLogger) IsLevelEnabled(level logger.LogLevel) bool          { return false }
+func (l nopLogger) WithFields(map[string]any) logger.Logger { return l }
+func (nopLogger) Debug(args ...any)                         {}
+func (nopLogger) Debugf(format string, args ...any)         {}
+func (nopLogger) Info(args ...any)                          {}
+func (nopLogger) Infof(format string, args ...any)          {}
+func (nopLogger) Warn(args ...any)                          {}
+func (nopLogger) Warnf(format string, args ...any)          {}
+func (nopLogger) Error(args ...any)                         {}
+func (nopLogger) Errorf(format string, args ...any)         {}
+func (nopLogger) Fatal(args ...any)                         {}
+func (nopLogger) Fatalf(format string, args ...any)         {}
+func (nopLogger) Trace(args ...any)                         {}
+func (nopLogger) Tracef(format string, args ...any)         {}
+func (nopLogger) GetLevel() logger.LogLevel                 { return logger.InfoLevel }
+func (nopLogger) IsLevelEnabled(level logger.LogLevel) bool { return false }

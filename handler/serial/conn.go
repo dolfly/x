@@ -7,7 +7,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/recorder"
+	"github.com/dolfly/core/recorder"
 )
 
 // recorderConn wraps a net.Conn to record raw traffic flowing through it.
@@ -16,8 +16,8 @@ import (
 // timestamps, and hex dumps.
 //
 // The direction convention is:
-//   - Read:  '>' (data entering GOST from the serial port / client side)
-//   - Write: '<' (data leaving GOST toward the serial port / client side)
+//   - Read:  '>' (data entering TNET from the serial port / client side)
+//   - Write: '<' (data leaving TNET toward the serial port / client side)
 //
 // This provides a per-packet-level traffic log, as opposed to the
 // aggregate stats approach used by handlers like redirect/tcp (which
@@ -60,7 +60,7 @@ func (c *recorderConn) Read(b []byte) (n int, err error) {
 // Write writes to the underlying connection and records the sent data.
 // Recording follows the same rules as Read: only when n > 0 and a
 // Recorder is configured. The direction marker is '<' to indicate
-// outbound traffic (data leaving GOST toward the target).
+// outbound traffic (data leaving TNET toward the target).
 func (c *recorderConn) Write(b []byte) (n int, err error) {
 	n, err = c.Conn.Write(b)
 

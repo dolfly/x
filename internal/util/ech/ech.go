@@ -11,9 +11,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	xlogger "github.com/go-gost/x/logger"
-	"github.com/go-gost/x/resolver/exchanger"
+	"github.com/dolfly/core/logger"
+	xlogger "github.com/dolfly/x/logger"
+	"github.com/dolfly/x/resolver/exchanger"
 	"github.com/miekg/dns"
 )
 

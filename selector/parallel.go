@@ -10,11 +10,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/selector"
-	xnet "github.com/go-gost/x/internal/net"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/selector"
+	xnet "github.com/dolfly/x/internal/net"
 )
 
 // parallelMode determines how the racing subset is picked from the

@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/admission"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/internal/loader"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/admission"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/internal/loader"
+	xlogger "github.com/dolfly/x/logger"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

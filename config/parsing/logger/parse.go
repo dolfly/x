@@ -4,10 +4,10 @@ import (
 	"io"
 	"os"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	xlogger "github.com/go-gost/x/logger"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	xlogger "github.com/dolfly/x/logger"
+	"github.com/dolfly/x/registry"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 

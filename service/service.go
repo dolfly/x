@@ -15,22 +15,22 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/admission"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/metrics"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/core/service"
-	xbypass "github.com/go-gost/x/bypass"
-	xctx "github.com/go-gost/x/ctx"
-	connwrapper "github.com/go-gost/x/limiter/conn/wrapper"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	xlogger "github.com/go-gost/x/logger"
-	xmetrics "github.com/go-gost/x/metrics"
-	xstats "github.com/go-gost/x/observer/stats"
+	"github.com/dolfly/core/admission"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/metrics"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/core/service"
+	xbypass "github.com/dolfly/x/bypass"
+	xctx "github.com/dolfly/x/ctx"
+	connwrapper "github.com/dolfly/x/limiter/conn/wrapper"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	xlogger "github.com/dolfly/x/logger"
+	xmetrics "github.com/dolfly/x/metrics"
+	xstats "github.com/dolfly/x/observer/stats"
 	"github.com/google/shlex"
 	"github.com/rs/xid"
 )
@@ -237,7 +237,7 @@ func (s *defaultService) Serve() error {
 			// closed and the listener is still usable. Returning it as fatal
 			// ended the accept loop, so one rejection stopped the service for
 			// good and every later connection was refused until a restart
-			// (gost#914). Keep accepting.
+			// (tnet#914). Keep accepting.
 			if errors.Is(e, connwrapper.ErrConnLimit) {
 				log.Warnf("accept: %v", e)
 				continue

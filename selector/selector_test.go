@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/go-gost/core/selector"
+	"github.com/dolfly/core/selector"
 )
 
 func TestNewSelector(t *testing.T) {

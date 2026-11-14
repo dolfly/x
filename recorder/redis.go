@@ -4,9 +4,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/go-gost/core/metrics"
-	"github.com/go-gost/core/recorder"
-	xmetrics "github.com/go-gost/x/metrics"
+	"github.com/dolfly/core/metrics"
+	"github.com/dolfly/core/recorder"
+	xmetrics "github.com/dolfly/x/metrics"
 	"github.com/go-redis/redis/v8"
 )
 
@@ -17,6 +17,7 @@ type redisRecorderOptions struct {
 	password string
 	key      string
 }
+
 // RedisRecorderOption configures Redis recorder options.
 type RedisRecorderOption func(opts *redisRecorderOptions)
 
@@ -40,6 +41,7 @@ func UsernameRedisRecorderOption(username string) RedisRecorderOption {
 		opts.username = username
 	}
 }
+
 // PasswordRedisRecorderOption sets the Redis password for authentication.
 func PasswordRedisRecorderOption(password string) RedisRecorderOption {
 	return func(opts *redisRecorderOptions) {

@@ -5,7 +5,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/observer"
+	"github.com/dolfly/core/observer"
 )
 
 // checkRateLimit checks whether a new connection from addr should be accepted.

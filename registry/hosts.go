@@ -4,7 +4,7 @@ import (
 	"context"
 	"net"
 
-	"github.com/go-gost/core/hosts"
+	"github.com/dolfly/core/hosts"
 )
 
 // hostsRegistry implements a hot-reload-safe registry for hosts.HostMapper.

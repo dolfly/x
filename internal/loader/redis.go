@@ -12,7 +12,7 @@ import (
 
 const (
 	// DefaultRedisKey is the default Redis key used by loaders.
-	DefaultRedisKey = "gost"
+	DefaultRedisKey = "tnet"
 )
 
 type redisLoaderOptions struct {

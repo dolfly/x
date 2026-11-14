@@ -8,10 +8,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/x/internal/util/ech/echtest"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/x/internal/util/ech/echtest"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 	"github.com/stretchr/testify/require"
 )
 

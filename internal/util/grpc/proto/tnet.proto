@@ -1,10 +1,10 @@
 syntax = "proto3";
-option go_package = "github.com/go-gost/core/common/util/grpc/proto";
+option go_package = "github.com/dolfly/core/common/util/grpc/proto";
 
 message Chunk {
   bytes data = 1;
 }
 
-service GostTunel {
+service TnetTunel {
   rpc Tunnel (stream Chunk) returns (stream Chunk);
 }

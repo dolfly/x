@@ -4,8 +4,8 @@ import (
 	"net"
 	"sync"
 
-	"github.com/go-gost/go-shadowsocks2/core"
-	"github.com/go-gost/go-shadowsocks2/shadowaead"
+	"github.com/dolfly/go-shadowsocks2/core"
+	"github.com/dolfly/go-shadowsocks2/shadowaead"
 )
 
 // AEADPacketConn wraps pc with per-packet salt+AEAD framing (the classic AEAD

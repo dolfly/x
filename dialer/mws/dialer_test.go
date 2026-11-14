@@ -6,11 +6,11 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/listener"
-	mws_listener "github.com/go-gost/x/listener/mws"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/listener"
+	mws_listener "github.com/dolfly/x/listener/mws"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 type netDialer struct{}

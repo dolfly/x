@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	xio "github.com/go-gost/x/internal/io"
+	xio "github.com/dolfly/x/internal/io"
 	proxyproto "github.com/pires/go-proxyproto"
 )
 
@@ -13,11 +13,11 @@ type testConn struct {
 	net.Conn
 }
 
-func (c *testConn) Close() error            { return nil }
-func (c *testConn) RemoteAddr() net.Addr    { return &net.TCPAddr{IP: net.IPv4(1, 2, 3, 4), Port: 1234} }
-func (c *testConn) LocalAddr() net.Addr     { return &net.TCPAddr{IP: net.IPv4(5, 6, 7, 8), Port: 5678} }
-func (c *testConn) CloseRead() error        { return xio.ErrUnsupported }
-func (c *testConn) CloseWrite() error       { return xio.ErrUnsupported }
+func (c *testConn) Close() error         { return nil }
+func (c *testConn) RemoteAddr() net.Addr { return &net.TCPAddr{IP: net.IPv4(1, 2, 3, 4), Port: 1234} }
+func (c *testConn) LocalAddr() net.Addr  { return &net.TCPAddr{IP: net.IPv4(5, 6, 7, 8), Port: 5678} }
+func (c *testConn) CloseRead() error     { return xio.ErrUnsupported }
+func (c *testConn) CloseWrite() error    { return xio.ErrUnsupported }
 
 type testListener struct {
 	net.Listener

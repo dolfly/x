@@ -3,8 +3,8 @@ package wrapper
 import (
 	"testing"
 
-	"github.com/go-gost/core/observer/stats"
-	ostats "github.com/go-gost/x/observer/stats"
+	"github.com/dolfly/core/observer/stats"
+	ostats "github.com/dolfly/x/observer/stats"
 )
 
 type fakeReadWriter struct {
@@ -78,7 +78,7 @@ func TestWrapReadWriter_ReadWrite(t *testing.T) {
 	wrapped := WrapReadWriter(frw, st)
 
 	buf := make([]byte, 5)
-	wrapped.Read(buf)  // reads 5 bytes
+	wrapped.Read(buf)            // reads 5 bytes
 	wrapped.Write([]byte("xyz")) // writes 3 bytes
 
 	if st.Get(stats.KindInputBytes) != 5 {

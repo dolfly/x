@@ -7,24 +7,24 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/traffic"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/relay"
-	xctx "github.com/go-gost/x/ctx"
-	stats_util "github.com/go-gost/x/internal/util/stats"
-	tls_util "github.com/go-gost/x/internal/util/tls"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	cache_limiter "github.com/go-gost/x/limiter/traffic/cache"
-	xstats "github.com/go-gost/x/observer/stats"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/traffic"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/relay"
+	xctx "github.com/dolfly/x/ctx"
+	stats_util "github.com/dolfly/x/internal/util/stats"
+	tls_util "github.com/dolfly/x/internal/util/tls"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	cache_limiter "github.com/dolfly/x/limiter/traffic/cache"
+	xstats "github.com/dolfly/x/observer/stats"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
+	"github.com/dolfly/x/registry"
 )
 
 var (
@@ -37,9 +37,9 @@ func init() {
 	registry.HandlerRegistry().Register("relay", NewHandler)
 }
 
-// relayHandler is the GOST relay protocol server handler.
+// relayHandler is the TNET relay protocol server handler.
 //
-// The GOST relay protocol is a custom multiplexed transport supporting three modes:
+// The TNET relay protocol is a custom multiplexed transport supporting three modes:
 //  1. Connect — the client requests a connection to a target address.
 //     The handler dials via the configured Router and pipes data bidirectionally.
 //     - Direct: handleConnect(), target address from the relay request.

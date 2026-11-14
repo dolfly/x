@@ -12,11 +12,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	xbypass "github.com/go-gost/x/bypass"
-	"github.com/go-gost/x/internal/util/sniffing"
-	xlogger "github.com/go-gost/x/logger"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	xbypass "github.com/dolfly/x/bypass"
+	"github.com/dolfly/x/internal/util/sniffing"
+	xlogger "github.com/dolfly/x/logger"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // policyBypass is a blacklist bypass whose rule set can change while a

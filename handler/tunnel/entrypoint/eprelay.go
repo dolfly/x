@@ -7,10 +7,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/relay"
-	xnet "github.com/go-gost/x/internal/net"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/relay"
+	xnet "github.com/dolfly/x/internal/net"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // handleConnect (entrypoint relay) processes a relay-protocol connection

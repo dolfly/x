@@ -1,7 +1,7 @@
 package registry
 
 import (
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/logger"
 )
 
 // loggerRegistry stores logger.Logger instances.

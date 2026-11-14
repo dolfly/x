@@ -8,9 +8,9 @@ import (
 	"math"
 	"net"
 
-	"github.com/go-gost/core/common/bufpool"
-	"github.com/go-gost/relay"
-	xrelay "github.com/go-gost/x/internal/util/relay"
+	"github.com/dolfly/core/common/bufpool"
+	"github.com/dolfly/relay"
+	xrelay "github.com/dolfly/x/internal/util/relay"
 )
 
 type packetConn struct {

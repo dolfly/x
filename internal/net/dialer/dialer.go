@@ -9,10 +9,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	ctxvalue "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xnet "github.com/go-gost/x/internal/net"
+	"github.com/dolfly/core/logger"
+	ctxvalue "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xnet "github.com/dolfly/x/internal/net"
 )
 
 const (

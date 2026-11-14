@@ -5,7 +5,7 @@ import (
 	"sync/atomic"
 	"testing"
 
-	limiter "github.com/go-gost/core/limiter/conn"
+	limiter "github.com/dolfly/core/limiter/conn"
 )
 
 func TestLimiter_Allow(t *testing.T) {

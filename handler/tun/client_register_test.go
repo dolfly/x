@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	tun_util "github.com/go-gost/x/internal/util/tun"
-	xlogger "github.com/go-gost/x/logger"
+	tun_util "github.com/dolfly/x/internal/util/tun"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 const testPassphrase = "0123456789abcdef"

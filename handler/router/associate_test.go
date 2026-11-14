@@ -8,11 +8,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/router"
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/relay"
-	"github.com/go-gost/x/internal/util/cache"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/router"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/relay"
+	"github.com/dolfly/x/internal/util/cache"
 )
 
 // ---------------------------------------------------------------------------

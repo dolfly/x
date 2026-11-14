@@ -5,9 +5,9 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/gosocks5"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/gosocks5"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 func testLogger() logger.Logger {

@@ -12,9 +12,9 @@ import (
 
 	"github.com/tidwall/gjson"
 
-	"github.com/go-gost/core/routing"
-	"github.com/go-gost/x/registry"
-	"github.com/go-gost/x/routing/rules"
+	"github.com/dolfly/core/routing"
+	"github.com/dolfly/x/registry"
+	"github.com/dolfly/x/routing/rules"
 	"golang.org/x/exp/slices"
 )
 

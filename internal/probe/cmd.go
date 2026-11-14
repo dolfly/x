@@ -7,9 +7,9 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/selector"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/selector"
 )
 
 // CmdProber runs a shell command to determine node health.

@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	xnet "github.com/go-gost/core/common/net"
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/core/logger"
-	mdx "github.com/go-gost/x/metadata"
+	xnet "github.com/dolfly/core/common/net"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/core/logger"
+	mdx "github.com/dolfly/x/metadata"
 )
 
 type testDialer struct {

@@ -5,9 +5,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/relay"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/relay"
 	"github.com/google/uuid"
 )
 

@@ -9,11 +9,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/admission"
-	xctx "github.com/go-gost/x/ctx"
-	xio "github.com/go-gost/x/internal/io"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/net/udp"
+	"github.com/dolfly/core/admission"
+	xctx "github.com/dolfly/x/ctx"
+	xio "github.com/dolfly/x/internal/io"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/net/udp"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -562,8 +562,8 @@ func (c *fakeConn) RemoteAddr() net.Addr {
 }
 
 func (c *fakeConn) SetDeadline(t time.Time) error      { return nil }
-func (c *fakeConn) SetReadDeadline(t time.Time) error   { return nil }
-func (c *fakeConn) SetWriteDeadline(t time.Time) error  { return nil }
+func (c *fakeConn) SetReadDeadline(t time.Time) error  { return nil }
+func (c *fakeConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // fakeSyscallConn implements syscall.Conn
 type fakeSyscallConn struct {
@@ -576,8 +576,8 @@ func (c *fakeSyscallConn) SyscallConn() (syscall.RawConn, error) {
 
 type fakeRawConn struct{}
 
-func (r *fakeRawConn) Control(f func(fd uintptr)) error  { f(0); return nil }
-func (r *fakeRawConn) Read(f func(fd uintptr) (done bool)) error { f(0); return nil }
+func (r *fakeRawConn) Control(f func(fd uintptr)) error           { f(0); return nil }
+func (r *fakeRawConn) Read(f func(fd uintptr) (done bool)) error  { f(0); return nil }
 func (r *fakeRawConn) Write(f func(fd uintptr) (done bool)) error { f(0); return nil }
 
 // plainNetConn is a net.Conn that does NOT implement xctx.Context.
@@ -587,12 +587,12 @@ type plainNetConn struct {
 
 func (c *plainNetConn) Read(b []byte) (n int, err error)   { return 0, nil }
 func (c *plainNetConn) Write(b []byte) (n int, err error)  { return len(b), nil }
-func (c *plainNetConn) Close() error                         { return nil }
-func (c *plainNetConn) LocalAddr() net.Addr                  { return &net.TCPAddr{} }
-func (c *plainNetConn) RemoteAddr() net.Addr                 { return c.raddr }
-func (c *plainNetConn) SetDeadline(t time.Time) error        { return nil }
-func (c *plainNetConn) SetReadDeadline(t time.Time) error    { return nil }
-func (c *plainNetConn) SetWriteDeadline(t time.Time) error   { return nil }
+func (c *plainNetConn) Close() error                       { return nil }
+func (c *plainNetConn) LocalAddr() net.Addr                { return &net.TCPAddr{} }
+func (c *plainNetConn) RemoteAddr() net.Addr               { return c.raddr }
+func (c *plainNetConn) SetDeadline(t time.Time) error      { return nil }
+func (c *plainNetConn) SetReadDeadline(t time.Time) error  { return nil }
+func (c *plainNetConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // fakeCloseReadConn implements xio.CloseRead
 type fakeCloseReadConn struct {
@@ -643,15 +643,15 @@ func (pc *fakePacketConn) WriteTo(p []byte, addr net.Addr) (n int, err error) {
 
 func (pc *fakePacketConn) Close() error                       { return nil }
 func (pc *fakePacketConn) LocalAddr() net.Addr                { return &net.UDPAddr{} }
-func (pc *fakePacketConn) SetDeadline(t time.Time) error             { return nil }
-func (pc *fakePacketConn) SetReadDeadline(t time.Time) error         { return nil }
-func (pc *fakePacketConn) SetWriteDeadline(t time.Time) error        { return nil }
+func (pc *fakePacketConn) SetDeadline(t time.Time) error      { return nil }
+func (pc *fakePacketConn) SetReadDeadline(t time.Time) error  { return nil }
+func (pc *fakePacketConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // dynamicPacketConn for testing deny loops
 type dynamicPacketConn struct {
-	addr    net.Addr
-	data    []byte
-	onRead  func() error
+	addr   net.Addr
+	data   []byte
+	onRead func() error
 }
 
 func (pc *dynamicPacketConn) ReadFrom(p []byte) (n int, addr net.Addr, err error) {
@@ -668,9 +668,9 @@ func (pc *dynamicPacketConn) WriteTo(p []byte, addr net.Addr) (n int, err error)
 
 func (pc *dynamicPacketConn) Close() error                       { return nil }
 func (pc *dynamicPacketConn) LocalAddr() net.Addr                { return &net.UDPAddr{} }
-func (pc *dynamicPacketConn) SetDeadline(t time.Time) error             { return nil }
-func (pc *dynamicPacketConn) SetReadDeadline(t time.Time) error         { return nil }
-func (pc *dynamicPacketConn) SetWriteDeadline(t time.Time) error        { return nil }
+func (pc *dynamicPacketConn) SetDeadline(t time.Time) error      { return nil }
+func (pc *dynamicPacketConn) SetReadDeadline(t time.Time) error  { return nil }
+func (pc *dynamicPacketConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // fakeReaderPacketConn implements io.Reader on top of PacketConn
 type fakeReaderPacketConn struct {
@@ -697,9 +697,9 @@ func (pc *fakeReaderPacketConn) WriteTo(p []byte, addr net.Addr) (n int, err err
 
 func (pc *fakeReaderPacketConn) Close() error                       { return nil }
 func (pc *fakeReaderPacketConn) LocalAddr() net.Addr                { return &net.UDPAddr{} }
-func (pc *fakeReaderPacketConn) SetDeadline(t time.Time) error             { return nil }
-func (pc *fakeReaderPacketConn) SetReadDeadline(t time.Time) error         { return nil }
-func (pc *fakeReaderPacketConn) SetWriteDeadline(t time.Time) error        { return nil }
+func (pc *fakeReaderPacketConn) SetDeadline(t time.Time) error      { return nil }
+func (pc *fakeReaderPacketConn) SetReadDeadline(t time.Time) error  { return nil }
+func (pc *fakeReaderPacketConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // fakeWriterPacketConn implements io.Writer on top of PacketConn
 type fakeWriterPacketConn struct{}
@@ -718,9 +718,9 @@ func (pc *fakeWriterPacketConn) WriteTo(p []byte, addr net.Addr) (n int, err err
 
 func (pc *fakeWriterPacketConn) Close() error                       { return nil }
 func (pc *fakeWriterPacketConn) LocalAddr() net.Addr                { return &net.UDPAddr{} }
-func (pc *fakeWriterPacketConn) SetDeadline(t time.Time) error             { return nil }
-func (pc *fakeWriterPacketConn) SetReadDeadline(t time.Time) error         { return nil }
-func (pc *fakeWriterPacketConn) SetWriteDeadline(t time.Time) error        { return nil }
+func (pc *fakeWriterPacketConn) SetDeadline(t time.Time) error      { return nil }
+func (pc *fakeWriterPacketConn) SetReadDeadline(t time.Time) error  { return nil }
+func (pc *fakeWriterPacketConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // fakeReadUDPPacketConn implements udp.ReadUDP
 type fakeReadUDPPacketConn struct {
@@ -756,15 +756,15 @@ func (pc *fakeReadUDPPacketConn) WriteTo(p []byte, addr net.Addr) (n int, err er
 
 func (pc *fakeReadUDPPacketConn) Close() error                       { return nil }
 func (pc *fakeReadUDPPacketConn) LocalAddr() net.Addr                { return &net.UDPAddr{} }
-func (pc *fakeReadUDPPacketConn) SetDeadline(t time.Time) error             { return nil }
-func (pc *fakeReadUDPPacketConn) SetReadDeadline(t time.Time) error         { return nil }
-func (pc *fakeReadUDPPacketConn) SetWriteDeadline(t time.Time) error        { return nil }
+func (pc *fakeReadUDPPacketConn) SetDeadline(t time.Time) error      { return nil }
+func (pc *fakeReadUDPPacketConn) SetReadDeadline(t time.Time) error  { return nil }
+func (pc *fakeReadUDPPacketConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // dynamicReadUDPPacketConn for testing deny loops in ReadUDP methods
 type dynamicReadUDPPacketConn struct {
-	addr    *net.UDPAddr
-	data    []byte
-	onRead  func() error
+	addr   *net.UDPAddr
+	data   []byte
+	onRead func() error
 }
 
 func (pc *dynamicReadUDPPacketConn) ReadFrom(p []byte) (n int, addr net.Addr, err error) {
@@ -794,9 +794,9 @@ func (pc *dynamicReadUDPPacketConn) WriteTo(p []byte, addr net.Addr) (n int, err
 
 func (pc *dynamicReadUDPPacketConn) Close() error                       { return nil }
 func (pc *dynamicReadUDPPacketConn) LocalAddr() net.Addr                { return &net.UDPAddr{} }
-func (pc *dynamicReadUDPPacketConn) SetDeadline(t time.Time) error             { return nil }
-func (pc *dynamicReadUDPPacketConn) SetReadDeadline(t time.Time) error         { return nil }
-func (pc *dynamicReadUDPPacketConn) SetWriteDeadline(t time.Time) error        { return nil }
+func (pc *dynamicReadUDPPacketConn) SetDeadline(t time.Time) error      { return nil }
+func (pc *dynamicReadUDPPacketConn) SetReadDeadline(t time.Time) error  { return nil }
+func (pc *dynamicReadUDPPacketConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // fakeWriteUDPPacketConn implements udp.WriteUDP
 type fakeWriteUDPPacketConn struct{}
@@ -819,9 +819,9 @@ func (pc *fakeWriteUDPPacketConn) WriteMsgUDP(b, oob []byte, addr *net.UDPAddr) 
 
 func (pc *fakeWriteUDPPacketConn) Close() error                       { return nil }
 func (pc *fakeWriteUDPPacketConn) LocalAddr() net.Addr                { return &net.UDPAddr{} }
-func (pc *fakeWriteUDPPacketConn) SetDeadline(t time.Time) error             { return nil }
-func (pc *fakeWriteUDPPacketConn) SetReadDeadline(t time.Time) error         { return nil }
-func (pc *fakeWriteUDPPacketConn) SetWriteDeadline(t time.Time) error        { return nil }
+func (pc *fakeWriteUDPPacketConn) SetDeadline(t time.Time) error      { return nil }
+func (pc *fakeWriteUDPPacketConn) SetReadDeadline(t time.Time) error  { return nil }
+func (pc *fakeWriteUDPPacketConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // fakeRemoteAddrPacketConn implements xnet.RemoteAddr
 type fakeRemoteAddrPacketConn struct {
@@ -879,25 +879,25 @@ func (alwaysDenyAdmission) Admit(ctx context.Context, network, addr string, opts
 
 // Compile-time checks
 var (
-	_ net.Conn      = (*fakeConn)(nil)
+	_ net.Conn       = (*fakeConn)(nil)
 	_ net.PacketConn = (*fakePacketConn)(nil)
-	_ io.Reader     = (*fakeReaderPacketConn)(nil)
-	_ io.Writer     = (*fakeWriterPacketConn)(nil)
-	_ udp.ReadUDP   = (*fakeReadUDPPacketConn)(nil)
-	_ udp.WriteUDP  = (*fakeWriteUDPPacketConn)(nil)
+	_ io.Reader      = (*fakeReaderPacketConn)(nil)
+	_ io.Writer      = (*fakeWriterPacketConn)(nil)
+	_ udp.ReadUDP    = (*fakeReadUDPPacketConn)(nil)
+	_ udp.WriteUDP   = (*fakeWriteUDPPacketConn)(nil)
 )
 
 // Also test that generic types compile
 var (
-	_ syscall.Conn    = (*fakeSyscallConn)(nil)
-	_ xio.CloseRead   = (*fakeCloseReadConn)(nil)
-	_ xio.CloseWrite  = (*fakeCloseWriteConn)(nil)
-	_ xctx.Context    = (*fakeContextConn)(nil)
-	_ xnet.SetBuffer  = (*fakeSetBufferPacketConn)(nil)
+	_ syscall.Conn     = (*fakeSyscallConn)(nil)
+	_ xio.CloseRead    = (*fakeCloseReadConn)(nil)
+	_ xio.CloseWrite   = (*fakeCloseWriteConn)(nil)
+	_ xctx.Context     = (*fakeContextConn)(nil)
+	_ xnet.SetBuffer   = (*fakeSetBufferPacketConn)(nil)
 	_ xnet.SyscallConn = (*fakeSyscallPacketConn)(nil)
-	_ xnet.RemoteAddr = (*fakeRemoteAddrPacketConn)(nil)
-	_ xnet.SetDSCP    = (*fakeSetDSCPPacketConn)(nil)
-	_ xctx.Context    = (*fakeContextPacketConn)(nil)
+	_ xnet.RemoteAddr  = (*fakeRemoteAddrPacketConn)(nil)
+	_ xnet.SetDSCP     = (*fakeSetDSCPPacketConn)(nil)
+	_ xctx.Context     = (*fakeContextPacketConn)(nil)
 )
 
 // Test that errors are handled correctly

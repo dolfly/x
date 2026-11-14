@@ -22,19 +22,19 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/relay"
-	dissector "github.com/go-gost/tls-dissector"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	xstats "github.com/go-gost/x/observer/stats"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/relay"
+	dissector "github.com/dolfly/tls-dissector"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	xstats "github.com/dolfly/x/observer/stats"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // entrypoint errors — mirror of tunnel.ErrTunnelRoute and tunnel.ErrPrivateTunnel
@@ -71,7 +71,7 @@ type Entrypoint struct {
 	transport http.RoundTripper
 
 	// sniffingWebsocket enables WebSocket frame-level recording.
-	sniffingWebsocket   bool
+	sniffingWebsocket bool
 	// websocketSampleRate controls the rate-limiter for WebSocket frame
 	// recording samples. 0 defaults to sniffing.DefaultSampleRate.
 	websocketSampleRate float64

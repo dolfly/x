@@ -5,7 +5,7 @@ import (
 	"net"
 	"testing"
 
-	traffic "github.com/go-gost/core/limiter/traffic"
+	traffic "github.com/dolfly/core/limiter/traffic"
 )
 
 type testListener struct {

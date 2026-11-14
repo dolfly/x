@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/x/internal/net/udp"
-	ostats "github.com/go-gost/x/observer/stats"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/x/internal/net/udp"
+	ostats "github.com/dolfly/x/observer/stats"
 )
 
 // --- mock types ---

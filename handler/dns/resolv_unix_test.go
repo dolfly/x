@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	xmd "github.com/go-gost/x/metadata"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 // TestInit_SystemNameservers covers the middle rung of the Init fallback

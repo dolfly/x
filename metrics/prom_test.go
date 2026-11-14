@@ -3,7 +3,7 @@ package metrics
 import (
 	"testing"
 
-	"github.com/go-gost/core/metrics"
+	"github.com/dolfly/core/metrics"
 )
 
 func TestPromMetricsGaugeHostLabel(t *testing.T) {

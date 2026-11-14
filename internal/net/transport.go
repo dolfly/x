@@ -3,7 +3,7 @@ package net
 import (
 	"io"
 
-	"github.com/go-gost/core/common/bufpool"
+	"github.com/dolfly/core/common/bufpool"
 )
 
 const (

@@ -9,28 +9,28 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/logger"
 )
 
 // nopLogger is a no-op logger for testing
 type nopLogger struct{}
 
-func (l *nopLogger) WithFields(map[string]any) logger.Logger      { return l }
-func (l *nopLogger) Trace(args ...any)                             {}
-func (l *nopLogger) Tracef(format string, args ...any)             {}
-func (l *nopLogger) Debug(args ...any)                             {}
-func (l *nopLogger) Debugf(format string, args ...any)             {}
-func (l *nopLogger) Info(args ...any)                              {}
-func (l *nopLogger) Infof(format string, args ...any)              {}
-func (l *nopLogger) Warn(args ...any)                              {}
-func (l *nopLogger) Warnf(format string, args ...any)              {}
-func (l *nopLogger) Error(args ...any)                             {}
-func (l *nopLogger) Errorf(format string, args ...any)             {}
-func (l *nopLogger) Fatal(args ...any)                             {}
-func (l *nopLogger) Fatalf(format string, args ...any)             {}
-func (l *nopLogger) GetLevel() logger.LogLevel                     { return logger.InfoLevel }
-func (l *nopLogger) IsLevelEnabled(level logger.LogLevel) bool     { return false }
+func (l *nopLogger) WithFields(map[string]any) logger.Logger   { return l }
+func (l *nopLogger) Trace(args ...any)                         {}
+func (l *nopLogger) Tracef(format string, args ...any)         {}
+func (l *nopLogger) Debug(args ...any)                         {}
+func (l *nopLogger) Debugf(format string, args ...any)         {}
+func (l *nopLogger) Info(args ...any)                          {}
+func (l *nopLogger) Infof(format string, args ...any)          {}
+func (l *nopLogger) Warn(args ...any)                          {}
+func (l *nopLogger) Warnf(format string, args ...any)          {}
+func (l *nopLogger) Error(args ...any)                         {}
+func (l *nopLogger) Errorf(format string, args ...any)         {}
+func (l *nopLogger) Fatal(args ...any)                         {}
+func (l *nopLogger) Fatalf(format string, args ...any)         {}
+func (l *nopLogger) GetLevel() logger.LogLevel                 { return logger.InfoLevel }
+func (l *nopLogger) IsLevelEnabled(level logger.LogLevel) bool { return false }
 
 // mockPacketConn implements net.PacketConn for unit testing
 type mockPacketConn struct {
@@ -43,8 +43,8 @@ type mockPacketConn struct {
 
 	// closedCh is closed on Close, so a test readFn can block until the relay
 	// releases the conn.
-	closedCh   chan struct{}
-	closeOnce  sync.Once
+	closedCh  chan struct{}
+	closeOnce sync.Once
 	// deadlineCh is closed on the first SetReadDeadline call, so a test readFn
 	// can observe that the relay armed an idle read timeout.
 	deadlineCh   chan struct{}
@@ -89,8 +89,8 @@ func (m *mockPacketConn) isClosed() bool {
 	return m.closed
 }
 
-func (m *mockPacketConn) LocalAddr() net.Addr                { return m.localAddr }
-func (m *mockPacketConn) SetDeadline(t time.Time) error      { return nil }
+func (m *mockPacketConn) LocalAddr() net.Addr           { return m.localAddr }
+func (m *mockPacketConn) SetDeadline(t time.Time) error { return nil }
 func (m *mockPacketConn) SetReadDeadline(t time.Time) error {
 	m.deadlineOnce.Do(func() { close(m.deadlineCh) })
 	return nil
@@ -530,7 +530,7 @@ func Test_Relay_Run(t *testing.T) {
 	}
 	pc2.writeFn = func(b []byte, addr net.Addr) (int, error) {
 		received = append(received, b...)
-		
+
 		close(writeDone)
 		return len(b), nil
 	}

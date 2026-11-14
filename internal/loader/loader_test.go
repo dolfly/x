@@ -214,8 +214,8 @@ func TestRedisLoaderOption_NilOption(t *testing.T) {
 }
 
 func TestRedisLoaderOption_DefaultKey(t *testing.T) {
-	if DefaultRedisKey != "gost" {
-		t.Fatalf("got DefaultRedisKey %q, want %q", DefaultRedisKey, "gost")
+	if DefaultRedisKey != "tnet" {
+		t.Fatalf("got DefaultRedisKey %q, want %q", DefaultRedisKey, "tnet")
 	}
 }
 

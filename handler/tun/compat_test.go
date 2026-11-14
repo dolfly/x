@@ -10,13 +10,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/logger"
-	ictx "github.com/go-gost/x/internal/ctx"
-	tun_util "github.com/go-gost/x/internal/util/tun"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/logger"
+	ictx "github.com/dolfly/x/internal/ctx"
+	tun_util "github.com/dolfly/x/internal/util/tun"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 // The claim this file exists to test: a spoke cannot tell which hub it reached.

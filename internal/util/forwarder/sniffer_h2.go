@@ -11,10 +11,10 @@ import (
 	"net/http/httputil"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/recorder"
-	xhttp "github.com/go-gost/x/internal/net/http"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/recorder"
+	xhttp "github.com/dolfly/x/internal/net/http"
+	xrecorder "github.com/dolfly/x/recorder"
 	"golang.org/x/net/http2"
 )
 

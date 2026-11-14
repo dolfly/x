@@ -6,16 +6,16 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/core/service"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	xrecorder "github.com/go-gost/x/recorder"
-	xservice "github.com/go-gost/x/service"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/core/service"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	xrecorder "github.com/dolfly/x/recorder"
+	xservice "github.com/dolfly/x/service"
 
-	epkg "github.com/go-gost/x/handler/tunnel/entrypoint"
+	epkg "github.com/dolfly/x/handler/tunnel/entrypoint"
 )
 
 // initEntrypoints starts all configured entrypoint services.
@@ -54,7 +54,7 @@ func (h *tunnelHandler) initEntrypoints() (err error) {
 	return
 }
 
-// createEntrypointService creates a GOST service wrapping an entrypoint
+// createEntrypointService creates a TNET service wrapping an entrypoint
 // listener and handler for the given address and ingress rule table.
 //
 // It constructs:
@@ -63,7 +63,7 @@ func (h *tunnelHandler) initEntrypoints() (err error) {
 //  2. An epkg.Entrypoint via epkg.New() with all configured options.
 //  3. A TCP listener via net.Listen and epkg.NewTCPListener.
 //  4. An entrypoint handler via epkg.NewHandler.
-//  5. A GOST service via xservice.NewService.
+//  5. A TNET service via xservice.NewService.
 //
 // The recorder object is selected from h.options.Recorders by matching
 // RecorderServiceHandler record type.
@@ -80,7 +80,7 @@ func (h *tunnelHandler) createEntrypointService(addr string, ing ingress.Ingress
 		realCtx := ctx.(context.Context)
 
 		// Apply connector-level recording preferences to the recorder object.
-		// Per-request Gost-Record header takes precedence — only set when empty.
+		// Per-request Tnet-Record header takes precedence — only set when empty.
 		if md := h.pool.GetMetadata(tid); len(md) > 0 {
 			if ro := ictx.RecorderObjectFromContext(realCtx); ro != nil && ro.RecordMode == "" {
 				if mode, ok := md["record.mode"]; ok {

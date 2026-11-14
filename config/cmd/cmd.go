@@ -14,13 +14,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/x/config"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/limiter/conn"
-	"github.com/go-gost/x/limiter/traffic"
-	mdx "github.com/go-gost/x/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/x/config"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/limiter/conn"
+	"github.com/dolfly/x/limiter/traffic"
+	mdx "github.com/dolfly/x/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
+	"github.com/dolfly/x/registry"
 )
 
 var (
@@ -382,7 +382,7 @@ func cutHost(s string) (host, remain string) {
 // address; a non-empty path for other protocols indicates forwarding mode.
 func buildServiceConfig(url *url.URL) ([]*config.ServiceConfig, error) {
 	namePrefix := ""
-	if v := os.Getenv("_GOST_ID"); v != "" {
+	if v := os.Getenv("_TNET_ID"); v != "" {
 		namePrefix = fmt.Sprintf("go-%s@", v)
 	}
 

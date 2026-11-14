@@ -11,12 +11,12 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	ctxvalue "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/util/socks"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	ctxvalue "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/util/socks"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {
@@ -82,7 +82,7 @@ func (c *httpConnector) Connect(ctx context.Context, conn net.Conn, network, add
 			return nil, err
 		}
 	case "udp", "udp4", "udp6":
-		req.Header.Set("X-Gost-Protocol", "udp")
+		req.Header.Set("X-Tnet-Protocol", "udp")
 	default:
 		err := fmt.Errorf("network %s is unsupported", network)
 		log.Error(err)

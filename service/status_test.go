@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/observer/stats"
+	"github.com/dolfly/core/observer/stats"
 )
 
 func TestStatusCreateAndState(t *testing.T) {

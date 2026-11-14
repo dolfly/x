@@ -11,13 +11,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	tun_util "github.com/go-gost/x/internal/util/tun"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	tun_util "github.com/dolfly/x/internal/util/tun"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // p2pHandler is the tun hub's p2p door: one p2pHub for the life of the handler,

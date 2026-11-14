@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/dolfly/x/config"
+	parser "github.com/dolfly/x/config/parsing/limiter"
+	"github.com/dolfly/x/registry"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/x/config"
-	parser "github.com/go-gost/x/config/parsing/limiter"
-	"github.com/go-gost/x/registry"
 )
 
 // swagger:parameters getRateLimiterListRequest
@@ -23,7 +23,7 @@ type getRateLimiterListResponse struct {
 }
 
 type rateLimiterList struct {
-	Count int                       `json:"count"`
+	Count int                     `json:"count"`
 	List  []*config.LimiterConfig `json:"list"`
 }
 
@@ -84,7 +84,7 @@ func getRateLimiter(ctx *gin.Context) {
 
 	var resp getRateLimiterResponse
 
-	for _, limiter := range config.Global().CLimiters{
+	for _, limiter := range config.Global().CLimiters {
 		if limiter == nil {
 			continue
 		}

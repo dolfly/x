@@ -3,12 +3,12 @@ package router
 import (
 	"time"
 
-	"github.com/go-gost/core/ingress"
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/router"
-	"github.com/go-gost/core/sd"
-	mdutil "github.com/go-gost/x/metadata/util"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/ingress"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/router"
+	"github.com/dolfly/core/sd"
+	mdutil "github.com/dolfly/x/metadata/util"
+	"github.com/dolfly/x/registry"
 )
 
 const (
@@ -30,7 +30,7 @@ const (
 // metadata holds the parsed configuration for the router handler.
 //
 // All fields are populated by parseMetadata during Init. Configuration
-// values come from the GOST config file, CLI flags, and environment
+// values come from the TNET config file, CLI flags, and environment
 // variables — merged by the parser framework.
 type metadata struct {
 	// readTimeout is the deadline for reading the initial relay protocol

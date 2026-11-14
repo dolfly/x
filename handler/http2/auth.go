@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/logger"
 )
 
 func (h *http2Handler) basicProxyAuth(proxyAuth string) (username, password string, ok bool) {

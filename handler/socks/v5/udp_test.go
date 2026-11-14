@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"testing"
 
-	xnet "github.com/go-gost/x/internal/net"
-	xmetadata "github.com/go-gost/x/metadata"
+	xnet "github.com/dolfly/x/internal/net"
+	xmetadata "github.com/dolfly/x/metadata"
 )
 
 func TestParseMetadataUDPBindDevice(t *testing.T) {

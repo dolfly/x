@@ -3,15 +3,15 @@ package masque
 import (
 	"time"
 
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 const (
 	// defaultBufferSize is the default UDP relay buffer size in bytes.
 	defaultBufferSize = 4096
 	// defaultRealm is the default HTTP Basic authentication realm for proxy auth.
-	defaultRealm = "gost"
+	defaultRealm = "tnet"
 )
 
 // metadata holds parsed configuration values for the MASQUE handler.

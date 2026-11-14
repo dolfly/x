@@ -12,17 +12,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/admission"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	xctx "github.com/go-gost/x/ctx"
-	connwrapper "github.com/go-gost/x/limiter/conn/wrapper"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/admission"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	xctx "github.com/dolfly/x/ctx"
+	connwrapper "github.com/dolfly/x/limiter/conn/wrapper"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // --- Mocks ---
@@ -236,7 +236,7 @@ func TestServeAcceptsConnection(t *testing.T) {
 	}
 }
 
-// gost#914: a single rejected connection must not end the accept loop. The conn
+// tnet#914: a single rejected connection must not end the accept loop. The conn
 // limiter's wrapper signals an over-limit connection by returning a plain error
 // from Accept, which the loop used to treat as fatal — so one rejection took the
 // whole service down and every later connection was refused until a restart.

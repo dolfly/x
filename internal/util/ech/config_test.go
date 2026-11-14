@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 	"github.com/miekg/dns"
 	"github.com/stretchr/testify/require"
 )

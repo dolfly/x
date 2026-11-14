@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/traffic"
-	xio "github.com/go-gost/x/internal/io"
-	ctxutil "github.com/go-gost/x/ctx"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/traffic"
+	ctxutil "github.com/dolfly/x/ctx"
+	xio "github.com/dolfly/x/internal/io"
 )
 
 // --- mock types ---
@@ -411,11 +411,11 @@ func TestUDPConn_Write_RateLimited(t *testing.T) {
 // --- interface compliance ---
 
 var (
-	_ net.Conn     = (*limitConn)(nil)
-	_ net.Conn     = (*struct{ net.Conn })(nil)
-	_ xio.CloseRead  = (*limitConn)(nil)
-	_ xio.CloseWrite = (*limitConn)(nil)
-	_ syscall.Conn   = (*limitConn)(nil)
+	_ net.Conn        = (*limitConn)(nil)
+	_ net.Conn        = (*struct{ net.Conn })(nil)
+	_ xio.CloseRead   = (*limitConn)(nil)
+	_ xio.CloseWrite  = (*limitConn)(nil)
+	_ syscall.Conn    = (*limitConn)(nil)
 	_ ctxutil.Context = (*limitConn)(nil)
 
 	_ DroppedPacketCounter = (*packetConn)(nil)

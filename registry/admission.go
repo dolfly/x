@@ -3,7 +3,7 @@ package registry
 import (
 	"context"
 
-	"github.com/go-gost/core/admission"
+	"github.com/dolfly/core/admission"
 )
 
 // admissionRegistry implements a hot-reload-safe registry for admission.Admission.

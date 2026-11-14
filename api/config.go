@@ -8,11 +8,11 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/registry"
+	"github.com/dolfly/x/service"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/registry"
-	"github.com/go-gost/x/service"
 )
 
 type serviceStatus interface {
@@ -132,7 +132,7 @@ type saveConfigRequest struct {
 	// output format, one of yaml|json, default is derived from the file extension.
 	// in: query
 	Format string `form:"format" json:"format"`
-	// file path, default is the loaded config file, or gost.yaml|gost.json in
+	// file path, default is the loaded config file, or tnet.yaml|tnet.json in
 	// the current working directory when no config file was loaded.
 	// in: query
 	Path string `form:"path" json:"path"`
@@ -147,7 +147,7 @@ type saveConfigResponse struct {
 func saveConfig(ctx *gin.Context) {
 	// swagger:route POST /config Config saveConfigRequest
 	//
-	// Save current config to file (gost.yaml or gost.json).
+	// Save current config to file (tnet.yaml or tnet.json).
 	//
 	//     Security:
 	//       basicAuth: []
@@ -165,9 +165,9 @@ func saveConfig(ctx *gin.Context) {
 		file = config.ConfigFile()
 	}
 	if file == "" {
-		file = "gost.yaml"
+		file = "tnet.yaml"
 		if req.Format == "json" {
-			file = "gost.json"
+			file = "tnet.json"
 		}
 	}
 	switch strings.ToLower(req.Format) {

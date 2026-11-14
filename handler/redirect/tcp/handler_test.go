@@ -10,12 +10,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	dissector "github.com/go-gost/tls-dissector"
-	xbypass "github.com/go-gost/x/bypass"
-	xlogger "github.com/go-gost/x/logger"
-	mdata "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	dissector "github.com/dolfly/tls-dissector"
+	xbypass "github.com/dolfly/x/bypass"
+	xlogger "github.com/dolfly/x/logger"
+	mdata "github.com/dolfly/x/metadata"
 )
 
 // errStubDial is the error the stub router returns for every dial, so the
@@ -85,7 +85,7 @@ func (r *dialRouter) Bind(context.Context, string, string, ...chain.BindOption) 
 	return nil, errors.New("bind failed")
 }
 
-// gost#913: an unhandled protocol must not only reach the backend, it must
+// tnet#913: an unhandled protocol must not only reach the backend, it must
 // arrive intact — the sniffed-but-unread bytes have to be replayed through
 // io.MultiReader ahead of the rest of the stream.
 func TestHandler_UnhandledProtoPayloadReplayedIntact(t *testing.T) {
@@ -149,7 +149,7 @@ func TestHandler_UnhandledProtoPayloadReplayedIntact(t *testing.T) {
 	go h.Handle(context.Background(), conn)
 
 	// The client speaks first, with a greeting the sniffer classifies as ssh.
-	const greeting = "SSH-2.0-gost\r\n"
+	const greeting = "SSH-2.0-tnet\r\n"
 	if _, err := client.Write([]byte(greeting)); err != nil {
 		t.Fatal(err)
 	}
@@ -166,7 +166,7 @@ func TestHandler_UnhandledProtoPayloadReplayedIntact(t *testing.T) {
 	}
 }
 
-// gost#891 / gost#913: sniffing.fallback governs only what happens after
+// tnet#891 / tnet#913: sniffing.fallback governs only what happens after
 // HTTP/TLS handling fails. A ClientHello that Sniff classifies as TLS but
 // ParseClientHello rejects must be dropped when fallback is off, and replayed
 // verbatim to the backend when it is on — the bytes the sniffer consumed must
@@ -295,7 +295,7 @@ func TestHandler_TLSHandlingFailureRespectsFallback(t *testing.T) {
 	})
 }
 
-// gost#899: a whitelist bypass containing only domains must not reject the
+// tnet#899: a whitelist bypass containing only domains must not reject the
 // destination IP before sniffing runs. The sniffer matches the SNI host, so a
 // whitelisted domain (example.com) is forwarded even though its bare IP is
 // never in the whitelist.
@@ -357,7 +357,7 @@ func TestHandler_WhitelistDomainForwarded(t *testing.T) {
 	}
 }
 
-// gost#913: a protocol the sniffer does not classify must fall through to raw
+// tnet#913: a protocol the sniffer does not classify must fall through to raw
 // forwarding to the original dstAddr, exactly as it did before 3.3.0, no matter
 // what sniffing.fallback is set to. sniffing.fallback only governs what happens
 // after HTTP/TLS handling fails.
@@ -366,7 +366,7 @@ func TestHandler_UnhandledProtoFallsThroughToRawForwarding(t *testing.T) {
 		name    string
 		payload []byte
 	}{
-		{"ssh", []byte("SSH-2.0-gost\r\n")},
+		{"ssh", []byte("SSH-2.0-tnet\r\n")},
 		{"redis", []byte("*1\r\n$4\r\nPING\r\n")},
 	}
 
@@ -423,7 +423,7 @@ func TestHandler_UnhandledProtoFallsThroughToRawForwarding(t *testing.T) {
 	}
 }
 
-// gost#913: when the client sends nothing within sniffing.timeout, Sniff
+// tnet#913: when the client sends nothing within sniffing.timeout, Sniff
 // returns an empty proto. That is also "not handled by the sniffer" and must
 // reach raw forwarding rather than closing the connection.
 func TestHandler_SniffTimeoutFallsThroughToRawForwarding(t *testing.T) {
@@ -471,7 +471,7 @@ func TestHandler_SniffTimeoutFallsThroughToRawForwarding(t *testing.T) {
 	}
 }
 
-// gost#899 (security): a non-whitelisted host must still be rejected, so the
+// tnet#899 (security): a non-whitelisted host must still be rejected, so the
 // pre-sniffing skip does not let arbitrary traffic through in whitelist mode.
 func TestHandler_WhitelistRejectsNonWhitelistedHost(t *testing.T) {
 	bp := xbypass.NewBypass(

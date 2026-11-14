@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/cache"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/cache"
+	"github.com/dolfly/core/logger"
 )
 
 // EvictionPolicy selects which entry to remove when the cache is full.

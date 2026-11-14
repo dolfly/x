@@ -4,13 +4,13 @@ import (
 	"context"
 	"time"
 
-	"github.com/go-gost/core/cache"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/cache"
+	"github.com/dolfly/core/logger"
 	"github.com/go-redis/redis/v8"
 )
 
 // defaultKeyPrefix is prepended to cache keys when RedisOptions.KeyPrefix is empty.
-const defaultKeyPrefix = "gost:cache:"
+const defaultKeyPrefix = "tnet:cache:"
 
 // RedisOptions configures a Redis cache.
 type RedisOptions struct {
@@ -25,7 +25,7 @@ type RedisOptions struct {
 	// DefaultTTL is applied to entries stored without an explicit TTL.
 	// A non-positive value means entries never expire by default.
 	DefaultTTL time.Duration
-	// KeyPrefix is prepended to all cache keys. Defaults to "gost:cache:".
+	// KeyPrefix is prepended to all cache keys. Defaults to "tnet:cache:".
 	KeyPrefix string
 	// Logger is used for debug logging. Optional.
 	Logger logger.Logger

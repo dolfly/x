@@ -3,11 +3,11 @@ package api
 import (
 	"net/http"
 
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/config/loader"
+	"github.com/dolfly/x/config/parsing/parser"
+	"github.com/dolfly/x/registry"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/config/loader"
-	"github.com/go-gost/x/config/parsing/parser"
-	"github.com/go-gost/x/registry"
 )
 
 // swagger:parameters reloadConfigRequest

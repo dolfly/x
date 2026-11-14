@@ -11,16 +11,16 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/observer/stats"
-	xctx "github.com/go-gost/x/ctx"
-	xio "github.com/go-gost/x/internal/io"
-	xnet "github.com/go-gost/x/internal/net"
-	xhttp "github.com/go-gost/x/internal/net/http"
-	"github.com/go-gost/x/internal/util/httpcache"
-	xstats "github.com/go-gost/x/observer/stats"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/observer/stats"
+	xctx "github.com/dolfly/x/ctx"
+	xio "github.com/dolfly/x/internal/io"
+	xnet "github.com/dolfly/x/internal/net"
+	xhttp "github.com/dolfly/x/internal/net/http"
+	"github.com/dolfly/x/internal/util/httpcache"
+	xstats "github.com/dolfly/x/observer/stats"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // HandleHTTP sniffs and proxies an HTTP connection. It reads the initial
@@ -240,10 +240,10 @@ func (h *Sniffer) httpRoundTrip(ctx context.Context, rw, cc io.ReadWriteCloser, 
 	*ro2 = *ro
 	ro = ro2
 
-	if v := req.Header.Get("Gost-Record"); v != "" {
+	if v := req.Header.Get("Tnet-Record"); v != "" {
 		ro.RecordMode = strings.ToLower(v)
 	}
-	req.Header.Del("Gost-Record")
+	req.Header.Del("Tnet-Record")
 
 	ro.Time = time.Now()
 	session := h.sessionRecorder().NewSession(ctx, pStats)

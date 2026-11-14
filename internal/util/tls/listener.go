@@ -5,7 +5,7 @@ import (
 	"crypto/tls"
 	"net"
 
-	"github.com/go-gost/x/ctx"
+	"github.com/dolfly/x/ctx"
 )
 
 type listener struct {

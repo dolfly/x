@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/chain"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 func TestNewExchanger_UDP(t *testing.T) {

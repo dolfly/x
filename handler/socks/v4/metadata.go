@@ -6,10 +6,10 @@ import (
 	"crypto/x509"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/bypass"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
+	"github.com/dolfly/x/registry"
 )
 
 type metadata struct {
@@ -19,8 +19,8 @@ type metadata struct {
 	// subsequent data transfer. Also passed to SnifferBuilder for the
 	// upstream response header read timeout.
 	// 0 or negative defaults to 15s.
-	readTimeout            time.Duration
-	hash                   string
+	readTimeout time.Duration
+	hash        string
 
 	observerPeriod       time.Duration
 	observerResetTraffic bool

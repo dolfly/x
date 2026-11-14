@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
-	corelogger "github.com/go-gost/core/logger"
-	xlogger "github.com/go-gost/x/logger"
+	corelogger "github.com/dolfly/core/logger"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 func TestMain(m *testing.M) {

@@ -7,7 +7,7 @@ import (
 	"os/exec"
 	"strings"
 
-	tap_util "github.com/go-gost/x/internal/util/tap"
+	tap_util "github.com/dolfly/x/internal/util/tap"
 	"github.com/songgao/water"
 )
 

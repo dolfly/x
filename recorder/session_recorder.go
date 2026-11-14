@@ -10,9 +10,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	xctx "github.com/go-gost/x/ctx"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	xctx "github.com/dolfly/x/ctx"
 )
 
 const MinPeriod = time.Second

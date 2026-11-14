@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/metadata"
-	mdx "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/metadata"
+	mdx "github.com/dolfly/x/metadata"
 )
 
 func TestIsExists(t *testing.T) {
@@ -81,10 +81,10 @@ func TestGetBool_Nil(t *testing.T) {
 
 func TestGetInt(t *testing.T) {
 	md := mdx.NewMetadata(map[string]any{
-		"i":  42,
-		"s":  "99",
-		"b":  true,
-		"bf": false,
+		"i":   42,
+		"s":   "99",
+		"b":   true,
+		"bf":  false,
 		"bad": "notanumber",
 	})
 	if v := GetInt(md, "i"); v != 42 {
@@ -119,11 +119,11 @@ func TestGetInt_Nil(t *testing.T) {
 
 func TestGetFloat(t *testing.T) {
 	md := mdx.NewMetadata(map[string]any{
-		"f64":  float64(3.14),
-		"f32":  float32(2.5),
-		"i":    42,
-		"s":    "1.5",
-		"bad":  "notanumber",
+		"f64": float64(3.14),
+		"f32": float32(2.5),
+		"i":   42,
+		"s":   "1.5",
+		"bad": "notanumber",
 	})
 	if v := GetFloat(md, "f64"); v != 3.14 {
 		t.Errorf("GetFloat(f64) = %v, want 3.14", v)
@@ -245,8 +245,8 @@ func TestGetString_Nil(t *testing.T) {
 
 func TestGetStrings(t *testing.T) {
 	md := mdx.NewMetadata(map[string]any{
-		"ss": []string{"a", "b", "c"},
-		"sa": []any{"x", "y", "z"},
+		"ss":    []string{"a", "b", "c"},
+		"sa":    []any{"x", "y", "z"},
 		"mixed": []any{"hello", 42, "world"},
 	})
 	if v := GetStrings(md, "ss"); len(v) != 3 || v[0] != "a" || v[1] != "b" || v[2] != "c" {

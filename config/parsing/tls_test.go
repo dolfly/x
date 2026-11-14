@@ -15,9 +15,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // writeTestCertKey writes a self-signed cert/key pair to the given file paths.
@@ -90,7 +90,7 @@ func TestDefaultTLSConfig_InitiallyNil(t *testing.T) {
 }
 
 func TestBuildDefaultTLSConfig_Nil(t *testing.T) {
-	// Use a temp dir so the test is isolated and doesn't touch $HOME/.gost
+	// Use a temp dir so the test is isolated and doesn't touch $HOME/.tnet
 	testDefaultCertDir = t.TempDir()
 	t.Cleanup(func() { testDefaultCertDir = "" })
 

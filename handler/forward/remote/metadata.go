@@ -6,10 +6,10 @@ import (
 	"crypto/x509"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/bypass"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
+	"github.com/dolfly/x/registry"
 )
 
 type metadata struct {
@@ -17,7 +17,7 @@ type metadata struct {
 	// (used by SnifferBuilder.ReadTimeout). After sniffing completes and
 	// raw forwarding begins, this timeout no longer applies.
 	// Default: 15s.
-	readTimeout   time.Duration
+	readTimeout time.Duration
 	// idleTimeout is the idle read timeout applied to each direction of
 	// the bidirectional pipe (xnet.Pipe). A value of 0 or negative disables
 	// the timeout entirely, relying on TCP keepalives and context

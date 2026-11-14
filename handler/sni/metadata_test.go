@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	xmd "github.com/go-gost/x/metadata"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 // ---------------------------------------------------------------------------

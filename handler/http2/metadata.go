@@ -5,12 +5,12 @@ import (
 	"strings"
 	"time"
 
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 const (
-	defaultRealm = "gost"
+	defaultRealm = "tnet"
 )
 
 type metadata struct {
@@ -20,7 +20,7 @@ type metadata struct {
 	authBasicRealm       string
 	observerPeriod       time.Duration
 	observerResetTraffic bool
-	idleTimeout time.Duration // idle read deadline per Pipe direction during forwarding; read from "readTimeout" or "read.timeout" metadata key. 0 = disabled.
+	idleTimeout          time.Duration // idle read deadline per Pipe direction during forwarding; read from "readTimeout" or "read.timeout" metadata key. 0 = disabled.
 
 	limiterRefreshInterval time.Duration
 	limiterCleanupInterval time.Duration

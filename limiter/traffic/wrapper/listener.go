@@ -3,9 +3,9 @@ package wrapper
 import (
 	"net"
 
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/traffic"
-	traffic_limiter "github.com/go-gost/x/limiter/traffic"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/traffic"
+	traffic_limiter "github.com/dolfly/x/limiter/traffic"
 )
 
 type listener struct {

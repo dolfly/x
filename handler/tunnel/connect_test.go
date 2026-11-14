@@ -5,11 +5,11 @@ import (
 	"context"
 	"testing"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/relay"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/relay"
 )
 
 // fakeBypass implements bypass.Bypass for testing.
@@ -17,7 +17,7 @@ type fakeBypass struct {
 	matched bool
 }
 
-func (b *fakeBypass) IsWhitelist() bool                                              { return false }
+func (b *fakeBypass) IsWhitelist() bool { return false }
 func (b *fakeBypass) Contains(ctx context.Context, network, addr string, opts ...bypass.Option) bool {
 	return b.matched
 }
@@ -25,7 +25,7 @@ func (b *fakeBypass) Contains(ctx context.Context, network, addr string, opts ..
 // fakeIngress implements ingress.Ingress for testing.
 // It stores one rule per hostname for conflict simulation.
 type fakeIngress struct {
-	rule     *ingress.Rule
+	rule       *ingress.Rule
 	ruleByHost map[string]*ingress.Rule
 }
 

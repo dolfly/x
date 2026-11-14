@@ -1,8 +1,8 @@
 package http2
 
 import (
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/x/internal/util/ech"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/x/internal/util/ech"
 )
 
 type metadata struct {

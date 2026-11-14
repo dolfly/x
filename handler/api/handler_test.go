@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	xmetadata "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/handler"
+	xmetadata "github.com/dolfly/x/metadata"
 )
 
 func TestNewHandler(t *testing.T) {

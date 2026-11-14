@@ -1,4 +1,4 @@
-// Package serial implements a handler for serial port connections in GOST.
+// Package serial implements a handler for serial port connections in TNET.
 //
 // The serial handler operates in two distinct modes:
 //
@@ -41,17 +41,17 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/recorder"
-	xctx "github.com/go-gost/x/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	serial "github.com/go-gost/x/internal/util/serial"
-	xrecorder "github.com/go-gost/x/recorder"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/recorder"
+	xctx "github.com/dolfly/x/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	serial "github.com/dolfly/x/internal/util/serial"
+	xrecorder "github.com/dolfly/x/recorder"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {
@@ -202,7 +202,7 @@ func (h *serialHandler) Handle(ctx context.Context, conn net.Conn, opts ...handl
 //  2. Direct open (fallback): If no router chain exists or the chain
 //     returned no connection without error, open the serial port
 //     directly on the local machine. This is the typical case when
-//     GOST runs on the same host as the serial device.
+//     TNET runs on the same host as the serial device.
 //
 // Serial port parameters (baud rate, parity, stop bits) are parsed from
 // the local connection address, while the port NAME comes from the
@@ -224,7 +224,7 @@ func (h *serialHandler) forwardSerial(ctx context.Context, conn net.Conn, target
 	// Tier 1: Try routing through the chain (if configured).
 	// The chain dials with network="serial", which selects a transport
 	// whose connector understands serial addresses. This path supports
-	// remote serial port access through GOST's proxy chain.
+	// remote serial port access through TNET's proxy chain.
 	if h.options.Router != nil {
 		if opts := h.options.Router.Options(); opts != nil && opts.Chain != nil {
 			port, err = h.options.Router.Dial(ctx, "serial", serial.AddrFromConfig(cfg))

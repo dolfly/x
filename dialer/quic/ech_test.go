@@ -7,11 +7,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/x/internal/util/ech/echtest"
-	"github.com/go-gost/x/internal/util/quictest"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/x/internal/util/ech/echtest"
+	"github.com/dolfly/x/internal/util/quictest"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 	"github.com/stretchr/testify/require"
 )
 
@@ -30,7 +30,7 @@ func echQUICServer(t *testing.T, key tls.EncryptedClientHelloKey) (string, <-cha
 	serverTLS, _, err := quictest.SelfSignedTLS()
 	require.NoError(t, err)
 	serverTLS.EncryptedClientHelloKeys = []tls.EncryptedClientHelloKey{key}
-	serverTLS.NextProtos = []string{"gost"}
+	serverTLS.NextProtos = []string{"tnet"}
 
 	ln, addr, err := quictest.Listen(serverTLS)
 	require.NoError(t, err)
@@ -60,7 +60,7 @@ func newECHDialer(t *testing.T, doh string, fallback bool) *quicDialer {
 	require.NoError(t, err)
 	clientTLS.ServerName = "server.example"
 	clientTLS.InsecureSkipVerify = true
-	clientTLS.NextProtos = []string{"gost"}
+	clientTLS.NextProtos = []string{"tnet"}
 
 	d := NewDialer(
 		dialer.TLSConfigOption(clientTLS),
@@ -99,7 +99,7 @@ func TestDial_ECHFailClosedOnLookupFailure(t *testing.T) {
 	require.NoError(t, err)
 	clientTLS.ServerName = "server.example"
 	clientTLS.InsecureSkipVerify = true
-	clientTLS.NextProtos = []string{"gost"}
+	clientTLS.NextProtos = []string{"tnet"}
 
 	ln, addr, err := quictest.Listen(serverTLS)
 	require.NoError(t, err)

@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/x/internal/loader"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/x/internal/loader"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // newTestIngress creates a localIngress for testing with a nop logger

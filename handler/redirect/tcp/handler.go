@@ -10,22 +10,22 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/handler"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	xbypass "github.com/go-gost/x/bypass"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/util/sniffing"
-	tls_util "github.com/go-gost/x/internal/util/tls"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	xstats "github.com/go-gost/x/observer/stats"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/handler"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	xbypass "github.com/dolfly/x/bypass"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/util/sniffing"
+	tls_util "github.com/dolfly/x/internal/util/tls"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	xstats "github.com/dolfly/x/observer/stats"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {
@@ -282,7 +282,7 @@ func (h *redirectHandler) Handle(ctx context.Context, conn net.Conn, opts ...han
 		// original dstAddr — the way every non-HTTP/TLS protocol was handled
 		// before sniffing gained a failure path. sniffing.fallback only governs
 		// what happens after HTTP/TLS handling itself fails (e.g. an empty SNI,
-		// gost#891).
+		// tnet#891).
 		if !handled {
 			log.Debugf("sniffing: protocol %q not handled, forwarding raw", proto)
 		} else if h.md.sniffingFallback {

@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	xnet "github.com/go-gost/x/internal/net"
+	xnet "github.com/dolfly/x/internal/net"
 	"github.com/miekg/dns"
 )
 

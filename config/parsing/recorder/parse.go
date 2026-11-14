@@ -8,13 +8,13 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/plugin"
-	xplugin "github.com/go-gost/x/plugin"
-	xrecorder "github.com/go-gost/x/recorder"
-	recorder_plugin "github.com/go-gost/x/recorder/plugin"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/plugin"
+	xplugin "github.com/dolfly/x/plugin"
+	xrecorder "github.com/dolfly/x/recorder"
+	recorder_plugin "github.com/dolfly/x/recorder/plugin"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 

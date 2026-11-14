@@ -8,18 +8,18 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
-	core_metadata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/router"
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/relay"
-	xmetadata "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	core_metadata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/router"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/relay"
+	xmetadata "github.com/dolfly/x/metadata"
 )
 
 // ---------------------------------------------------------------------------
@@ -106,8 +106,8 @@ func (c *fakeConn) RemoteAddr() net.Addr {
 }
 
 func (c *fakeConn) SetDeadline(time.Time) error      { return nil }
-func (c *fakeConn) SetReadDeadline(time.Time) error   { return nil }
-func (c *fakeConn) SetWriteDeadline(time.Time) error  { return nil }
+func (c *fakeConn) SetReadDeadline(time.Time) error  { return nil }
+func (c *fakeConn) SetWriteDeadline(time.Time) error { return nil }
 
 // ---------------------------------------------------------------------------
 // pipeConn — bidirectional pipe-based net.Conn
@@ -281,8 +281,8 @@ func (l *mockRateLimiter) Allow(n int) bool {
 	}
 	return true
 }
-func (l *mockRateLimiter) Limit() float64                        { return 1 }
-func (l *mockRateLimiter) Wait(ctx context.Context) error        { return nil }
+func (l *mockRateLimiter) Limit() float64                 { return 1 }
+func (l *mockRateLimiter) Wait(ctx context.Context) error { return nil }
 
 type mockRateLimiterContainer struct {
 	limiterFn func(key string) rate.Limiter
@@ -328,10 +328,10 @@ func (r *mockRouter) GetRoute(ctx context.Context, dst string, opts ...router.Op
 // ---------------------------------------------------------------------------
 
 type mockSD struct {
-	getFn         func(ctx context.Context, name string) ([]*sd.Service, error)
-	registerFn    func(ctx context.Context, svc *sd.Service, opts ...sd.Option) error
-	deregisterFn  func(ctx context.Context, svc *sd.Service) error
-	renewFn       func(ctx context.Context, svc *sd.Service) error
+	getFn        func(ctx context.Context, name string) ([]*sd.Service, error)
+	registerFn   func(ctx context.Context, svc *sd.Service, opts ...sd.Option) error
+	deregisterFn func(ctx context.Context, svc *sd.Service) error
+	renewFn      func(ctx context.Context, svc *sd.Service) error
 }
 
 func (s *mockSD) Get(ctx context.Context, name string) ([]*sd.Service, error) {

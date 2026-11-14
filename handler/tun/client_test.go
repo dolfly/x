@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	xlogger "github.com/go-gost/x/logger"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // a registration handshake frame, as sent by the other side of a tun link

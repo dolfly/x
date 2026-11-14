@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/chain"
+	"github.com/dolfly/core/chain"
 )
 
 func TestHTTPProber(t *testing.T) {

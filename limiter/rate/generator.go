@@ -1,7 +1,7 @@
 package rate
 
 import (
-	limiter "github.com/go-gost/core/limiter/rate"
+	limiter "github.com/dolfly/core/limiter/rate"
 )
 
 // RateLimitGenerator is an interface for generating [limiter.Limiter] instances.

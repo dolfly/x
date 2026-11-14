@@ -13,10 +13,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	ictx "github.com/go-gost/x/internal/ctx"
-	tun_util "github.com/go-gost/x/internal/util/tun"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/handler"
+	ictx "github.com/dolfly/x/internal/ctx"
+	tun_util "github.com/dolfly/x/internal/util/tun"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 // datagramPipe is a unidirectional pipe whose boundaries survive: every Write on
@@ -1102,7 +1102,7 @@ func TestP2PKeepaliveHelpers(t *testing.T) {
 		}
 	})
 	t.Run("a short buffer is not a keepalive", func(t *testing.T) {
-		if isKeepaliveFrame([]byte("GOST")) {
+		if isKeepaliveFrame([]byte("TNET")) {
 			t.Fatal("a 4-byte buffer was taken for a keepalive")
 		}
 		if isKeepaliveFrame(nil) {

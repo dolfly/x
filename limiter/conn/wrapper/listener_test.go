@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	limiter "github.com/go-gost/core/limiter/conn"
+	limiter "github.com/dolfly/core/limiter/conn"
 )
 
 type mockConn struct {
@@ -124,7 +124,7 @@ func TestAccept_LimitExceeded(t *testing.T) {
 		t.Fatal("expected error when limit exceeded")
 	}
 	// The rejection must be the sentinel so the service's accept loop can tell
-	// a refused connection from a listener failure (gost#914).
+	// a refused connection from a listener failure (tnet#914).
 	if !errors.Is(err, ErrConnLimit) {
 		t.Fatalf("err = %v, want ErrConnLimit", err)
 	}
@@ -136,7 +136,7 @@ func TestAccept_LimitExceeded(t *testing.T) {
 	}
 }
 
-// gost#914: a rejected connection must not consume a slot. Allow(1) is called
+// tnet#914: a rejected connection must not consume a slot. Allow(1) is called
 // and then the connection is dropped, so the count has to come back down —
 // otherwise a single burst over the limit would wedge every later connection
 // even after the original ones closed.

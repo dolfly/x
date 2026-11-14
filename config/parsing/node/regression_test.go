@@ -3,9 +3,9 @@ package node
 import (
 	"testing"
 
-	"github.com/go-gost/x/config"
-	coreRouting "github.com/go-gost/core/routing"
-	"github.com/go-gost/x/routing"
+	coreRouting "github.com/dolfly/core/routing"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/routing"
 )
 
 func TestFilterToMatcherRule_Precedence(t *testing.T) {

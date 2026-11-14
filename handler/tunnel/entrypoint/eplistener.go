@@ -5,13 +5,13 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/listener"
-	md "github.com/go-gost/core/metadata"
-	admission "github.com/go-gost/x/admission/wrapper"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	climiter "github.com/go-gost/x/limiter/conn/wrapper"
-	metrics "github.com/go-gost/x/metrics/wrapper"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/listener"
+	md "github.com/dolfly/core/metadata"
+	admission "github.com/dolfly/x/admission/wrapper"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	climiter "github.com/dolfly/x/limiter/conn/wrapper"
+	metrics "github.com/dolfly/x/metrics/wrapper"
 )
 
 // entrypointHandler wraps an Entrypoint as a handler.Handler for use with
@@ -40,11 +40,11 @@ func (h *entrypointHandler) Handle(ctx context.Context, conn net.Conn, opts ...h
 	return h.ep.Handle(ctx, conn)
 }
 
-// tcpListener wraps a raw net.Listener with GOST listener wrappers in
+// tcpListener wraps a raw net.Listener with TNET listener wrappers in
 // the standard order: proxyproto → metrics → admission → conn limiter.
 //
 // The listener wrappers are applied in Init(), not at construction time,
-// to match the GOST service lifecycle pattern.
+// to match the TNET service lifecycle pattern.
 type tcpListener struct {
 	ln      net.Listener
 	options listener.Options
@@ -53,7 +53,7 @@ type tcpListener struct {
 // NewTCPListener creates a new TCP listener wrapper around a raw net.Listener.
 //
 // Imports the proxyproto, metrics, admission, and conn-limiter wrappers
-// in the standard GOST listener order (see architecture docs). Options
+// in the standard TNET listener order (see architecture docs). Options
 // carry the service name, proxy protocol version, and optional admission/
 // conn-limit config.
 func NewTCPListener(ln net.Listener, opts ...listener.Option) listener.Listener {
@@ -67,13 +67,13 @@ func NewTCPListener(ln net.Listener, opts ...listener.Option) listener.Listener 
 	}
 }
 
-// Init wraps the raw listener with GOST middleware layers:
+// Init wraps the raw listener with TNET middleware layers:
 //  1. proxyproto.WrapListener — PROXY protocol v1/v2 support
 //  2. metrics.WrapListener — per-connection metrics
 //  3. admission.WrapListener — IP admission control
 //  4. climiter.WrapListener — concurrent connection limiting
 //
-// This ordering matches the GOST convention: metrics/observability
+// This ordering matches the TNET convention: metrics/observability
 // outermost so dead-on-arrival connections are still counted.
 func (l *tcpListener) Init(md md.Metadata) (err error) {
 	ln := l.ln

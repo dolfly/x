@@ -10,7 +10,7 @@ import (
 	"net"
 	"strings"
 
-	dissector "github.com/go-gost/tls-dissector"
+	dissector "github.com/dolfly/tls-dissector"
 )
 
 type sniClientConn struct {
@@ -74,7 +74,7 @@ func (c *sniClientConn) obfuscate(p []byte) ([]byte, error) {
 			s = strings.TrimSpace(strings.TrimSuffix(strings.TrimPrefix(s, "Host:"), "\r\n"))
 			host := encodeServerName(s)
 			buf.WriteString("Host: " + c.host + "\r\n")
-			buf.WriteString("Gost-Target: " + host + "\r\n")
+			buf.WriteString("Tnet-Target: " + host + "\r\n")
 			// drain the remain bytes.
 			io.Copy(buf, br)
 			break

@@ -1,5 +1,5 @@
 // Package remote implements a reverse forwarding handler for connections
-// received from remote GOST nodes. It listens for "rtcp", "rudp", and "runix" protocols
+// received from remote TNET nodes. It listens for "rtcp", "rudp", and "runix" protocols
 // and forwards the accepted connections to the configured hop.
 //
 // The handler is registered under the names "rtcp", "rudp", and "runix" via
@@ -67,20 +67,20 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hop"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/util/httpcache"
-	"github.com/go-gost/x/internal/util/sniffing"
-	tls_util "github.com/go-gost/x/internal/util/tls"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	xstats "github.com/go-gost/x/observer/stats"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hop"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/util/httpcache"
+	"github.com/dolfly/x/internal/util/sniffing"
+	tls_util "github.com/dolfly/x/internal/util/tls"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	xstats "github.com/dolfly/x/observer/stats"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {

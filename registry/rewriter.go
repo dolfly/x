@@ -3,7 +3,7 @@ package registry
 import (
 	"context"
 
-	"github.com/go-gost/core/rewriter"
+	"github.com/dolfly/core/rewriter"
 )
 
 // rewriterRegistry implements a hot-reload-safe registry for rewriter.Rewriter.

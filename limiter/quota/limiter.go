@@ -11,8 +11,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/logger"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 var ErrQuotaExceeded = errors.New("quota: traffic limit reached")

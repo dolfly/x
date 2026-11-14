@@ -1,7 +1,7 @@
 package conn
 
 import (
-	limiter "github.com/go-gost/core/limiter/conn"
+	limiter "github.com/dolfly/core/limiter/conn"
 )
 
 // ConnLimitGenerator creates individual Limiter instances for use in

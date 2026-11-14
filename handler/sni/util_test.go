@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter/rate"
-	xctx "github.com/go-gost/x/ctx"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter/rate"
+	xctx "github.com/dolfly/x/ctx"
 )
 
 // ---------------------------------------------------------------------------

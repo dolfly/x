@@ -7,9 +7,9 @@ import (
 	"math"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	ws_util "github.com/go-gost/x/internal/util/ws"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/logger"
+	ws_util "github.com/dolfly/x/internal/util/ws"
+	xrecorder "github.com/dolfly/x/recorder"
 	"golang.org/x/time/rate"
 )
 

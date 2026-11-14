@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	xio "github.com/go-gost/x/internal/io"
+	xio "github.com/dolfly/x/internal/io"
 )
 
 // plainConn is a net.Conn without the half-close interfaces.

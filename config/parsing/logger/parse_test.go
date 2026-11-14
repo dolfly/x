@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	xlogger "github.com/dolfly/x/logger"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
@@ -124,7 +124,7 @@ func TestParseLogger_FileOutput(t *testing.T) {
 	lg := ParseLogger(&config.LoggerConfig{
 		Name: "file-logger",
 		Log: &config.LogConfig{
-			Output: "/tmp/gost-test.log",
+			Output: "/tmp/tnet-test.log",
 			Rotation: &config.LogRotationConfig{
 				MaxSize:    10,
 				MaxAge:     7,

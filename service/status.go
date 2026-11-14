@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/observer/stats"
+	"github.com/dolfly/core/observer/stats"
 )
 
 // MaxEventSize is the maximum number of events retained in a Status event log.

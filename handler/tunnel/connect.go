@@ -6,11 +6,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/relay"
-	xnet "github.com/go-gost/x/internal/net"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/relay"
+	xnet "github.com/dolfly/x/internal/net"
 )
 
 // handleConnect handles a CmdConnect request.
@@ -28,11 +28,11 @@ import (
 //     (or SD fallback if no local connector).
 //  4. Relay protocol framing:
 //     a. Local node (node == h.id): write StatusOK response to the public
-//        connection, then write a StatusOK response with src/dst address
-//        features to the mux stream. The internal client uses these address
-//        features to know where to connect.
+//     connection, then write a StatusOK response with src/dst address
+//     features to the mux stream. The internal client uses these address
+//     features to know where to connect.
 //     b. Remote node (SD fallback): write the original relay request
-//        directly to the mux stream for the remote node to process.
+//     directly to the mux stream for the remote node to process.
 //  5. Pipe(publicConn, muxStream) — bidirectional data relay until either
 //     side closes.
 //

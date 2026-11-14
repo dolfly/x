@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/x/internal/util/sniffing"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/x/internal/util/sniffing"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // ---------------------------------------------------------------------------

@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/dolfly/x/config"
+	parser "github.com/dolfly/x/config/parsing/quota"
+	"github.com/dolfly/x/limiter/quota"
+	"github.com/dolfly/x/registry"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/x/config"
-	parser "github.com/go-gost/x/config/parsing/quota"
-	"github.com/go-gost/x/limiter/quota"
-	"github.com/go-gost/x/registry"
 )
 
 func fillQuotaStatus(q *config.QuotaConfig) {

@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	xcache "github.com/go-gost/x/cache"
-	xmetadata "github.com/go-gost/x/metadata"
+	xcache "github.com/dolfly/x/cache"
+	xmetadata "github.com/dolfly/x/metadata"
 )
 
 func newTestCache(policy Policy) *Cache {
@@ -185,11 +185,11 @@ func TestTeeWriterWriteError(t *testing.T) {
 func TestFromMetadata(t *testing.T) {
 	store := xcache.NewMemoryCache(xcache.Options{DefaultTTL: 1 * time.Hour})
 	md := xmetadata.NewMetadata(map[string]any{
-		"cache.ttl":         "30s",
-		"cache.serveStale":  "true",
-		"cache.methods":     []string{"GET", "POST"},
-		"cache.status.200":  "60m",
-		"cache.status.404":  "1m",
+		"cache.ttl":          "30s",
+		"cache.serveStale":   "true",
+		"cache.methods":      []string{"GET", "POST"},
+		"cache.status.200":   "60m",
+		"cache.status.404":   "1m",
 		"cache.maxBodyBytes": "1048576",
 	})
 	c := FromMetadata(store, md)

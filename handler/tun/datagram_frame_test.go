@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	xlogger "github.com/go-gost/x/logger"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // recordDevice remembers what the hub handed to the device, so a test can

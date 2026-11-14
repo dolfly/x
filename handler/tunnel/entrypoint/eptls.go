@@ -9,13 +9,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	dissector "github.com/go-gost/tls-dissector"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xio "github.com/go-gost/x/internal/io"
-	xnet "github.com/go-gost/x/internal/net"
-	tls_util "github.com/go-gost/x/internal/util/tls"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/logger"
+	dissector "github.com/dolfly/tls-dissector"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xio "github.com/dolfly/x/internal/io"
+	xnet "github.com/dolfly/x/internal/net"
+	tls_util "github.com/dolfly/x/internal/util/tls"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // handleTLS processes a TLS connection arriving at the entrypoint.

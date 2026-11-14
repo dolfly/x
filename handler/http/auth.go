@@ -11,9 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/logger"
-	xnet "github.com/go-gost/x/internal/net"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/logger"
+	xnet "github.com/dolfly/x/internal/net"
 )
 
 // AuthResult is returned by Authenticator.Authenticate. When OK is false,
@@ -36,8 +36,8 @@ type Authenticator struct {
 	Auther    auth.Authenticator
 	PR        *probeResistance
 	Realm     string
-	Service   string                                         // service name passed to auth.WithService
-	WebClient func(string) (*http.Response, error)           // injectable for tests; defaults to http.Get
+	Service   string                               // service name passed to auth.WithService
+	WebClient func(string) (*http.Response, error) // injectable for tests; defaults to http.Get
 	Log       logger.Logger
 }
 

@@ -6,15 +6,15 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/logger"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	mdutil "github.com/go-gost/x/metadata/util"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/logger"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	mdutil "github.com/dolfly/x/metadata/util"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // handleRawForwarding performs node selection, dials the target through the

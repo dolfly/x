@@ -5,14 +5,14 @@ import (
 	"net"
 	"strings"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/router"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/loader"
-	"github.com/go-gost/x/internal/plugin"
-	xplugin "github.com/go-gost/x/plugin"
-	xrouter "github.com/go-gost/x/router"
-	router_plugin "github.com/go-gost/x/router/plugin"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/router"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/loader"
+	"github.com/dolfly/x/internal/plugin"
+	xplugin "github.com/dolfly/x/plugin"
+	xrouter "github.com/dolfly/x/router"
+	router_plugin "github.com/dolfly/x/router/plugin"
 )
 
 // ParseRouter converts a RouterConfig into a router.Router. It supports plugin

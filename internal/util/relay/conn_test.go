@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/gosocks5"
+	"github.com/dolfly/gosocks5"
 )
 
 // pipeConn is a net.Conn backed by bytes.Buffer — Write writes to buf, Read reads from buf.
@@ -103,7 +103,7 @@ func (c *slowConn) stream() []byte {
 // Each writer targets a distinct address and sends a payload of its own id
 // byte, so a frame assembled from the wrong segments is detected both as a
 // payload mismatch and as a misattributed address. This is the seam behind
-// gost#911: concurrent UDP endpoints over one RUDP reverse tunnel produced
+// tnet#911: concurrent UDP endpoints over one RUDP reverse tunnel produced
 // corrupted datagrams, and torn frames left half a header in the stream, which
 // the far end read as "unexpected EOF" and answered by tearing down and
 // rebinding the whole tunnel every second.

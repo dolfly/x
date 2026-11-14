@@ -4,7 +4,7 @@ import (
 	"errors"
 	"net"
 
-	limiter "github.com/go-gost/core/limiter/conn"
+	limiter "github.com/dolfly/core/limiter/conn"
 )
 
 // ErrConnLimit reports that a connection was refused because it exceeded the

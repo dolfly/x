@@ -7,20 +7,20 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/logger"
-	xctx "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/logger"
+	xctx "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/plugin"
 )
 
 type httpPluginRequest struct {
-	Service              string   `json:"service"`
-	Username             string   `json:"username"`
-	Password             string   `json:"password"`
-	Client               string   `json:"client"`
-	ClientCn             string   `json:"clientCn,omitempty"`
-	ClientSan            []string `json:"clientSan,omitempty"`
-	ClientCertFingerprint string  `json:"clientCertFingerprint,omitempty"`
+	Service               string   `json:"service"`
+	Username              string   `json:"username"`
+	Password              string   `json:"password"`
+	Client                string   `json:"client"`
+	ClientCn              string   `json:"clientCn,omitempty"`
+	ClientSan             []string `json:"clientSan,omitempty"`
+	ClientCertFingerprint string   `json:"clientCertFingerprint,omitempty"`
 }
 
 type httpPluginResponse struct {

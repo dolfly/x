@@ -9,11 +9,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/go-shadowsocks2/socks"
-	"github.com/go-gost/x/internal/util/ss/none"
-	xlogger "github.com/go-gost/x/logger"
-	mdx "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/go-shadowsocks2/socks"
+	"github.com/dolfly/x/internal/util/ss/none"
+	xlogger "github.com/dolfly/x/logger"
+	mdx "github.com/dolfly/x/metadata"
 )
 
 // captureConn records everything written to it, so a test can inspect the
@@ -22,17 +22,17 @@ type captureConn struct {
 	buf bytes.Buffer
 }
 
-func (c *captureConn) Read(b []byte) (int, error)         { return 0, io.EOF }
-func (c *captureConn) Write(b []byte) (int, error)        { return c.buf.Write(b) }
-func (c *captureConn) Close() error                       { return nil }
-func (c *captureConn) LocalAddr() net.Addr                { return &net.TCPAddr{} }
-func (c *captureConn) RemoteAddr() net.Addr               { return &net.TCPAddr{} }
-func (c *captureConn) SetDeadline(time.Time) error        { return nil }
-func (c *captureConn) SetReadDeadline(time.Time) error    { return nil }
-func (c *captureConn) SetWriteDeadline(time.Time) error   { return nil }
+func (c *captureConn) Read(b []byte) (int, error)       { return 0, io.EOF }
+func (c *captureConn) Write(b []byte) (int, error)      { return c.buf.Write(b) }
+func (c *captureConn) Close() error                     { return nil }
+func (c *captureConn) LocalAddr() net.Addr              { return &net.TCPAddr{} }
+func (c *captureConn) RemoteAddr() net.Addr             { return &net.TCPAddr{} }
+func (c *captureConn) SetDeadline(time.Time) error      { return nil }
+func (c *captureConn) SetReadDeadline(time.Time) error  { return nil }
+func (c *captureConn) SetWriteDeadline(time.Time) error { return nil }
 
 // TestConnectTargetNotOverwrittenByPool is a regression test for
-// https://github.com/go-gost/gost/issues/896: the connector previously passed
+// https://github.com/dolfly/tnet/issues/896: the connector previously passed
 // a slice aliasing the bufpool buffer to WrapConn, and the buffer was returned
 // to the pool before the wrapped conn lazily wrote the target on first I/O. A
 // second Connect could then overwrite the bytes and the first conn would send

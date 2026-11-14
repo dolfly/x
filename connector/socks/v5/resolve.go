@@ -3,9 +3,9 @@ package v5
 import (
 	"net"
 
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/gosocks5"
-	xmd "github.com/go-gost/x/metadata"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/gosocks5"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 // resolveConn wraps a raw net.Conn and carries the resolved address from a

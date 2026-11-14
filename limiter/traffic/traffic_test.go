@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/limiter"
-	traffic "github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/x/internal/loader"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/limiter"
+	traffic "github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/x/internal/loader"
+	xlogger "github.com/dolfly/x/logger"
 	"github.com/patrickmn/go-cache"
 	"github.com/yl2chen/cidranger"
 )
@@ -575,7 +575,7 @@ func TestIn_ConcurrentAccess(t *testing.T) {
 
 var (
 	_ traffic.TrafficLimiter = (*trafficLimiter)(nil)
-	_ io.Closer             = (*trafficLimiter)(nil)
-	_ loader.Loader         = (*fakeLoader)(nil)
-	_ loader.Lister         = (*fakeLoader)(nil)
+	_ io.Closer              = (*trafficLimiter)(nil)
+	_ loader.Loader          = (*fakeLoader)(nil)
+	_ loader.Lister          = (*fakeLoader)(nil)
 )

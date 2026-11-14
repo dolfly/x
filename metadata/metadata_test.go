@@ -3,7 +3,7 @@ package metadata
 import (
 	"testing"
 
-	"github.com/go-gost/core/metadata"
+	"github.com/dolfly/core/metadata"
 )
 
 func TestNewMetadata(t *testing.T) {

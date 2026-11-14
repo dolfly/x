@@ -4,15 +4,15 @@ import (
 	"crypto/tls"
 	"strings"
 
-	"github.com/go-gost/core/admission"
-	"github.com/go-gost/core/logger"
-	xadmission "github.com/go-gost/x/admission"
-	admission_plugin "github.com/go-gost/x/admission/plugin"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/loader"
-	"github.com/go-gost/x/internal/plugin"
-	xplugin "github.com/go-gost/x/plugin"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/admission"
+	"github.com/dolfly/core/logger"
+	xadmission "github.com/dolfly/x/admission"
+	admission_plugin "github.com/dolfly/x/admission/plugin"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/loader"
+	"github.com/dolfly/x/internal/plugin"
+	xplugin "github.com/dolfly/x/plugin"
+	"github.com/dolfly/x/registry"
 )
 
 // ParseAdmission converts an AdmissionConfig into an admission.Admission. It

@@ -6,13 +6,13 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/relay"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/relay"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 func newConnectHandler(t *testing.T, opts ...handler.Option) *relayHandler {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	listenertun "github.com/go-gost/x/listener/tun"
+	listenertun "github.com/dolfly/x/listener/tun"
 )
 
 // oversizeDevice rejects every write the way a real tun device rejects a

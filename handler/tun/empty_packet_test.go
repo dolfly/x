@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	xlogger "github.com/go-gost/x/logger"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // zeroLengthThenPacket is a tun device that hands the reader one empty packet

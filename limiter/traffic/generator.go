@@ -1,7 +1,7 @@
 package traffic
 
 import (
-	limiter "github.com/go-gost/core/limiter/traffic"
+	limiter "github.com/dolfly/core/limiter/traffic"
 )
 
 type limitGenerator struct {

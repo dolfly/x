@@ -5,10 +5,10 @@ import (
 	"net"
 	"syscall"
 
-	"github.com/go-gost/x/ctx"
-	xio "github.com/go-gost/x/internal/io"
-	"github.com/go-gost/x/limiter/quota"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/x/ctx"
+	xio "github.com/dolfly/x/internal/io"
+	"github.com/dolfly/x/limiter/quota"
+	"github.com/dolfly/x/registry"
 )
 
 type quotaConn struct {

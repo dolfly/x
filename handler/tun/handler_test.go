@@ -6,10 +6,10 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hop"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hop"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // fakeRouter only needs Options: the mode decision reads Options().Chain and

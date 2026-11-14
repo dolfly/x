@@ -5,8 +5,8 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/connector"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/connector"
 )
 
 // mockTransport implements chain.Transporter for testing.

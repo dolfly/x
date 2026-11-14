@@ -8,7 +8,7 @@ import (
 	"net"
 	"sync"
 
-	"github.com/go-gost/core/common/bufpool"
+	"github.com/dolfly/core/common/bufpool"
 )
 
 // packetConn wraps a stream-oriented net.Conn and provides datagram-

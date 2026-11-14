@@ -5,13 +5,13 @@ import (
 	"net"
 	"sync"
 
-	"github.com/go-gost/core/dialer"
-	md "github.com/go-gost/core/metadata"
-	xctx "github.com/go-gost/x/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	pb "github.com/go-gost/x/internal/util/grpc/proto"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/dialer"
+	md "github.com/dolfly/core/metadata"
+	xctx "github.com/dolfly/x/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	pb "github.com/dolfly/x/internal/util/grpc/proto"
+	"github.com/dolfly/x/registry"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/backoff"
 	"google.golang.org/grpc/credentials"
@@ -24,7 +24,7 @@ func init() {
 }
 
 type grpcDialer struct {
-	clients     map[string]pb.GostTunelClientX
+	clients     map[string]pb.TnetTunelClientX
 	clientMutex sync.Mutex
 	md          metadata
 	options     dialer.Options
@@ -37,7 +37,7 @@ func NewDialer(opts ...dialer.Option) dialer.Dialer {
 	}
 
 	return &grpcDialer{
-		clients: make(map[string]pb.GostTunelClientX),
+		clients: make(map[string]pb.TnetTunelClientX),
 		options: options,
 	}
 }
@@ -135,7 +135,7 @@ func (d *grpcDialer) Dial(ctx context.Context, addr string, opts ...dialer.DialO
 			d.options.Logger.Error(err)
 			return nil, err
 		}
-		client = pb.NewGostTunelClientX(cc)
+		client = pb.NewTnetTunelClientX(cc)
 		d.clients[addr] = client
 	}
 

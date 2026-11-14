@@ -9,16 +9,16 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/connector"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/go-shadowsocks2/core"
-	"github.com/go-gost/go-shadowsocks2/socks"
-	"github.com/go-gost/go-shadowsocks2/utils"
-	ctxvalue "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/util/relay"
-	"github.com/go-gost/x/internal/util/ss"
-	ssnone "github.com/go-gost/x/internal/util/ss/none"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/connector"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/go-shadowsocks2/core"
+	"github.com/dolfly/go-shadowsocks2/socks"
+	"github.com/dolfly/go-shadowsocks2/utils"
+	ctxvalue "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/util/relay"
+	"github.com/dolfly/x/internal/util/ss"
+	ssnone "github.com/dolfly/x/internal/util/ss/none"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {

@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/go-gost/core/logger"
-	xnet "github.com/go-gost/x/internal/net"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/logger"
+	xnet "github.com/dolfly/x/internal/net"
+	xrecorder "github.com/dolfly/x/recorder"
 	"golang.org/x/net/http/httpguts"
 )
 

@@ -6,12 +6,12 @@ import (
 	"encoding/hex"
 	"net"
 
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/relay"
-	"github.com/go-gost/x/internal/util/mux"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/relay"
+	"github.com/dolfly/x/internal/util/mux"
 	"github.com/google/uuid"
 )
 
@@ -36,8 +36,8 @@ import (
 //  6. Register:
 //     a. Add Connector to ConnectorPool (under tunnelID).
 //     b. Set ingress rules: the resolved host → tunnelID. When the user
-//        supplied a custom host that differs from the hash, also set a
-//        fallback rule: hash → tunnelID.
+//     supplied a custom host that differs from the hash, also set a
+//     fallback rule: hash → tunnelID.
 //     c. If SD is configured, register the service (tunnelID, node, network).
 //
 // The mux session ownership is transferred to the Connector — conn is NOT

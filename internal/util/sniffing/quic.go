@@ -3,10 +3,10 @@ package sniffing
 import (
 	"encoding/hex"
 
-	dissector "github.com/go-gost/tls-dissector"
+	dissector "github.com/dolfly/tls-dissector"
 
-	tls_util "github.com/go-gost/x/internal/util/tls"
-	xrecorder "github.com/go-gost/x/recorder"
+	tls_util "github.com/dolfly/x/internal/util/tls"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // PopulateQUICClientHello sets ro.Proto to ProtoQUIC and populates ro.TLS

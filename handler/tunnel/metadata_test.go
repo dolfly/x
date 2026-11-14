@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	mdx "github.com/go-gost/x/metadata"
+	mdx "github.com/dolfly/x/metadata"
 )
 
 func TestParseMetadata_Defaults(t *testing.T) {
@@ -124,7 +124,7 @@ func TestParseMetadata_TunnelTTL_ZeroDefaults(t *testing.T) {
 func TestParseMetadata_Sniffing(t *testing.T) {
 	h := &tunnelHandler{}
 	md := mdx.NewMetadata(map[string]any{
-		"sniffing.websocket":          true,
+		"sniffing.websocket":            true,
 		"sniffing.websocket.sampleRate": 0.5,
 	})
 	err := h.parseMetadata(md)
@@ -200,13 +200,13 @@ func TestParseMetadata_ObserverResetTraffic(t *testing.T) {
 func TestParseMetadata_MuxConfig(t *testing.T) {
 	h := &tunnelHandler{}
 	md := mdx.NewMetadata(map[string]any{
-		"mux.version":             1,
-		"mux.keepaliveInterval":   "10s",
-		"mux.keepaliveDisabled":   true,
-		"mux.keepaliveTimeout":    "30s",
-		"mux.maxFrameSize":        4096,
-		"mux.maxReceiveBuffer":    8192,
-		"mux.maxStreamBuffer":     65536,
+		"mux.version":           1,
+		"mux.keepaliveInterval": "10s",
+		"mux.keepaliveDisabled": true,
+		"mux.keepaliveTimeout":  "30s",
+		"mux.maxFrameSize":      4096,
+		"mux.maxReceiveBuffer":  8192,
+		"mux.maxStreamBuffer":   65536,
 	})
 	err := h.parseMetadata(md)
 	if err != nil {
@@ -399,7 +399,7 @@ func TestParseMetadata_EntrypointProxyProtocol(t *testing.T) {
 func TestParseMetadata_EntrypointKeepalive(t *testing.T) {
 	h := &tunnelHandler{}
 	md := mdx.NewMetadata(map[string]any{
-		"entrypoint.keepalive":  true,
+		"entrypoint.keepalive":   true,
 		"entrypoint.compression": true,
 	})
 	err := h.parseMetadata(md)

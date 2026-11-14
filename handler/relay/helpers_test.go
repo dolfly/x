@@ -9,18 +9,18 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
-	core_metadata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/relay"
-	xmetadata "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	core_metadata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/relay"
+	xmetadata "github.com/dolfly/x/metadata"
 )
 
 // ---------------------------------------------------------------------------
@@ -106,20 +106,20 @@ func (c *fakeConn) RemoteAddr() net.Addr {
 }
 
 func (c *fakeConn) SetDeadline(time.Time) error      { return nil }
-func (c *fakeConn) SetReadDeadline(time.Time) error   { return nil }
-func (c *fakeConn) SetWriteDeadline(time.Time) error  { return nil }
+func (c *fakeConn) SetReadDeadline(time.Time) error  { return nil }
+func (c *fakeConn) SetWriteDeadline(time.Time) error { return nil }
 
 // ---------------------------------------------------------------------------
 // pipeConn — bidirectional pipe-based net.Conn using io.Pipe
 // ---------------------------------------------------------------------------
 
 type pipeConn struct {
-	reader   *io.PipeReader
-	writer   *io.PipeWriter
-	laddr    net.Addr
-	raddr    net.Addr
-	closed   bool
-	closeMu  sync.Mutex
+	reader  *io.PipeReader
+	writer  *io.PipeWriter
+	laddr   net.Addr
+	raddr   net.Addr
+	closed  bool
+	closeMu sync.Mutex
 }
 
 func newPipePair() (*pipeConn, *pipeConn) {

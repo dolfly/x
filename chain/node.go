@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/internal/probe"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/internal/probe"
 )
 
 // StartNodeProbe starts a background goroutine that periodically probes the

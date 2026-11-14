@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	xio "github.com/go-gost/x/internal/io"
+	xio "github.com/dolfly/x/internal/io"
 )
 
 func TestWrapConnNil(t *testing.T) {
@@ -138,11 +138,13 @@ func (m *mockPacketConn) WriteTo(p []byte, addr net.Addr) (int, error) {
 	return m.writeTo(p, addr)
 }
 
-func (m *mockPacketConn) Close() error                       { return nil }
-func (m *mockPacketConn) LocalAddr() net.Addr                 { return &net.UDPAddr{IP: net.IPv4(127, 0, 0, 1), Port: 0} }
-func (m *mockPacketConn) SetDeadline(t time.Time) error       { return nil }
-func (m *mockPacketConn) SetReadDeadline(t time.Time) error   { return nil }
-func (m *mockPacketConn) SetWriteDeadline(t time.Time) error  { return nil }
+func (m *mockPacketConn) Close() error { return nil }
+func (m *mockPacketConn) LocalAddr() net.Addr {
+	return &net.UDPAddr{IP: net.IPv4(127, 0, 0, 1), Port: 0}
+}
+func (m *mockPacketConn) SetDeadline(t time.Time) error      { return nil }
+func (m *mockPacketConn) SetReadDeadline(t time.Time) error  { return nil }
+func (m *mockPacketConn) SetWriteDeadline(t time.Time) error { return nil }
 
 func TestWrapPacketConnReadFromWriteTo(t *testing.T) {
 	testAddr := &net.UDPAddr{IP: net.IPv4(10, 0, 0, 1), Port: 1234}

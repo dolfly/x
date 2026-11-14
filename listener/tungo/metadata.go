@@ -4,11 +4,11 @@ import (
 	"net"
 	"strings"
 
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/router"
-	tun_util "github.com/go-gost/x/internal/util/tun"
-	mdutil "github.com/go-gost/x/metadata/util"
-	xrouter "github.com/go-gost/x/router"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/router"
+	tun_util "github.com/dolfly/x/internal/util/tun"
+	mdutil "github.com/dolfly/x/metadata/util"
+	xrouter "github.com/dolfly/x/router"
 )
 
 const (

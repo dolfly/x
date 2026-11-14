@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/plugin/p2p/proto"
+	"github.com/dolfly/plugin/p2p/proto"
 )
 
 // fakeStream is an in-memory Stream: recvCh feeds Recv, sendCh collects Send.

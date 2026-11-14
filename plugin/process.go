@@ -1,9 +1,9 @@
 // Package plugin manages the lifecycle of external plugin subprocesses
 // spawned from plugin configuration.
 //
-// Plugins are normally external processes that GOST connects to over HTTP or
+// Plugins are normally external processes that TNET connects to over HTTP or
 // gRPC. When a plugin config carries a non-empty Command, Spawn starts it as a
-// child process of GOST so that a single invocation brings up the whole stack,
+// child process of TNET so that a single invocation brings up the whole stack,
 // and Shutdown terminates it again.
 package plugin
 

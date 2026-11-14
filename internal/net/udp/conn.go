@@ -4,7 +4,7 @@ import (
 	"io"
 	"net"
 
-	xnet "github.com/go-gost/x/internal/net"
+	xnet "github.com/dolfly/x/internal/net"
 )
 
 // Conn is a net.PacketConn that also supports io.Reader, io.Writer, buffer

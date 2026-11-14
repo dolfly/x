@@ -7,9 +7,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/go-gost/core/auth"
-	xctx "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/auth"
+	xctx "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/plugin"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

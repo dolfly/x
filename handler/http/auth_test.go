@@ -13,11 +13,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/limiter/traffic"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/limiter/traffic"
 )
 
 // stubAuther implements auth.Authenticator for testing.
@@ -29,7 +29,6 @@ type stubAuther struct {
 func (a *stubAuther) Authenticate(ctx context.Context, user, password string, opts ...auth.Option) (string, bool) {
 	return a.id, a.accept
 }
-
 
 // --- Authenticator tests (synchronous — no net.Pipe or goroutines) ---
 
@@ -63,7 +62,7 @@ func TestAuthenticate_Success(t *testing.T) {
 func TestAuthenticate_Failure(t *testing.T) {
 	a := &Authenticator{
 		Auther: &stubAuther{accept: false},
-		Realm:  "gost",
+		Realm:  "tnet",
 	}
 	req, _ := http.NewRequest("GET", "http://example.com/", nil)
 	req.Header.Set("Proxy-Authorization", "Basic dGVzdHVzZXI6cGFzc3dvcmQ=")
@@ -100,7 +99,7 @@ func TestAuthenticate_ProbeResistanceCode(t *testing.T) {
 func TestAuthenticate_ProbeResistanceKnock(t *testing.T) {
 	a := &Authenticator{
 		Auther: &stubAuther{accept: false},
-		Realm:  "gost",
+		Realm:  "tnet",
 		PR:     &probeResistance{Type: "code", Value: "404", Knock: "secret.example.com"},
 	}
 	req, _ := http.NewRequest("GET", "http://secret.example.com/", nil)
@@ -134,7 +133,7 @@ func TestAuthenticate_ProbeResistanceKnockMismatch(t *testing.T) {
 func TestAuthenticate_ProbeResistanceKnockMultiMatch(t *testing.T) {
 	a := &Authenticator{
 		Auther: &stubAuther{accept: false},
-		Realm:  "gost",
+		Realm:  "tnet",
 		PR: &probeResistance{
 			Type:  "code",
 			Value: "404",
@@ -192,7 +191,7 @@ func TestAuthenticate_ProbeResistanceHost(t *testing.T) {
 func TestAuthenticate_ProbeResistanceInvalidCode(t *testing.T) {
 	a := &Authenticator{
 		Auther: &stubAuther{accept: false},
-		Realm:  "gost",
+		Realm:  "tnet",
 		PR:     &probeResistance{Type: "code", Value: "not-a-number"},
 	}
 	req, _ := http.NewRequest("GET", "http://example.com/", nil)
@@ -358,7 +357,7 @@ func TestProbeResistanceResponse_Web_NoPrefix(t *testing.T) {
 }
 
 func TestProbeResistanceResponse_File(t *testing.T) {
-	f, err := os.CreateTemp("", "gost-pr-test-*.html")
+	f, err := os.CreateTemp("", "tnet-pr-test-*.html")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -394,7 +393,7 @@ func TestProbeResistanceResponse_File(t *testing.T) {
 func TestProbeResistanceResponse_File_Missing(t *testing.T) {
 	a := &Authenticator{
 		Auther: &stubAuther{accept: false},
-		Realm:  "gost",
+		Realm:  "tnet",
 		PR:     &probeResistance{Type: "file", Value: "/nonexistent/file.html"},
 	}
 	req, _ := http.NewRequest("GET", "http://example.com/", nil)
@@ -435,7 +434,7 @@ func TestProbeResistanceResponse_StatusCodeZero(t *testing.T) {
 	// When PR type is unknown, resp.StatusCode stays 0 which triggers build407Response fallback
 	a := &Authenticator{
 		Auther: &stubAuther{accept: false},
-		Realm:  "gost",
+		Realm:  "tnet",
 		PR:     &probeResistance{Type: "unknown", Value: "x"},
 	}
 	req, _ := http.NewRequest("GET", "http://example.com/", nil)
@@ -451,7 +450,7 @@ func TestProbeResistanceResponse_StatusCodeZero(t *testing.T) {
 func TestProbeResistanceResponse_Code_Invalid_Logs(t *testing.T) {
 	a := &Authenticator{
 		Auther: &stubAuther{accept: false},
-		Realm:  "gost",
+		Realm:  "tnet",
 		PR:     &probeResistance{Type: "code", Value: "not-a-number"},
 		Log:    &testLogger{},
 	}

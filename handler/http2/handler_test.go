@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/handler"
+	"github.com/dolfly/core/handler"
 )
 
 func TestNewHandler(t *testing.T) {

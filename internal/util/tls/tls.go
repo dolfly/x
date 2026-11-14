@@ -15,8 +15,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
 	"github.com/patrickmn/go-cache"
 )
 
@@ -428,7 +428,7 @@ func GenerateCertificate(serverName string, validity time.Duration, caCert *x509
 	tmpl := &x509.Certificate{
 		SerialNumber: big.NewInt(time.Now().UnixNano() / 100000),
 		Subject: pkix.Name{
-			Organization: []string{"GOST"},
+			Organization: []string{"TNET"},
 		},
 		NotBefore:          time.Now().Add(-validity),
 		NotAfter:           time.Now().Add(validity),

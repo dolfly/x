@@ -4,9 +4,9 @@ import (
 	"io"
 	"testing"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 func TestMain(m *testing.M) {
@@ -82,8 +82,8 @@ func TestParseHostMapper_EmptyMapping(t *testing.T) {
 	hm := ParseHostMapper(&config.HostsConfig{
 		Name: "partial-hosts",
 		Mappings: []*config.HostMappingConfig{
-			{IP: "", Hostname: "nope"},      // skipped
-			{IP: "127.0.0.1", Hostname: ""}, // skipped
+			{IP: "", Hostname: "nope"},           // skipped
+			{IP: "127.0.0.1", Hostname: ""},      // skipped
 			{IP: "127.0.0.1", Hostname: "valid"}, // kept
 		},
 	})

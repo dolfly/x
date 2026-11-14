@@ -4,13 +4,13 @@ import (
 	"net"
 	"strings"
 
-	"github.com/go-gost/core/logger"
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/router"
-	tun_util "github.com/go-gost/x/internal/util/tun"
-	mdutil "github.com/go-gost/x/metadata/util"
-	"github.com/go-gost/x/registry"
-	xrouter "github.com/go-gost/x/router"
+	"github.com/dolfly/core/logger"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/router"
+	tun_util "github.com/dolfly/x/internal/util/tun"
+	mdutil "github.com/dolfly/x/metadata/util"
+	"github.com/dolfly/x/registry"
+	xrouter "github.com/dolfly/x/router"
 )
 
 const (
@@ -20,8 +20,8 @@ const (
 type metadata struct {
 	config *tun_util.Config
 	guid   string
-	// fd yields the descriptor of a device created outside gost, currently
-	// only the Android VpnService; nil when gost creates its own device. It is
+	// fd yields the descriptor of a device created outside tnet, currently
+	// only the Android VpnService; nil when tnet creates its own device. It is
 	// a function rather than a number because a descriptor is resolved per
 	// device: by the time the tun listener rebuilds one (a session ended, the
 	// VPN was rebuilt), a number handed out at configure time may be closed —
@@ -128,7 +128,7 @@ func (l *tunListener) parseMetadata(md mdata.Metadata) (err error) {
 
 	l.md.guid = mdutil.GetString(md, "guid", "tun.guid")
 
-	// A device created outside gost (the Android VpnService) arrives either as
+	// A device created outside tnet (the Android VpnService) arrives either as
 	// a fixed descriptor or — for an embedder, which is what the platform's own
 	// VPN is — as a provider that resolves one when each device is built.
 	if md != nil {

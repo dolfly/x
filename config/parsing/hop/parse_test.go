@@ -4,18 +4,18 @@ import (
 	"io"
 	"testing"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/config/parsing"
-	xlogger "github.com/go-gost/x/logger"
-	mdutil "github.com/go-gost/x/metadata/util"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/config/parsing"
+	xlogger "github.com/dolfly/x/logger"
+	mdutil "github.com/dolfly/x/metadata/util"
+	"github.com/dolfly/x/registry"
 
 	// Register connector and dialer implementations needed for node parsing.
-	_ "github.com/go-gost/x/connector/http"
-	_ "github.com/go-gost/x/dialer/tcp"
+	_ "github.com/dolfly/x/connector/http"
+	_ "github.com/dolfly/x/dialer/tcp"
 )
 
 func TestMain(m *testing.M) {
@@ -143,8 +143,8 @@ func TestParseHop_NoNodesNoPlugin(t *testing.T) {
 
 func TestParseHop_WithBypass(t *testing.T) {
 	h, err := ParseHop(&config.HopConfig{
-		Name:   "bypass-hop",
-		Bypass: "bypass1",
+		Name:     "bypass-hop",
+		Bypass:   "bypass1",
 		Bypasses: []string{"bypass2", "bypass3"},
 	}, testLogger())
 	if err != nil {

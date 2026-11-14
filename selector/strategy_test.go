@@ -6,10 +6,10 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/selector"
-	xctx "github.com/go-gost/x/ctx"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/selector"
+	xctx "github.com/dolfly/x/ctx"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 // --- RoundRobinStrategy ---

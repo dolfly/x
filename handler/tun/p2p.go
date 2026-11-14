@@ -15,7 +15,7 @@ import (
 	"golang.org/x/net/ipv4"
 	"golang.org/x/net/ipv6"
 
-	listenertun "github.com/go-gost/x/listener/tun"
+	listenertun "github.com/dolfly/x/listener/tun"
 )
 
 // ErrNoRoute is what deliver reports when a destination names no peer, or a

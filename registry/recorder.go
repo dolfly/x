@@ -3,7 +3,7 @@ package registry
 import (
 	"context"
 
-	"github.com/go-gost/core/recorder"
+	"github.com/dolfly/core/recorder"
 )
 
 // recorderRegistry implements a hot-reload-safe registry for recorder.Recorder.

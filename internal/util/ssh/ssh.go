@@ -6,12 +6,12 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/go-gost/core/auth"
+	"github.com/dolfly/core/auth"
 	"golang.org/x/crypto/ssh"
 )
 
 const (
-	GostSSHTunnelRequest = "gost-tunnel" // extended request type for ssh tunnel
+	TnetSSHTunnelRequest = "tnet-tunnel" // extended request type for ssh tunnel
 )
 
 var (

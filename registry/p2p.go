@@ -1,8 +1,8 @@
 package registry
 
 import (
-	reg "github.com/go-gost/core/registry"
-	xp2p "github.com/go-gost/x/p2p"
+	reg "github.com/dolfly/core/registry"
+	xp2p "github.com/dolfly/x/p2p"
 )
 
 // p2pRegistry stores p2p.Tunnel instances. It uses the base registry

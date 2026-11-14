@@ -4,7 +4,7 @@ import (
 	"context"
 	"net"
 
-	"github.com/go-gost/core/resolver"
+	"github.com/dolfly/core/resolver"
 )
 
 // resolverRegistry implements a hot-reload-safe registry for resolver.Resolver.

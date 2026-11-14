@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	dissector "github.com/go-gost/tls-dissector"
+	dissector "github.com/dolfly/tls-dissector"
 )
 
 const (

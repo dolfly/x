@@ -17,9 +17,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	tls_util "github.com/go-gost/x/internal/util/tls"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	tls_util "github.com/dolfly/x/internal/util/tls"
 )
 
 var (
@@ -32,16 +32,16 @@ var testDefaultCertDir string
 
 // defaultCertDir returns the directory used for persisting auto-generated
 // certificates. It uses testDefaultCertDir when set (for testing), otherwise
-// returns $HOME/.gost/.
+// returns $HOME/.tnet/.
 func defaultCertDir() string {
 	if testDefaultCertDir != "" {
 		return testDefaultCertDir
 	}
 	dir, err := os.UserHomeDir()
 	if err != nil {
-		return ".gost"
+		return ".tnet"
 	}
-	return filepath.Join(dir, ".gost")
+	return filepath.Join(dir, ".tnet")
 }
 
 // DefaultTLSConfig returns the global default TLS configuration used as a
@@ -69,9 +69,9 @@ func SetDefaultTLSConfig(cfg *tls.Config) {
 // When no certificate files are configured (all three empty), it tries sources
 // in this order:
 //  1. cert.pem / key.pem in the current working directory (backward compatible)
-//  2. auto-ca-cert.pem / auto-ca-key.pem under $HOME/.gost/ (persisted)
+//  2. auto-ca-cert.pem / auto-ca-key.pem under $HOME/.tnet/ (persisted)
 //  3. If none found, generates a new ECDSA P-256 CA certificate, persists it
-//     to $HOME/.gost/, and uses it.
+//     to $HOME/.tnet/, and uses it.
 //
 // If cfg is nil an empty TLSConfig is used (equivalent to no explicit files),
 // so the CWD → persisted → generate path is taken.
@@ -169,10 +169,10 @@ func generateKeyPair(validity time.Duration, org string, cn string) (rawCert, ra
 		validity = time.Hour * 24 * 365 // one year
 	}
 	if org == "" {
-		org = "GOST"
+		org = "TNET"
 	}
 	if cn == "" {
-		cn = "gost.run"
+		cn = "tnet.cofire.cn"
 	}
 
 	validFor := validity

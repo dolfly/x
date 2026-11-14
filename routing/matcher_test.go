@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/go-gost/core/routing"
+	"github.com/dolfly/core/routing"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -122,9 +122,9 @@ func TestMatcherProto(t *testing.T) {
 	require.NoError(t, err)
 
 	tests := []struct {
-		desc    string
-		proto   string
-		want    bool
+		desc  string
+		proto string
+		want  bool
 	}{
 		{"lowercase match", "http", true},
 		{"uppercase no match", "HTTP", false},

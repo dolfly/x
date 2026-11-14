@@ -1,9 +1,9 @@
-// Package router implements the "router" handler for the GOST framework.
+// Package router implements the "router" handler for the TNET framework.
 //
 // # Overview
 //
 // The router handler acts as the ingress point of a VPN-like tunnel mesh. It
-// receives relay protocol connections (over TCP) from client-side GOST
+// receives relay protocol connections (over TCP) from client-side TNET
 // instances, authenticates them, and routes IP packets through the mesh of
 // tunnel connectors.
 //
@@ -49,10 +49,10 @@ import (
 	"io"
 	"sync"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/relay"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/relay"
 
-	"github.com/go-gost/x/selector"
+	"github.com/dolfly/x/selector"
 	"github.com/google/uuid"
 )
 

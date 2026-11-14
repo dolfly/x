@@ -6,8 +6,8 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/core/admission"
-	xctx "github.com/go-gost/x/ctx"
+	"github.com/dolfly/core/admission"
+	xctx "github.com/dolfly/x/ctx"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -231,4 +231,3 @@ func TestFakeConn_HasContext(t *testing.T) {
 	_, ok := any(c).(xctx.Context)
 	assert.True(t, ok)
 }
-

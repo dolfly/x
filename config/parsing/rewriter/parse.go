@@ -4,12 +4,12 @@ import (
 	"crypto/tls"
 	"strings"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/rewriter"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/plugin"
-	xplugin "github.com/go-gost/x/plugin"
-	rewriter_plugin "github.com/go-gost/x/rewriter/plugin"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/rewriter"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/plugin"
+	xplugin "github.com/dolfly/x/plugin"
+	rewriter_plugin "github.com/dolfly/x/rewriter/plugin"
 )
 
 // ParseRewriter converts a RewriterConfig into a rewriter.Rewriter.

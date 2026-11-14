@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/auth"
+	"github.com/dolfly/core/auth"
 )
 
 // testAuther is a simple auth.Authenticator for testing.

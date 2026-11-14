@@ -5,7 +5,7 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/x/internal/util/sniffing"
+	"github.com/dolfly/x/internal/util/sniffing"
 )
 
 // TestRegisterGet verifies a handler can be registered and looked up by proto.

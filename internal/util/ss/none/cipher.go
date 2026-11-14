@@ -5,8 +5,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/go-shadowsocks2/core"
-	"github.com/go-gost/go-shadowsocks2/shadowaead"
+	"github.com/dolfly/go-shadowsocks2/core"
+	"github.com/dolfly/go-shadowsocks2/shadowaead"
 )
 
 // Cipher is a no-op Shadowsocks cipher that passes data through without

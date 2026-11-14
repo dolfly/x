@@ -5,9 +5,9 @@ import (
 	"time"
 
 	"github.com/alecthomas/units"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	xquota "github.com/go-gost/x/limiter/quota"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	xquota "github.com/dolfly/x/limiter/quota"
 )
 
 // ParseQuotaLimiter is best-effort: malformed fields are logged and treated as unset.
@@ -74,7 +74,7 @@ func parseQuotaTime(s string, log logger.Logger, field string) time.Time {
 }
 
 func parseQuotaStore(sc *config.QuotaStoreConfig, log logger.Logger) xquota.Store {
-	const defaultFile = "gost-quota.json"
+	const defaultFile = "tnet-quota.json"
 
 	if sc == nil || sc.Type == "" || strings.EqualFold(sc.Type, "file") {
 		path := defaultFile

@@ -3,9 +3,9 @@ package chain
 import (
 	"context"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/routing"
-	"github.com/go-gost/core/selector"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/routing"
+	"github.com/dolfly/core/selector"
 )
 
 // ChainEntry wraps a chain.Chainer with an optional matcher and an independent

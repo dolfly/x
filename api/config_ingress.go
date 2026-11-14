@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/dolfly/x/config"
+	parser "github.com/dolfly/x/config/parsing/ingress"
+	"github.com/dolfly/x/registry"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/x/config"
-	parser "github.com/go-gost/x/config/parsing/ingress"
-	"github.com/go-gost/x/registry"
 )
 
 // swagger:parameters getIngressListRequest
@@ -23,7 +23,7 @@ type getIngressListResponse struct {
 }
 
 type ingressList struct {
-	Count int                       `json:"count"`
+	Count int                     `json:"count"`
 	List  []*config.IngressConfig `json:"list"`
 }
 

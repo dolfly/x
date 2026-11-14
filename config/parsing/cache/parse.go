@@ -3,10 +3,10 @@ package cache
 import (
 	"strings"
 
-	"github.com/go-gost/core/cache"
-	"github.com/go-gost/core/logger"
-	xcache "github.com/go-gost/x/cache"
-	"github.com/go-gost/x/config"
+	"github.com/dolfly/core/cache"
+	"github.com/dolfly/core/logger"
+	xcache "github.com/dolfly/x/cache"
+	"github.com/dolfly/x/config"
 )
 
 // ParseCache converts a CacheConfig into a cache.Cache. Memory and Redis

@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	limiter "github.com/go-gost/core/limiter/traffic"
+	limiter "github.com/dolfly/core/limiter/traffic"
 )
 
 func TestNewLimiter(t *testing.T) {

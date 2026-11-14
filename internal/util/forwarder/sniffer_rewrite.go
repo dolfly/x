@@ -11,12 +11,12 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/rewriter"
-	xctx "github.com/go-gost/x/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/rewriter"
+	xctx "github.com/dolfly/x/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	xrecorder "github.com/dolfly/x/recorder"
 	"golang.org/x/net/http/httpguts"
 )
 
@@ -209,4 +209,3 @@ func anyHeaderNameMatch(h http.Header, name *regexp.Regexp) bool {
 	}
 	return false
 }
-

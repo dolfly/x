@@ -7,13 +7,13 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	xctx "github.com/go-gost/x/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	xctx "github.com/dolfly/x/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	"github.com/dolfly/x/registry"
 	utls "github.com/refraction-networking/utls"
 )
 

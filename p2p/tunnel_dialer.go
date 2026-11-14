@@ -1,6 +1,6 @@
 // Package p2p adapts any dialer to run on top of a tunnel supplied by a p2p
 // plugin. The inner dialer's base connection (options.Dialer) is replaced
-// with the tunnel's data stream — a net.Conn carried over the GOST↔host gRPC
+// with the tunnel's data stream — a net.Conn carried over the TNET↔host gRPC
 // connection. The peer-facing protocol stays owned by the inner dialer — p2p
 // only supplies the tunnel base.
 package p2p
@@ -10,8 +10,8 @@ import (
 	"net"
 	"sync"
 
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/metadata"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/metadata"
 )
 
 // Tunnel opens tunnels to a peer over the plugin control protocol.

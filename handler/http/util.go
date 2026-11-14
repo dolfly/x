@@ -26,7 +26,7 @@ func isDNSName(host string) bool {
 
 var dnsNameRE = regexp.MustCompile(`^([a-zA-Z0-9_]{1}[a-zA-Z0-9_-]{0,62}){1}(\.[a-zA-Z0-9_]{1}[a-zA-Z0-9_-]{0,62})*[\._]?$`)
 
-// decodeServerName decodes a GOST v2 Gost-Target / X-Gost-Target header
+// decodeServerName decodes a TNET v2 Tnet-Target / X-Tnet-Target header
 // value. The encoding is: base64(CRC32(hostname) + base64(hostname)).
 // It verifies the CRC32 checksum before returning the decoded hostname.
 func decodeServerName(s string) (string, error) {
@@ -100,14 +100,14 @@ func buildConnectResponse(proxyAgent string) []byte {
 }
 
 // NormalizedRequest holds the parsed target address and network from an
-// HTTP proxy request after URL inference, GOST v2 compatibility decoding,
+// HTTP proxy request after URL inference, TNET v2 compatibility decoding,
 // and host normalisation.
 type NormalizedRequest struct {
 	Network string // "tcp" or "udp"
 	Addr    string // host:port (default port appended when absent)
 }
 
-// setRequestHost applies a GOST v2 target-header override consistently. It
+// setRequestHost applies a TNET v2 target-header override consistently. It
 // updates req.Host (used by bypass checks, logging, and recorder state) and
 // req.URL.Host (used by http.Transport to select the connection destination)
 // so that policy evaluation and upstream dialing resolve to the same
@@ -122,9 +122,9 @@ func setRequestHost(req *http.Request, host string) {
 }
 
 // normalizeRequest extracts the target address and network from an HTTP
-// request. It infers the URL scheme when absent, decodes GOST v2
-// compatibility headers (Gost-Target, X-Gost-Target), detects the
-// transport protocol from X-Gost-Protocol, and normalises the host to
+// request. It infers the URL scheme when absent, decodes TNET v2
+// compatibility headers (Tnet-Target, X-Tnet-Target), detects the
+// transport protocol from X-Tnet-Protocol, and normalises the host to
 // include a port.
 //
 // The function mutates req.URL.Scheme and req.Host as side effects so
@@ -140,17 +140,17 @@ func normalizeRequest(req *http.Request) *NormalizedRequest {
 		}
 	}
 
-	network := req.Header.Get("X-Gost-Protocol")
+	network := req.Header.Get("X-Tnet-Protocol")
 	if network != "udp" {
 		network = "tcp"
 	}
 
-	if v := req.Header.Get("Gost-Target"); v != "" {
+	if v := req.Header.Get("Tnet-Target"); v != "" {
 		if h, err := decodeServerName(v); err == nil {
 			setRequestHost(req, h)
 		}
 	}
-	if v := req.Header.Get("X-Gost-Target"); v != "" {
+	if v := req.Header.Get("X-Tnet-Target"); v != "" {
 		if h, err := decodeServerName(v); err == nil {
 			setRequestHost(req, h)
 		}

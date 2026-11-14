@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/relay"
+	"github.com/dolfly/relay"
 )
 
 func TestHandleEntrypoint_ForwardsToConnector(t *testing.T) {

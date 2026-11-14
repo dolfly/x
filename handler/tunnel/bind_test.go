@@ -8,11 +8,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/relay"
-	"github.com/go-gost/x/internal/util/mux"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/relay"
+	"github.com/dolfly/x/internal/util/mux"
 )
 
 // TestHandleBind_ResponseWritten tests that handleBind writes a correct relay
@@ -441,6 +441,7 @@ func TestHandleBind_WithHostEndpoint(t *testing.T) {
 		t.Error("expected ingress rule to be set")
 	}
 }
+
 // TestHandleBind_CustomHost tests that a user-supplied host is used as
 // the response address, not the md5 hash.
 func TestHandleBind_CustomHost(t *testing.T) {

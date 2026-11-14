@@ -10,7 +10,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/logger"
 )
 
 // Custom slog levels to cover the full logrus-compatible range.

@@ -6,9 +6,9 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/hop"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/hop"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // ---------------------------------------------------------------------------

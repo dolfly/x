@@ -6,16 +6,16 @@ import (
 	"crypto/x509"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/go-shadowsocks2/core"
-	mdutil "github.com/go-gost/x/metadata/util"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/bypass"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/go-shadowsocks2/core"
+	mdutil "github.com/dolfly/x/metadata/util"
+	"github.com/dolfly/x/registry"
 )
 
 type metadata struct {
-	key         string
-	hash        string
+	key  string
+	hash string
 	// readTimeout is the deadline for reading the initial Shadowsocks
 	// handshake from the client connection. The deadline is cleared
 	// after the handshake, so it does not affect subsequent data

@@ -5,9 +5,9 @@ import (
 	"io"
 	"testing"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 func TestMain(m *testing.M) {
@@ -94,8 +94,8 @@ func TestParseRouter_MissingGatewaySkipped(t *testing.T) {
 	r := ParseRouter(&config.RouterConfig{
 		Name: "skip-rt",
 		Routes: []*config.RouterRouteConfig{
-			{Net: "192.168.1.0/24", Gateway: ""},          // skipped: no gateway
-			{Net: "10.0.0.0/8", Gateway: "10.0.0.1"},      // kept
+			{Net: "192.168.1.0/24", Gateway: ""},     // skipped: no gateway
+			{Net: "10.0.0.0/8", Gateway: "10.0.0.1"}, // kept
 		},
 	})
 	if r == nil {
@@ -119,7 +119,7 @@ func TestParseRouter_InvalidCIDRSkipped(t *testing.T) {
 	r := ParseRouter(&config.RouterConfig{
 		Name: "invalid-cidr-rt",
 		Routes: []*config.RouterRouteConfig{
-			{Net: "not-a-cidr", Gateway: "10.0.0.1"},    // invalid CIDR with empty Dst, skipped
+			{Net: "not-a-cidr", Gateway: "10.0.0.1"},     // invalid CIDR with empty Dst, skipped
 			{Net: "192.168.1.0/24", Gateway: "10.0.0.2"}, // valid
 		},
 	})

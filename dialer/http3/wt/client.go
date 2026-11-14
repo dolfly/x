@@ -7,8 +7,8 @@ import (
 	"net/http/httputil"
 	"net/url"
 
-	"github.com/go-gost/core/logger"
-	wt_util "github.com/go-gost/x/internal/util/wt"
+	"github.com/dolfly/core/logger"
+	wt_util "github.com/dolfly/x/internal/util/wt"
 	wt "github.com/quic-go/webtransport-go"
 )
 

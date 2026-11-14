@@ -15,8 +15,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/recorder"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/recorder"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // --- Option tests ---
@@ -631,18 +631,18 @@ func TestHandlerRecorderObject_Record_FullObject(t *testing.T) {
 
 	now := time.Now()
 	p := &HandlerRecorderObject{
-		Node:        "node1",
-		Service:     "svc",
-		Network:     "tcp",
-		RemoteAddr:  "1.2.3.4:5678",
-		LocalAddr:   "10.0.0.1:8080",
-		ClientAddr:  "5.6.7.8:1111",
-		SrcAddr:     "5.6.7.8:1111",
-		DstAddr:     "9.9.9.9:443",
-		Host:        "example.com",
-		Proto:       "https",
-		ClientIP:    "5.6.7.8",
-		ClientID:    "client-1",
+		Node:       "node1",
+		Service:    "svc",
+		Network:    "tcp",
+		RemoteAddr: "1.2.3.4:5678",
+		LocalAddr:  "10.0.0.1:8080",
+		ClientAddr: "5.6.7.8:1111",
+		SrcAddr:    "5.6.7.8:1111",
+		DstAddr:    "9.9.9.9:443",
+		Host:       "example.com",
+		Proto:      "https",
+		ClientIP:   "5.6.7.8",
+		ClientID:   "client-1",
 		HTTP: &HTTPRecorderObject{
 			Host:       "example.com",
 			Method:     "GET",

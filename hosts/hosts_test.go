@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/x/internal/loader"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/x/internal/loader"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // newTestMapper creates a hostMapper for testing with a nop logger to avoid nil dereference

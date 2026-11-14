@@ -10,9 +10,9 @@ import (
 	"strings"
 
 	"github.com/andybalholm/brotli"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/rewriter"
-	xctx "github.com/go-gost/x/ctx"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/rewriter"
+	xctx "github.com/dolfly/x/ctx"
 	"github.com/klauspost/compress/zstd"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"

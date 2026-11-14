@@ -13,13 +13,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	ctxvalue "github.com/go-gost/x/ctx"
-	masque_dialer "github.com/go-gost/x/dialer/http3/masque"
-	masque_util "github.com/go-gost/x/internal/util/masque"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	ctxvalue "github.com/dolfly/x/ctx"
+	masque_dialer "github.com/dolfly/x/dialer/http3/masque"
+	masque_util "github.com/dolfly/x/internal/util/masque"
+	"github.com/dolfly/x/registry"
 	"github.com/quic-go/quic-go/http3"
 )
 

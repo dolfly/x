@@ -4,8 +4,8 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/core/observer/stats"
-	ostats "github.com/go-gost/x/observer/stats"
+	"github.com/dolfly/core/observer/stats"
+	ostats "github.com/dolfly/x/observer/stats"
 )
 
 type fakeListener struct {

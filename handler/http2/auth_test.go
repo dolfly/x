@@ -9,8 +9,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/handler"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/handler"
 )
 
 func TestKnockMatch(t *testing.T) {

@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/dolfly/x/config"
+	parser "github.com/dolfly/x/config/parsing/cache"
+	"github.com/dolfly/x/registry"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/x/config"
-	parser "github.com/go-gost/x/config/parsing/cache"
-	"github.com/go-gost/x/registry"
 )
 
 // swagger:parameters getCacheListRequest
@@ -22,7 +22,7 @@ type getCacheListResponse struct {
 }
 
 type cacheList struct {
-	Count int                  `json:"count"`
+	Count int                   `json:"count"`
 	List  []*config.CacheConfig `json:"list"`
 }
 

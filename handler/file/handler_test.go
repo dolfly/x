@@ -13,14 +13,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/handler"
-	cmdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/recorder"
-	xctx "github.com/go-gost/x/ctx"
-	xlogger "github.com/go-gost/x/logger"
-	xmetadata "github.com/go-gost/x/metadata"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/handler"
+	cmdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/recorder"
+	xctx "github.com/dolfly/x/ctx"
+	xlogger "github.com/dolfly/x/logger"
+	xmetadata "github.com/dolfly/x/metadata"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // --- test helpers ---
@@ -431,7 +431,7 @@ func TestHandleFunc_ServesFile(t *testing.T) {
 
 	fr := &fakeRecorder{}
 	fh := &fileHandler{options: handler.Options{
-		Logger: xlogger.Nop(),
+		Logger:  xlogger.Nop(),
 		Service: "test-svc",
 		Recorders: []recorder.RecorderObject{
 			{Record: xrecorder.RecorderServiceHandler, Recorder: fr},
@@ -460,7 +460,7 @@ func TestHandleFunc_FileNotFound(t *testing.T) {
 	dir := t.TempDir()
 	fr := &fakeRecorder{}
 	fh := &fileHandler{options: handler.Options{
-		Logger: xlogger.Nop(),
+		Logger:  xlogger.Nop(),
 		Service: "test-svc",
 		Recorders: []recorder.RecorderObject{
 			{Record: xrecorder.RecorderServiceHandler, Recorder: fr},
@@ -490,7 +490,7 @@ func TestHandleFunc_RecordsRequest(t *testing.T) {
 
 	fr := &fakeRecorder{}
 	fh := &fileHandler{options: handler.Options{
-		Logger: xlogger.Nop(),
+		Logger:  xlogger.Nop(),
 		Service: "test-svc",
 		Recorders: []recorder.RecorderObject{
 			{Record: xrecorder.RecorderServiceHandler, Recorder: fr},
@@ -520,7 +520,7 @@ func TestHandleFunc_RecordsStatusCode(t *testing.T) {
 	dir := t.TempDir()
 	fr := &fakeRecorder{}
 	fh := &fileHandler{options: handler.Options{
-		Logger: xlogger.Nop(),
+		Logger:  xlogger.Nop(),
 		Service: "test-svc",
 		Recorders: []recorder.RecorderObject{
 			{Record: xrecorder.RecorderServiceHandler, Recorder: fr},

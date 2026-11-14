@@ -13,8 +13,8 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/go-gost/core/common/bufpool"
-	xnet "github.com/go-gost/x/internal/net"
+	"github.com/dolfly/core/common/bufpool"
+	xnet "github.com/dolfly/x/internal/net"
 	"github.com/vishvananda/netns"
 	"golang.org/x/sys/unix"
 )
@@ -33,7 +33,7 @@ func (l *redirectListener) listenUDP(addr string) (*net.UDPConn, error) {
 			return c.Control(func(fd uintptr) {
 				// Must match dialUDP's socket so per-packet tproxy sockets can
 				// bind a destination port that overlaps this listener without
-				// "address already in use" (gost#413).
+				// "address already in use" (tnet#413).
 				if err := unix.SetsockoptInt(int(fd), unix.SOL_SOCKET, unix.SO_REUSEADDR, 1); err != nil {
 					l.logger.Errorf("SetsockoptInt(SOL_SOCKET, SO_REUSEADDR, 1): %v", err)
 				}

@@ -1,8 +1,8 @@
 package registry
 
 import (
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/logger"
 )
 
 // NewDialer is a factory function that creates a new dialer.Dialer

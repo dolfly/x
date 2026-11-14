@@ -5,9 +5,9 @@ import (
 	"net"
 	"strings"
 
-	"github.com/go-gost/core/auth"
-	xctx "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/matcher"
+	"github.com/dolfly/core/auth"
+	xctx "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/matcher"
 )
 
 // whitelistedAuthenticator wraps an Authenticator to skip authentication

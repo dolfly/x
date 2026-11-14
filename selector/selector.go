@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/go-gost/core/selector"
+	"github.com/dolfly/core/selector"
 )
 
 // default options for FailFilter

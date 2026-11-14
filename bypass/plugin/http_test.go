@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/x/internal/plugin"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

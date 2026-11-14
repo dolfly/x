@@ -8,12 +8,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/recorder"
-	xmd "github.com/go-gost/x/metadata"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/recorder"
+	xmd "github.com/dolfly/x/metadata"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // ---------------------------------------------------------------------------

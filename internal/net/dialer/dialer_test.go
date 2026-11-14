@@ -6,7 +6,7 @@ import (
 	"net"
 	"testing"
 
-	ictx "github.com/go-gost/x/internal/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
 )
 
 func TestShouldBindUDPDevice(t *testing.T) {

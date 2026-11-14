@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/recorder"
-	xstats "github.com/go-gost/x/observer/stats"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/recorder"
+	xstats "github.com/dolfly/x/observer/stats"
 )
 
 // sessionSink collects what the reporter delivers.

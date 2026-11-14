@@ -3,7 +3,7 @@
 // SSH ProxyCommand where the parent process (SSH) pipes the transport byte
 // stream through the child process's standard I/O.
 //
-// Usage: gost -L stdio://example.com:22 -F http://proxy:8080
+// Usage: tnet -L stdio://example.com:22 -F http://proxy:8080
 package stdio
 
 import (
@@ -12,10 +12,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {
@@ -107,7 +107,7 @@ func (c *stdioConn) Write(b []byte) (int, error) { return os.Stdout.Write(b) }
 //
 // Closing the listener alone is not enough: the service's accept loop runs
 // in a fire-and-forget goroutine (see x/service.Serve) and the process
-// blocks on the go-svc signal wait (see gost/cmd/gost/main.go), so it would
+// blocks on the go-svc signal wait (see tnet/cmd/tnet/main.go), so it would
 // linger forever after the parent quits. os.Exit is the only reliable way
 // to terminate here. The handler's deferred stats/recording/logging already
 // ran before this Close (LIFO order), so nothing is lost.

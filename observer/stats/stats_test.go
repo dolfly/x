@@ -3,8 +3,8 @@ package stats
 import (
 	"testing"
 
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/observer/stats"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/observer/stats"
 )
 
 func TestStats_Add(t *testing.T) {

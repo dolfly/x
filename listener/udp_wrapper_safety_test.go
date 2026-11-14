@@ -5,17 +5,17 @@ import (
 	"testing"
 	"time"
 
-	admission_wrapper "github.com/go-gost/x/admission/wrapper"
-	limiter_wrapper "github.com/go-gost/x/limiter/traffic/wrapper"
-	metrics_wrapper "github.com/go-gost/x/metrics/wrapper"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
+	admission_wrapper "github.com/dolfly/x/admission/wrapper"
+	limiter_wrapper "github.com/dolfly/x/limiter/traffic/wrapper"
+	metrics_wrapper "github.com/dolfly/x/metrics/wrapper"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
 )
 
 // TestWrapUDPConnChainNoCrashWithNilConfigs verifies that chaining
 // WrapUDPConn calls with nil optional configs (stats, admission, limiter)
 // does not produce a wrapper with a nil internal PacketConn.
 //
-// Regression test for go-gost/gost#873 — stats.WrapUDPConn returning nil
+// Regression test for dolfly/tnet#873 — stats.WrapUDPConn returning nil
 // when stats is nil, which then entered admission.WrapUDPConn with a nil
 // PacketConn, causing a nil-pointer dereference in service.Serve().
 func TestWrapUDPConnChainNoCrashWithNilConfigs(t *testing.T) {
@@ -88,8 +88,8 @@ func (c *fakePacketConn) WriteTo(p []byte, addr net.Addr) (n int, err error) {
 func (c *fakePacketConn) Close() error                       { return nil }
 func (c *fakePacketConn) LocalAddr() net.Addr                { return &fakeAddr{} }
 func (c *fakePacketConn) SetDeadline(t time.Time) error      { return nil }
-func (c *fakePacketConn) SetReadDeadline(t time.Time) error   { return nil }
-func (c *fakePacketConn) SetWriteDeadline(t time.Time) error  { return nil }
+func (c *fakePacketConn) SetReadDeadline(t time.Time) error  { return nil }
+func (c *fakePacketConn) SetWriteDeadline(t time.Time) error { return nil }
 
 type fakeAddr struct{}
 

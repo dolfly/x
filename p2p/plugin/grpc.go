@@ -1,5 +1,5 @@
 // Package plugin implements p2p.Tunnel over the plugin control
-// protocol (github.com/go-gost/plugin/p2p).
+// protocol (github.com/dolfly/plugin/p2p).
 package plugin
 
 import (
@@ -9,11 +9,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/plugin/p2p/proto"
-	"github.com/go-gost/x/internal/plugin"
-	xp2p "github.com/go-gost/x/p2p"
-	"github.com/go-gost/x/p2p/streamconn"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/plugin/p2p/proto"
+	"github.com/dolfly/x/internal/plugin"
+	xp2p "github.com/dolfly/x/p2p"
+	"github.com/dolfly/x/p2p/streamconn"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 )

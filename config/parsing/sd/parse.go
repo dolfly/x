@@ -4,12 +4,12 @@ import (
 	"crypto/tls"
 	"strings"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/plugin"
-	xplugin "github.com/go-gost/x/plugin"
-	sd_plugin "github.com/go-gost/x/sd/plugin"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/plugin"
+	xplugin "github.com/dolfly/x/plugin"
+	sd_plugin "github.com/dolfly/x/sd/plugin"
 )
 
 // ParseSD converts an SDConfig into an sd.SD. It only supports plugin backends

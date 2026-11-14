@@ -5,7 +5,7 @@ import (
 	"net"
 	"testing"
 
-	xmetrics "github.com/go-gost/x/metrics"
+	xmetrics "github.com/dolfly/x/metrics"
 )
 
 // enableMetrics turns metrics on for the duration of the test and restores

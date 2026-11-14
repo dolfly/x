@@ -31,7 +31,7 @@ func SelfSignedTLS() (server, client *tls.Config, err error) {
 	}
 	tmpl := &x509.Certificate{
 		SerialNumber:          big.NewInt(1),
-		Subject:               pkix.Name{Organization: []string{"GOST"}},
+		Subject:               pkix.Name{Organization: []string{"TNET"}},
 		NotBefore:             time.Now().Add(-time.Hour),
 		NotAfter:              time.Now().Add(time.Hour),
 		IPAddresses:           []net.IP{net.IPv4(127, 0, 0, 1)},
@@ -53,11 +53,11 @@ func SelfSignedTLS() (server, client *tls.Config, err error) {
 
 	return &tls.Config{
 		Certificates: []tls.Certificate{{Certificate: [][]byte{der}, PrivateKey: key}},
-		NextProtos:   []string{"gost"},
+		NextProtos:   []string{"tnet"},
 	}, &tls.Config{
 		RootCAs:    pool,
 		ServerName: "127.0.0.1",
-		NextProtos: []string{"gost"},
+		NextProtos: []string{"tnet"},
 	}, nil
 }
 

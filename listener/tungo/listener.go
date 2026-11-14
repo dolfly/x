@@ -7,18 +7,18 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/logger"
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/router"
-	ictx "github.com/go-gost/x/internal/ctx"
-	traffic_limiter "github.com/go-gost/x/limiter/traffic"
-	limiter_wrapper "github.com/go-gost/x/limiter/traffic/wrapper"
-	mdx "github.com/go-gost/x/metadata"
-	metrics "github.com/go-gost/x/metrics/wrapper"
-	stats "github.com/go-gost/x/observer/stats/wrapper"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/logger"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/router"
+	ictx "github.com/dolfly/x/internal/ctx"
+	traffic_limiter "github.com/dolfly/x/limiter/traffic"
+	limiter_wrapper "github.com/dolfly/x/limiter/traffic/wrapper"
+	mdx "github.com/dolfly/x/metadata"
+	metrics "github.com/dolfly/x/metrics/wrapper"
+	stats "github.com/dolfly/x/observer/stats/wrapper"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {
@@ -157,7 +157,7 @@ func (l *tunListener) listenLoop(ready context.CancelCauseFunc) {
 			// Closing the accepted conn releases its device fd, which removes
 			// the tun interface from the kernel, so a subsequent reload with
 			// the same device name can recreate it instead of failing with
-			// "device or resource busy" (gost#901).
+			// "device or resource busy" (tnet#901).
 			l.mu.Lock()
 			if l.active != nil {
 				l.active.Close()

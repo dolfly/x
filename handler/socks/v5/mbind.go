@@ -5,17 +5,17 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/gosocks5"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/util/mux"
-	traffic_wrapper "github.com/go-gost/x/limiter/traffic/wrapper"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/gosocks5"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/util/mux"
+	traffic_wrapper "github.com/dolfly/x/limiter/traffic/wrapper"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 func (h *socks5Handler) handleMuxBind(ctx context.Context, conn net.Conn, network, address string, ro *xrecorder.HandlerRecorderObject, log logger.Logger) error {
@@ -151,7 +151,7 @@ func (h *socks5Handler) serveMuxBind(ctx context.Context, conn net.Conn, ln net.
 			}
 			defer sc.Close()
 
-			// incompatible with GOST v2.x
+			// incompatible with TNET v2.x
 			if !h.md.compatibilityMode {
 				addr := gosocks5.Addr{}
 				addr.ParseFrom(c.RemoteAddr().String())

@@ -6,8 +6,8 @@ import (
 	"net"
 	"time"
 
-	xctx "github.com/go-gost/x/ctx"
-	xrecorder "github.com/go-gost/x/recorder"
+	xctx "github.com/dolfly/x/ctx"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 var (

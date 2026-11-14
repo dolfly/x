@@ -3,8 +3,8 @@ package ss
 import (
 	"net"
 
-	"github.com/go-gost/go-shadowsocks2/core"
-	"github.com/go-gost/go-shadowsocks2/socks"
+	"github.com/dolfly/go-shadowsocks2/core"
+	"github.com/dolfly/go-shadowsocks2/socks"
 )
 
 type udpConn struct {

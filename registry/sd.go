@@ -3,7 +3,7 @@ package registry
 import (
 	"context"
 
-	"github.com/go-gost/core/sd"
+	"github.com/dolfly/core/sd"
 )
 
 // sdRegistry implements a hot-reload-safe registry for sd.SD.

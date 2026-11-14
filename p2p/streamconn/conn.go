@@ -1,5 +1,5 @@
 // Package streamconn adapts a gRPC bidirectional Tunnel byte stream (the p2p
-// plugin's data plane) to a net.Conn for the GOST side. The p2p host keeps its
+// plugin's data plane) to a net.Conn for the TNET side. The p2p host keeps its
 // own minimal raw conn (p2p/streamconn.go) instead of sharing this one: the
 // plugin module holds contracts only, and the host cannot import the x module.
 // The two sides couple through the proto (Chunk messages), not through code.
@@ -41,7 +41,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/plugin/p2p/proto"
+	"github.com/dolfly/plugin/p2p/proto"
 )
 
 // Stream is the data-carrying half of the P2P Tunnel RPC; it is satisfied by

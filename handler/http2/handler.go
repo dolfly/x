@@ -14,7 +14,7 @@
 //	  ├─ checkRateLimit (connection rate limiter, if configured)
 //	  ├─ ictx.MetadataFromContext (extract w, r from HTTP/2 stream context)
 //	  └─ roundTrip()
-//	    ├─ decodeServerName (GOST 2.x compatibility headers)
+//	    ├─ decodeServerName (TNET 2.x compatibility headers)
 //	    ├─ authenticate (basic proxy auth + probe resistance)
 //	    ├─ bypass check
 //	    ├─ set metadata response headers
@@ -30,19 +30,19 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/traffic"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/recorder"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	stats_util "github.com/go-gost/x/internal/util/stats"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	cache_limiter "github.com/go-gost/x/limiter/traffic/cache"
-	xrecorder "github.com/go-gost/x/recorder"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/traffic"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/recorder"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	stats_util "github.com/dolfly/x/internal/util/stats"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	cache_limiter "github.com/dolfly/x/limiter/traffic/cache"
+	xrecorder "github.com/dolfly/x/recorder"
+	"github.com/dolfly/x/registry"
 )
 
 // Sentinel errors returned by the HTTP/2 handler.

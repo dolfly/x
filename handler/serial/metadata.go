@@ -3,8 +3,8 @@ package serial
 import (
 	"time"
 
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 // metadata holds the parsed configuration for the serial handler.

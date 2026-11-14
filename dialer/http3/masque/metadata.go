@@ -3,9 +3,9 @@ package masque
 import (
 	"time"
 
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/x/internal/util/ech"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/x/internal/util/ech"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 const (

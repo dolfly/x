@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	xio "github.com/go-gost/x/internal/io"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/util/quictest"
+	xio "github.com/dolfly/x/internal/io"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/util/quictest"
 )
 
 func TestQuicConnCloseWriteKeepsReadSideOpen(t *testing.T) {

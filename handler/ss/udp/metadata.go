@@ -3,9 +3,9 @@ package ss
 import (
 	"time"
 
-	mdata "github.com/go-gost/core/metadata"
-	"github.com/go-gost/go-shadowsocks2/core"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	"github.com/dolfly/go-shadowsocks2/core"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 const (
@@ -13,7 +13,7 @@ const (
 )
 
 type metadata struct {
-	key           string
+	key string
 	// readTimeout is the deadline for reading a single UDP datagram from
 	// the client. Since UDP is connectionless, this timeout applies to
 	// each individual datagram read. Default: 1 minute (longer than the

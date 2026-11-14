@@ -15,10 +15,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/recorder"
-	xlogger "github.com/go-gost/x/logger"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/recorder"
+	xlogger "github.com/dolfly/x/logger"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // =============================================================================

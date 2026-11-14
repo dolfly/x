@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	xlogger "github.com/go-gost/x/logger"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // A nil reader must never panic, whatever the format. encoding/json panics
@@ -128,7 +128,7 @@ func TestParseFileAuths_WhitespaceParity(t *testing.T) {
 func TestParseFileAuths_StructuredIgnoresAuthFileField(t *testing.T) {
 	p := &authenticator{options: options{fileFormat: "json"}}
 	m, err := p.parseFileAuths(strings.NewReader(
-		`{"auths":[{"username":"alice","password":"secret","file":"/etc/gost/alice.key"}]}`))
+		`{"auths":[{"username":"alice","password":"secret","file":"/etc/tnet/alice.key"}]}`))
 	if err != nil {
 		t.Fatal(err)
 	}

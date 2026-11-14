@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/x/internal/plugin"
 )
 
 type sdService struct {

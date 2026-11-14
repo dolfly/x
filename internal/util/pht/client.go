@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/logger"
 	"github.com/rs/xid"
 )
 

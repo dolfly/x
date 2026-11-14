@@ -12,17 +12,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/observer/stats"
-	xctx "github.com/go-gost/x/ctx"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xio "github.com/go-gost/x/internal/io"
-	xnet "github.com/go-gost/x/internal/net"
-	xhttp "github.com/go-gost/x/internal/net/http"
-	"github.com/go-gost/x/internal/util/sniffing"
-	xstats "github.com/go-gost/x/observer/stats"
-	stats_wrapper "github.com/go-gost/x/observer/stats/wrapper"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/observer/stats"
+	xctx "github.com/dolfly/x/ctx"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xio "github.com/dolfly/x/internal/io"
+	xnet "github.com/dolfly/x/internal/net"
+	xhttp "github.com/dolfly/x/internal/net/http"
+	"github.com/dolfly/x/internal/util/sniffing"
+	xstats "github.com/dolfly/x/observer/stats"
+	stats_wrapper "github.com/dolfly/x/observer/stats/wrapper"
+	xrecorder "github.com/dolfly/x/recorder"
 	"golang.org/x/net/http/httpguts"
 )
 
@@ -30,12 +30,12 @@ import (
 const (
 	// httpHeaderSID carries the session ID from the external request
 	// through the tunnel to the internal service.
-	httpHeaderSID = "Gost-Sid"
+	httpHeaderSID = "Tnet-Sid"
 	// httpHeaderForwardedNode carries the node ID chain from each
 	// entrypoint the request has traversed. Used for loop detection:
 	// if the header already contains our node, the request is looping
 	// and is rejected with 503.
-	httpHeaderForwardedNode = "Gost-Forwarded-Node"
+	httpHeaderForwardedNode = "Tnet-Forwarded-Node"
 )
 
 // handleHTTP processes an HTTP request arriving at the entrypoint.
@@ -114,10 +114,10 @@ func (ep *Entrypoint) httpRoundTrip(ctx context.Context, rw io.ReadWriteCloser, 
 	*ro2 = *ro
 	ro = ro2
 
-	if v := req.Header.Get("Gost-Record"); v != "" {
+	if v := req.Header.Get("Tnet-Record"); v != "" {
 		ro.RecordMode = strings.ToLower(v)
 	}
-	req.Header.Del("Gost-Record")
+	req.Header.Del("Tnet-Record")
 
 	if sid := req.Header.Get(httpHeaderSID); sid != "" {
 		ro.SID = sid
@@ -125,7 +125,7 @@ func (ep *Entrypoint) httpRoundTrip(ctx context.Context, rw io.ReadWriteCloser, 
 		req.Header.Set(httpHeaderSID, ro.SID)
 	}
 
-	// Loop detection: if Gost-Forwarded-Node contains our own node ID,
+	// Loop detection: if Tnet-Forwarded-Node contains our own node ID,
 	// the request has already passed through this entrypoint and is looping.
 	for _, node := range strings.Split(req.Header.Get(httpHeaderForwardedNode), ",") {
 		if strings.TrimSpace(node) == ep.node {

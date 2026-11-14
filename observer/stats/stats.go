@@ -3,8 +3,8 @@ package stats
 import (
 	"sync/atomic"
 
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/observer/stats"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/observer/stats"
 )
 
 // LAN statistic kinds, defined here in x because core/ must stay untouched.

@@ -4,12 +4,12 @@ import (
 	"crypto/tls"
 	"strings"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/plugin"
-	observer_plugin "github.com/go-gost/x/observer/plugin"
-	xplugin "github.com/go-gost/x/plugin"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/plugin"
+	observer_plugin "github.com/dolfly/x/observer/plugin"
+	xplugin "github.com/dolfly/x/plugin"
 )
 
 // ParseObserver converts an ObserverConfig into an observer.Observer. It only

@@ -9,15 +9,15 @@ import (
 
 	"strings"
 
-	"github.com/go-gost/core/connector"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/go-shadowsocks2/core"
-	"github.com/go-gost/go-shadowsocks2/socks"
-	"github.com/go-gost/go-shadowsocks2/utils"
-	"github.com/go-gost/gosocks5"
-	ctxvalue "github.com/go-gost/x/ctx"
-	"github.com/go-gost/x/internal/util/ss/none"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/connector"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/go-shadowsocks2/core"
+	"github.com/dolfly/go-shadowsocks2/socks"
+	"github.com/dolfly/go-shadowsocks2/utils"
+	"github.com/dolfly/gosocks5"
+	ctxvalue "github.com/dolfly/x/ctx"
+	"github.com/dolfly/x/internal/util/ss/none"
+	"github.com/dolfly/x/registry"
 )
 
 func init() {
@@ -98,7 +98,7 @@ func (c *ssConnector) Connect(ctx context.Context, conn net.Conn, network, addre
 	}
 	// The wrapped conn stores this target and only writes it on first I/O,
 	// so it must be owned by this connection, not a shared pooled buffer
-	// (see go-gost/gost#896).
+	// (see dolfly/tnet#896).
 	const maxAddrLen = 1 + 1 + 255 + 2 // SOCKS5 addr: atyp + len + host + port
 
 	target := make([]byte, maxAddrLen)

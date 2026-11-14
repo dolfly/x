@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	xlogger "github.com/go-gost/x/logger"
-	resolver_util "github.com/go-gost/x/internal/util/resolver"
+	resolver_util "github.com/dolfly/x/internal/util/resolver"
+	xlogger "github.com/dolfly/x/logger"
 	"github.com/miekg/dns"
 )
 
@@ -61,7 +61,7 @@ func newDNSMsgWithAAAA(ips ...string) *dns.Msg {
 	m.SetQuestion("example.com.", dns.TypeAAAA)
 	for _, ip := range ips {
 		m.Answer = append(m.Answer, &dns.AAAA{
-			Hdr: dns.RR_Header{Name: "example.com.", Rrtype: dns.TypeAAAA, Class: dns.ClassINET, Ttl: 300},
+			Hdr:  dns.RR_Header{Name: "example.com.", Rrtype: dns.TypeAAAA, Class: dns.ClassINET, Ttl: 300},
 			AAAA: net.ParseIP(ip),
 		})
 	}
@@ -348,7 +348,7 @@ func TestResolveIPs_ExtractsAAndAAAA(t *testing.T) {
 			A:   net.ParseIP("10.0.0.1"),
 		},
 		&dns.AAAA{
-			Hdr: dns.RR_Header{Name: "example.com.", Rrtype: dns.TypeAAAA, Class: dns.ClassINET, Ttl: 300},
+			Hdr:  dns.RR_Header{Name: "example.com.", Rrtype: dns.TypeAAAA, Class: dns.ClassINET, Ttl: 300},
 			AAAA: net.ParseIP("2001:db8::1"),
 		},
 	)

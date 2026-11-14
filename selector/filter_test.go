@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/selector"
-	xmd "github.com/go-gost/x/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
+	"github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/selector"
+	xmd "github.com/dolfly/x/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 // testMarkable is a test item that implements both Metadatable and Markable.

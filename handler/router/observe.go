@@ -5,7 +5,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/observer"
+	"github.com/dolfly/core/observer"
 )
 
 // checkRateLimit applies connection-level rate limiting based on the

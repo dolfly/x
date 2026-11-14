@@ -4,15 +4,15 @@ import (
 	"net"
 	"testing"
 
-	mdata "github.com/go-gost/core/metadata"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xmd "github.com/go-gost/x/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xmd "github.com/dolfly/x/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 // TestBindConnContext verifies that a bindConn exposes its connection metadata
 // (the tunneled hostname) via the xctx.Context interface, so the service accept
-// loop forwards it into the handler context for filter.host routing (gost#898).
+// loop forwards it into the handler context for filter.host routing (tnet#898).
 func TestBindConnContext(t *testing.T) {
 	md := mdata.Metadata(xmd.NewMetadata(map[string]any{"host": "example.local:80"}))
 	cn := &bindConn{

@@ -6,11 +6,11 @@ import (
 	"net"
 	"net/http"
 
+	"github.com/dolfly/core/handler"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/x/api"
+	"github.com/dolfly/x/registry"
 	"github.com/gin-gonic/gin"
-	"github.com/go-gost/core/handler"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/x/api"
-	"github.com/go-gost/x/registry"
 )
 
 var errHandlerNotInitialized = errors.New("api: handler not initialized")
@@ -19,7 +19,7 @@ func init() {
 	registry.HandlerRegistry().Register("api", NewHandler)
 }
 
-// apiHandler is a handler that serves the GOST REST API over an inbound
+// apiHandler is a handler that serves the TNET REST API over an inbound
 // connection using the Gin framework.
 type apiHandler struct {
 	handler http.Handler

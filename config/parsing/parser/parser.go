@@ -14,11 +14,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/config/cmd"
-	xmd "github.com/go-gost/x/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/config/cmd"
+	xmd "github.com/dolfly/x/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 var (
@@ -99,26 +99,26 @@ func (p *parser) Parse() (*config.Config, error) {
 		}
 	}
 
-	if v := os.Getenv("GOST_LOGGER_LEVEL"); v != "" {
+	if v := os.Getenv("TNET_LOGGER_LEVEL"); v != "" {
 		if cfg.Log == nil {
 			cfg.Log = &config.LogConfig{}
 		}
 		cfg.Log.Level = v
 	}
-	if v := os.Getenv("GOST_API"); v != "" {
-		// GOST_API takes the same place as the -api flag: it replaces the
+	if v := os.Getenv("TNET_API"); v != "" {
+		// TNET_API takes the same place as the -api flag: it replaces the
 		// api section of the configuration file as a whole.
 		cfg.API = &config.APIConfig{}
 		applyAPIAddr(cfg.API, v)
 	}
-	if v := os.Getenv("GOST_METRICS"); v != "" {
-		// GOST_METRICS takes the same place as the -metrics flag: it
+	if v := os.Getenv("TNET_METRICS"); v != "" {
+		// TNET_METRICS takes the same place as the -metrics flag: it
 		// replaces the metrics section of the configuration file as a
 		// whole.
 		cfg.Metrics = &config.MetricsConfig{}
 		applyMetricsAddr(cfg.Metrics, v)
 	}
-	if v := os.Getenv("GOST_PROFILING"); v != "" {
+	if v := os.Getenv("TNET_PROFILING"); v != "" {
 		if cfg.Profiling == nil {
 			cfg.Profiling = &config.ProfilingConfig{}
 		}
@@ -158,7 +158,7 @@ func (p *parser) Parse() (*config.Config, error) {
 //
 // The address may carry inline credentials ("user:pass@host:port") and query
 // options ("?pathPrefix=/api&accesslog=true"). A unix domain socket address
-// ("unix:///var/run/gost.sock") keeps its scheme and path, as it carries the
+// ("unix:///var/run/tnet.sock") keeps its scheme and path, as it carries the
 // socket path in the URL path rather than in the host.
 func applyAPIAddr(cfg *config.APIConfig, addr string) {
 	u, err := cmd.Norm(addr)
@@ -210,7 +210,7 @@ func applyAPIAddr(cfg *config.APIConfig, addr string) {
 //
 // The address may carry inline credentials ("user:pass@host:port") and the
 // path option ("?path=/metrics"). A unix domain socket address
-// ("unix:///var/run/gost.sock") keeps its scheme and path, as it carries the
+// ("unix:///var/run/tnet.sock") keeps its scheme and path, as it carries the
 // socket path in the URL path rather than in the host.
 func applyMetricsAddr(cfg *config.MetricsConfig, addr string) {
 	u, err := cmd.Norm(addr)

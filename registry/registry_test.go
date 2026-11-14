@@ -7,33 +7,33 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/go-gost/core/admission"
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/connector"
+	"github.com/dolfly/core/admission"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/connector"
 
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/hosts"
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/conn"
-	"github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/recorder"
-	reg "github.com/go-gost/core/registry"
-	"github.com/go-gost/core/resolver"
-	"github.com/go-gost/core/router"
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/core/selector"
-	"github.com/go-gost/core/service"
-	"github.com/go-gost/x/config"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/hosts"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/conn"
+	"github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/recorder"
+	reg "github.com/dolfly/core/registry"
+	"github.com/dolfly/core/resolver"
+	"github.com/dolfly/core/router"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/core/selector"
+	"github.com/dolfly/core/service"
+	"github.com/dolfly/x/config"
 )
 
 // --- Base registry[T] tests ---
@@ -139,8 +139,8 @@ type closeableService struct {
 	closed bool
 }
 
-func (s *closeableService) Serve() error        { return nil }
-func (s *closeableService) Addr() net.Addr      { return nil }
+func (s *closeableService) Serve() error   { return nil }
+func (s *closeableService) Addr() net.Addr { return nil }
 func (s *closeableService) Close() error {
 	s.closed = true
 	return nil
@@ -439,7 +439,7 @@ func TestAutherRegistry_NilUnderlying(t *testing.T) {
 // --- Bypass wrapper tests ---
 
 type mockBypass struct {
-	contains   bool
+	contains  bool
 	whitelist bool
 }
 
@@ -941,21 +941,21 @@ func TestSDRegistry_NilUnderlying(t *testing.T) {
 
 type mockLogger struct{}
 
-func (m *mockLogger) Trace(_ ...any)                              {}
-func (m *mockLogger) Tracef(_ string, _ ...any)                   {}
-func (m *mockLogger) Debug(_ ...any)                              {}
-func (m *mockLogger) Debugf(_ string, _ ...any)                   {}
-func (m *mockLogger) Info(_ ...any)                               {}
-func (m *mockLogger) Infof(_ string, _ ...any)                    {}
-func (m *mockLogger) Warn(_ ...any)                               {}
-func (m *mockLogger) Warnf(_ string, _ ...any)                    {}
-func (m *mockLogger) Error(_ ...any)                              {}
-func (m *mockLogger) Errorf(_ string, _ ...any)                   {}
-func (m *mockLogger) Fatal(_ ...any)                              {}
-func (m *mockLogger) Fatalf(_ string, _ ...any)                   {}
-func (m *mockLogger) GetLevel() logger.LogLevel                   { return logger.DebugLevel }
-func (m *mockLogger) IsLevelEnabled(_ logger.LogLevel) bool       { return true }
-func (m *mockLogger) WithFields(_ map[string]any) logger.Logger   { return m }
+func (m *mockLogger) Trace(_ ...any)                            {}
+func (m *mockLogger) Tracef(_ string, _ ...any)                 {}
+func (m *mockLogger) Debug(_ ...any)                            {}
+func (m *mockLogger) Debugf(_ string, _ ...any)                 {}
+func (m *mockLogger) Info(_ ...any)                             {}
+func (m *mockLogger) Infof(_ string, _ ...any)                  {}
+func (m *mockLogger) Warn(_ ...any)                             {}
+func (m *mockLogger) Warnf(_ string, _ ...any)                  {}
+func (m *mockLogger) Error(_ ...any)                            {}
+func (m *mockLogger) Errorf(_ string, _ ...any)                 {}
+func (m *mockLogger) Fatal(_ ...any)                            {}
+func (m *mockLogger) Fatalf(_ string, _ ...any)                 {}
+func (m *mockLogger) GetLevel() logger.LogLevel                 { return logger.DebugLevel }
+func (m *mockLogger) IsLevelEnabled(_ logger.LogLevel) bool     { return true }
+func (m *mockLogger) WithFields(_ map[string]any) logger.Logger { return m }
 
 func TestLoggerRegistry_RegisterGet(t *testing.T) {
 	r := new(loggerRegistry)

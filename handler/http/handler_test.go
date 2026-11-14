@@ -8,11 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/handler"
-	stats_util "github.com/go-gost/x/internal/util/stats"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/handler"
+	stats_util "github.com/dolfly/x/internal/util/stats"
+	xrecorder "github.com/dolfly/x/recorder"
 )
-
 
 func TestNewHandler(t *testing.T) {
 	h := NewHandler()
@@ -241,7 +240,7 @@ func TestHandleRequest_UDP_Disabled(t *testing.T) {
 
 	conn := newStringConn("")
 	req, _ := http.NewRequest("GET", "http://example.com:80/path", nil)
-	req.Header.Set("X-Gost-Protocol", "udp")
+	req.Header.Set("X-Tnet-Protocol", "udp")
 
 	err := h.handleRequest(context.Background(), conn, req, &xrecorder.HandlerRecorderObject{}, &testLogger{})
 	// UDP disabled → 403 Forbidden written
@@ -346,4 +345,3 @@ func TestHandleRequest_Bypass_Test(t *testing.T) {
 		t.Error("expected bypass error")
 	}
 }
-

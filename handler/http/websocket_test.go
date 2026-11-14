@@ -6,9 +6,9 @@ import (
 	"io"
 	"testing"
 
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/recorder"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/recorder"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 func TestCopyWebsocketFrame_ReadError(t *testing.T) {
@@ -51,7 +51,7 @@ func TestCopyWebsocketFrame_WithBodyRecording(t *testing.T) {
 	}
 	h.recorder = recorder.RecorderObject{
 		Options: &recorder.Options{
-			HTTPBody:   true,
+			HTTPBody:    true,
 			MaxBodySize: 1024,
 		},
 	}
@@ -119,6 +119,6 @@ func TestCopyWebsocketDirection_NilRO(t *testing.T) {
 // errorReader always returns an error.
 type errorReader struct{}
 
-func (r *errorReader) Read(p []byte) (int, error) { return 0, io.ErrUnexpectedEOF }
+func (r *errorReader) Read(p []byte) (int, error)  { return 0, io.ErrUnexpectedEOF }
 func (r *errorReader) Write(p []byte) (int, error) { return len(p), nil }
 func (r *errorReader) Close() error                { return nil }

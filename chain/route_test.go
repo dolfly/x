@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/hosts"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/hosts"
+	xlogger "github.com/dolfly/x/logger"
 	"github.com/stretchr/testify/require"
 )
 

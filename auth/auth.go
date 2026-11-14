@@ -12,11 +12,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/internal/loader"
-	xlogger "github.com/go-gost/x/logger"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/internal/loader"
+	xlogger "github.com/dolfly/x/logger"
 	yaml "github.com/goccy/go-yaml"
 )
 

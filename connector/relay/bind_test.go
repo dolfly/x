@@ -4,7 +4,7 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/relay"
+	"github.com/dolfly/relay"
 )
 
 // A port-only bind address such as ":22" (used by the rtcp listener when a

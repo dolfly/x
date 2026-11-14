@@ -14,7 +14,7 @@ There are no tests in this module. Build + vet is the verification path.
 
 ## Architecture
 
-`x/` is the **implementation layer** for the GOST proxy framework. Every interface defined in `core/` is implemented here. The module ties the whole system together: it provides ~25 handler implementations, ~25 listener implementations, ~20 dialer implementations, ~15 connector implementations, plus config parsing, registry management, and all cross-cutting concerns.
+`x/` is the **implementation layer** for the TNET proxy framework. Every interface defined in `core/` is implemented here. The module ties the whole system together: it provides ~25 handler implementations, ~25 listener implementations, ~20 dialer implementations, ~15 connector implementations, plus config parsing, registry management, and all cross-cutting concerns.
 
 ### Component pattern (applies to every handler, listener, dialer, connector)
 

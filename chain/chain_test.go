@@ -8,16 +8,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/core/dialer"
-	"github.com/go-gost/core/hop"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/metadata"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/core/routing"
-	xlogger "github.com/go-gost/x/logger"
-	xmetadata "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/core/dialer"
+	"github.com/dolfly/core/hop"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/metadata"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/core/routing"
+	xlogger "github.com/dolfly/x/logger"
+	xmetadata "github.com/dolfly/x/metadata"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -30,13 +30,13 @@ type testConn struct {
 }
 
 func (c *testConn) Read(b []byte) (n int, err error)   { return 0, nil }
-func (c *testConn) Write(b []byte) (n int, err error)   { return len(b), nil }
-func (c *testConn) Close() error                         { c.closed = true; return nil }
-func (c *testConn) LocalAddr() net.Addr                  { return &net.TCPAddr{IP: net.IPv4(127, 0, 0, 1), Port: 12345} }
-func (c *testConn) RemoteAddr() net.Addr                 { return &net.TCPAddr{IP: net.IPv4(127, 0, 0, 1), Port: 8080} }
-func (c *testConn) SetDeadline(t time.Time) error        { return nil }
-func (c *testConn) SetReadDeadline(t time.Time) error    { return nil }
-func (c *testConn) SetWriteDeadline(t time.Time) error   { return nil }
+func (c *testConn) Write(b []byte) (n int, err error)  { return len(b), nil }
+func (c *testConn) Close() error                       { c.closed = true; return nil }
+func (c *testConn) LocalAddr() net.Addr                { return &net.TCPAddr{IP: net.IPv4(127, 0, 0, 1), Port: 12345} }
+func (c *testConn) RemoteAddr() net.Addr               { return &net.TCPAddr{IP: net.IPv4(127, 0, 0, 1), Port: 8080} }
+func (c *testConn) SetDeadline(t time.Time) error      { return nil }
+func (c *testConn) SetReadDeadline(t time.Time) error  { return nil }
+func (c *testConn) SetWriteDeadline(t time.Time) error { return nil }
 
 // testDialer implements dialer.Dialer and optionally dialer.Handshaker and
 // dialer.Multiplexer. Hook functions allow per-test customization.
@@ -78,9 +78,9 @@ func (d *plainDialer) Dial(ctx context.Context, addr string, opts ...dialer.Dial
 // testConnector implements connector.Connector and optionally connector.Handshaker
 // and connector.Binder.
 type testConnector struct {
-	connectFn    func(ctx context.Context, conn net.Conn, network, address string, opts ...connector.ConnectOption) (net.Conn, error)
-	handshakeFn  func(ctx context.Context, conn net.Conn) (net.Conn, error)
-	bindFn       func(ctx context.Context, conn net.Conn, network, address string, opts ...connector.BindOption) (net.Listener, error)
+	connectFn   func(ctx context.Context, conn net.Conn, network, address string, opts ...connector.ConnectOption) (net.Conn, error)
+	handshakeFn func(ctx context.Context, conn net.Conn) (net.Conn, error)
+	bindFn      func(ctx context.Context, conn net.Conn, network, address string, opts ...connector.BindOption) (net.Listener, error)
 }
 
 func (c *testConnector) Init(md metadata.Metadata) error { return nil }
@@ -154,8 +154,8 @@ type testListener struct {
 }
 
 func (l *testListener) Accept() (net.Conn, error) { return &testConn{}, nil }
-func (l *testListener) Close() error               { l.closed = true; return nil }
-func (l *testListener) Addr() net.Addr              { return &net.TCPAddr{IP: net.IPv4(127, 0, 0, 1), Port: 0} }
+func (l *testListener) Close() error              { l.closed = true; return nil }
+func (l *testListener) Addr() net.Addr            { return &net.TCPAddr{IP: net.IPv4(127, 0, 0, 1), Port: 0} }
 
 // testRecorder implements recorder.Recorder.
 type testRecorder struct {

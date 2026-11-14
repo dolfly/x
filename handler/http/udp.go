@@ -11,18 +11,18 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-gost/core/hosts"
-	"github.com/go-gost/core/logger"
-	stats "github.com/go-gost/core/observer/stats"
-	"github.com/go-gost/core/resolver"
-	ictx "github.com/go-gost/x/internal/ctx"
-	"github.com/go-gost/x/internal/net/udp"
-	"github.com/go-gost/x/internal/util/socks"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/hosts"
+	"github.com/dolfly/core/logger"
+	stats "github.com/dolfly/core/observer/stats"
+	"github.com/dolfly/core/resolver"
+	ictx "github.com/dolfly/x/internal/ctx"
+	"github.com/dolfly/x/internal/net/udp"
+	"github.com/dolfly/x/internal/util/socks"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // handleUDP implements UDP over HTTP (UDP relay). When the client sets the
-// X-Gost-Protocol header to "udp", the handler responds with 200 OK and
+// X-Tnet-Protocol header to "udp", the handler responds with 200 OK and
 // establishes a UDP association through the proxy chain. Client data sent
 // over the HTTP connection is wrapped as SOCKS5 UDP packets and relayed
 // through the UDP tunnel.

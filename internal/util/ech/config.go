@@ -6,10 +6,10 @@ import (
 	"errors"
 	"time"
 
-	"github.com/go-gost/core/logger"
-	mdata "github.com/go-gost/core/metadata"
-	xlogger "github.com/go-gost/x/logger"
-	mdutil "github.com/go-gost/x/metadata/util"
+	"github.com/dolfly/core/logger"
+	mdata "github.com/dolfly/core/metadata"
+	xlogger "github.com/dolfly/x/logger"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 // DisableTTL is how long ECH stays disabled for a name after a rejection

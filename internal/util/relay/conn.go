@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/go-gost/gosocks5"
-	"github.com/go-gost/relay"
+	"github.com/dolfly/gosocks5"
+	"github.com/dolfly/relay"
 )
 
 func StatusText(code uint8) string {

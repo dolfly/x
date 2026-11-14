@@ -10,14 +10,14 @@ import (
 	"net"
 	"time"
 
-	"github.com/go-gost/core/bypass"
-	dissector "github.com/go-gost/tls-dissector"
-	xbypass "github.com/go-gost/x/bypass"
-	ictx "github.com/go-gost/x/internal/ctx"
-	xio "github.com/go-gost/x/internal/io"
-	xnet "github.com/go-gost/x/internal/net"
-	tls_util "github.com/go-gost/x/internal/util/tls"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	dissector "github.com/dolfly/tls-dissector"
+	xbypass "github.com/dolfly/x/bypass"
+	ictx "github.com/dolfly/x/internal/ctx"
+	xio "github.com/dolfly/x/internal/io"
+	xnet "github.com/dolfly/x/internal/net"
+	tls_util "github.com/dolfly/x/internal/util/tls"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // HandleTLS sniffs and proxies a TLS connection. It parses the ClientHello

@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	limiter "github.com/go-gost/core/limiter/rate"
-	xlogger "github.com/go-gost/x/logger"
+	limiter "github.com/dolfly/core/limiter/rate"
+	xlogger "github.com/dolfly/x/logger"
 	"github.com/yl2chen/cidranger"
 )
 

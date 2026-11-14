@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/logger"
 )
 
 // peerTable is the hub's destination → peer routing state: it parses a

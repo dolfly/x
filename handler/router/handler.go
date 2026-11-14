@@ -8,20 +8,20 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter"
-	"github.com/go-gost/core/limiter/traffic"
-	"github.com/go-gost/core/logger"
-	md "github.com/go-gost/core/metadata"
-	"github.com/go-gost/relay"
-	xctx "github.com/go-gost/x/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/util/cache"
-	stats_util "github.com/go-gost/x/internal/util/stats"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	cache_limiter "github.com/go-gost/x/limiter/traffic/cache"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter"
+	"github.com/dolfly/core/limiter/traffic"
+	"github.com/dolfly/core/logger"
+	md "github.com/dolfly/core/metadata"
+	"github.com/dolfly/relay"
+	xctx "github.com/dolfly/x/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/util/cache"
+	stats_util "github.com/dolfly/x/internal/util/stats"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	cache_limiter "github.com/dolfly/x/limiter/traffic/cache"
+	"github.com/dolfly/x/registry"
 	"github.com/google/uuid"
 )
 
@@ -37,7 +37,7 @@ func init() {
 	registry.HandlerRegistry().Register("router", NewHandler)
 }
 
-// routerHandler is the main handler for the GOST relay router protocol.
+// routerHandler is the main handler for the TNET relay router protocol.
 //
 // It acts as the server-side component of a tunnel mesh: accepts TCP
 // connections from client nodes, authenticates them, and routes IP
@@ -62,14 +62,14 @@ type routerHandler struct {
 	id         string
 	options    handler.Options
 	pool       *ConnectorPool
-	epConn     net.PacketConn       // UDP socket for inter-node packet forwarding
+	epConn     net.PacketConn // UDP socket for inter-node packet forwarding
 	md         metadata
 	log        logger.Logger
 	stats      *stats_util.HandlerStats
 	limiter    traffic.TrafficLimiter
-	cancel     context.CancelFunc   // cancels background goroutines (observeStats)
-	sdCache    *cache.Cache         // service discovery address cache
-	routeCache *cache.Cache         // route lookup cache
+	cancel     context.CancelFunc // cancels background goroutines (observeStats)
+	sdCache    *cache.Cache       // service discovery address cache
+	routeCache *cache.Cache       // route lookup cache
 }
 
 // NewHandler creates a new router handler.

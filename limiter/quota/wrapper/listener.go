@@ -7,8 +7,8 @@ import (
 	"net"
 	"sync"
 
-	"github.com/go-gost/core/listener"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/listener"
+	"github.com/dolfly/x/registry"
 )
 
 type quotaListener struct {

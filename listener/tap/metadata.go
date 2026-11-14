@@ -4,9 +4,9 @@ import (
 	"net"
 	"strings"
 
-	mdata "github.com/go-gost/core/metadata"
-	tap_util "github.com/go-gost/x/internal/util/tap"
-	mdutil "github.com/go-gost/x/metadata/util"
+	mdata "github.com/dolfly/core/metadata"
+	tap_util "github.com/dolfly/x/internal/util/tap"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 const (

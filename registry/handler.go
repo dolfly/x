@@ -1,8 +1,8 @@
 package registry
 
 import (
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/logger"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/logger"
 )
 
 // NewHandler is a factory function that creates a new handler.Handler

@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/core/rewriter"
-	"github.com/go-gost/plugin/rewriter/proto"
-	"github.com/go-gost/x/internal/plugin"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/core/rewriter"
+	"github.com/dolfly/plugin/rewriter/proto"
+	"github.com/dolfly/x/internal/plugin"
 	"google.golang.org/grpc"
 )
 

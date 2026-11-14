@@ -4,15 +4,15 @@ import (
 	"io"
 	"testing"
 
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/x/config"
-	"github.com/go-gost/x/config/parsing"
-	xlogger "github.com/go-gost/x/logger"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/x/config"
+	"github.com/dolfly/x/config/parsing"
+	xlogger "github.com/dolfly/x/logger"
+	"github.com/dolfly/x/registry"
 
 	// Register connector and dialer implementations needed for node parsing.
-	_ "github.com/go-gost/x/connector/http"
-	_ "github.com/go-gost/x/dialer/tcp"
+	_ "github.com/dolfly/x/connector/http"
+	_ "github.com/dolfly/x/dialer/tcp"
 )
 
 func TestMain(m *testing.M) {

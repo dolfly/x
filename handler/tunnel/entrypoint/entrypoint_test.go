@@ -12,12 +12,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/ingress"
-	"github.com/go-gost/core/logger"
-	"github.com/go-gost/relay"
-	xctx "github.com/go-gost/x/ctx"
-	xstats "github.com/go-gost/x/observer/stats"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/ingress"
+	"github.com/dolfly/core/logger"
+	"github.com/dolfly/relay"
+	xctx "github.com/dolfly/x/ctx"
+	xstats "github.com/dolfly/x/observer/stats"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // test helpers
@@ -26,20 +26,20 @@ type nopLogger struct {
 	logger.Logger
 }
 
-func (nopLogger) Debugf(format string, args ...any) {}
-func (nopLogger) Infof(format string, args ...any)  {}
-func (nopLogger) Warnf(format string, args ...any)  {}
-func (nopLogger) Errorf(format string, args ...any) {}
-func (nopLogger) Tracef(format string, args ...any) {}
-func (nopLogger) Debug(args ...any)                 {}
-func (nopLogger) Info(args ...any)                  {}
-func (nopLogger) Warn(args ...any)                  {}
-func (nopLogger) Error(args ...any)                 {}
-func (nopLogger) Trace(args ...any)                 {}
-func (nopLogger) Fatal(args ...any)                 {}
-func (nopLogger) Fatalf(format string, args ...any) {}
-func (nopLogger) GetLevel() logger.LogLevel         { return logger.ErrorLevel }
-func (nopLogger) IsLevelEnabled(level logger.LogLevel) bool { return false }
+func (nopLogger) Debugf(format string, args ...any)              {}
+func (nopLogger) Infof(format string, args ...any)               {}
+func (nopLogger) Warnf(format string, args ...any)               {}
+func (nopLogger) Errorf(format string, args ...any)              {}
+func (nopLogger) Tracef(format string, args ...any)              {}
+func (nopLogger) Debug(args ...any)                              {}
+func (nopLogger) Info(args ...any)                               {}
+func (nopLogger) Warn(args ...any)                               {}
+func (nopLogger) Error(args ...any)                              {}
+func (nopLogger) Trace(args ...any)                              {}
+func (nopLogger) Fatal(args ...any)                              {}
+func (nopLogger) Fatalf(format string, args ...any)              {}
+func (nopLogger) GetLevel() logger.LogLevel                      { return logger.ErrorLevel }
+func (nopLogger) IsLevelEnabled(level logger.LogLevel) bool      { return false }
 func (nopLogger) WithFields(fields map[string]any) logger.Logger { return nopLogger{} }
 
 func testLogger() logger.Logger { return nopLogger{} }
@@ -138,13 +138,13 @@ func (c *fakeConn) SetReadDeadline(t time.Time) error {
 // pipeConn is a simple in-memory pipe to simulate bidirectional connections.
 // It embeds readBuf for tests that need to inject data.
 type pipeConn struct {
-	readBuf  []byte
-	offset   int
-	reader   *io.PipeReader
-	writer   *io.PipeWriter
-	closed   bool
-	remote   net.Addr
-	local    net.Addr
+	readBuf []byte
+	offset  int
+	reader  *io.PipeReader
+	writer  *io.PipeWriter
+	closed  bool
+	remote  net.Addr
+	local   net.Addr
 }
 
 func (c *pipeConn) Read(b []byte) (n int, err error) {
@@ -193,9 +193,9 @@ func (c *pipeConn) LocalAddr() net.Addr {
 	return &net.TCPAddr{IP: net.ParseIP("10.0.0.2"), Port: 8080}
 }
 
-func (c *pipeConn) SetReadDeadline(t time.Time) error { return nil }
+func (c *pipeConn) SetReadDeadline(t time.Time) error  { return nil }
 func (c *pipeConn) SetWriteDeadline(t time.Time) error { return nil }
-func (c *pipeConn) SetDeadline(t time.Time) error { return nil }
+func (c *pipeConn) SetDeadline(t time.Time) error      { return nil }
 
 func newPipePair() (*pipeConn, *pipeConn) {
 	pr1, pw1 := io.Pipe()
@@ -356,8 +356,8 @@ func TestHandle_PeekError(t *testing.T) {
 
 func TestHandle_HTTP_Path(t *testing.T) {
 	ing := newMockIngress([]*ingress.Rule{
-			{Hostname: "example.com", Endpoint: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"},
-		})
+		{Hostname: "example.com", Endpoint: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"},
+	})
 	cfg := newTestConfig()
 	cfg.Ingress = ing
 
@@ -469,8 +469,8 @@ func TestDial_PrivateTunnel(t *testing.T) {
 
 func TestDial_NilDialFn(t *testing.T) {
 	ing := newMockIngress([]*ingress.Rule{
-			{Hostname: "example.com", Endpoint: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"},
-		})
+		{Hostname: "example.com", Endpoint: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"},
+	})
 	cfg := newTestConfig()
 	cfg.Ingress = ing
 	ep := New(cfg, nil)
@@ -483,8 +483,8 @@ func TestDial_NilDialFn(t *testing.T) {
 
 func TestDial_DialFnError(t *testing.T) {
 	ing := newMockIngress([]*ingress.Rule{
-			{Hostname: "example.com", Endpoint: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"},
-		})
+		{Hostname: "example.com", Endpoint: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"},
+	})
 	cfg := newTestConfig()
 	cfg.Ingress = ing
 	ep := New(cfg, func(ctx DialContext, network, tid string) (net.Conn, string, string, error) {
@@ -499,8 +499,8 @@ func TestDial_DialFnError(t *testing.T) {
 
 func TestDial_RemoteNode(t *testing.T) {
 	ing := newMockIngress([]*ingress.Rule{
-			{Hostname: "example.com", Endpoint: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"},
-		})
+		{Hostname: "example.com", Endpoint: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"},
+	})
 	cfg := newTestConfig()
 	cfg.Ingress = ing
 	client, _ := net.Pipe()
@@ -519,8 +519,8 @@ func TestDial_RemoteNode(t *testing.T) {
 
 func TestDial_LocalNode(t *testing.T) {
 	ing := newMockIngress([]*ingress.Rule{
-			{Hostname: "example.com", Endpoint: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"},
-		})
+		{Hostname: "example.com", Endpoint: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"},
+	})
 	cfg := newTestConfig()
 	cfg.Ingress = ing
 	client, server := net.Pipe()
@@ -590,9 +590,9 @@ func TestHTTPRoundTrip_LoopDetection(t *testing.T) {
 	ep := New(newTestConfig(), nil)
 	ep.node = "test-node"
 
-	// Request with our own node in Gost-Forwarded-Node header
+	// Request with our own node in Tnet-Forwarded-Node header
 	req, _ := http.NewRequest("GET", "http://example.com/", nil)
-	req.Header.Set("Gost-Forwarded-Node", "test-node")
+	req.Header.Set("Tnet-Forwarded-Node", "test-node")
 
 	rw := &pipeConn{}
 	ro := &xrecorder.HandlerRecorderObject{

@@ -8,7 +8,7 @@ Pre-flight shared-interface rows:
 - T3→T4: only files + green suite; no interface.
 
 Task 1: complete (no commit per plan Global Constraints; tests: go test -count=1 ./handler/tun/ ./observer/stats/ → both ok, tun 14.356s).
-Ruling: metadata constructor alias is xmd (github.com/go-gost/x/metadata), not mdx as plan Step 1 guessed — plan told me to grep first, did. Cost if wrong: nil.
+Ruling: metadata constructor alias is xmd (github.com/dolfly/x/metadata), not mdx as plan Step 1 guessed — plan told me to grep first, did. Cost if wrong: nil.
 Task 2: complete (no commit per plan Global Constraints; tests: go test -count=1 ./handler/tun/ → ok 14.987s).
 Ruling: probeInterval/probeRecvTimeout are vars not consts (plan pinned values 30s/5s kept; tests override). Pinned signature runDeviceProbe(ctx,dev,ip,report,log) unchanged. Cost if wrong: nil.
 Ruling: wrote runDeviceProbe impl before its loop test, caught it, deleted impl, re-did RED (undefined) → GREEN. Cost if wrong: unproven test.
@@ -22,6 +22,6 @@ Final: fixed C1 — TestBuildProbePacket UDP-length assertion RED→GREEN, suite
 Final: fixed I1 (Reset forgot probe counters) — TestStatsProbeReset RED→GREEN, suite observer/stats ok.
 Final: minor (deferred): M1 redial overlap — old probe writes ≤5s alongside new after iterCtx cancel; datagram-atomic, self-healing.
 Final: minor (deferred): M2 log assumed non-nil in probe paths.
-Final: minor (deferred): M3 gate goroutine spawn on probeReport != nil to avoid one throwaway goroutine per redial on gost path.
+Final: minor (deferred): M3 gate goroutine spawn on probeReport != nil to avoid one throwaway goroutine per redial on tnet path.
 Final: reviewer declined go toolchain — overruled, tests ran under /root/.local/go/bin (see memory dev-container-toolchain); kernel trim-vs-drop of len-16 packet no longer matters post-fix; water-driver atomicity stands on datagram semantics + keepalive precedent.
-Pre-release workspace check (GOWORK=/root/opencode/probework/go.work, x+wisper+gost): go build ./... all three OK; wisper ./tunnel/... PASS (14.6s/15.3s); x handler/tun + observer/stats PASS.
+Pre-release workspace check (GOWORK=/root/opencode/probework/go.work, x+wisper+tnet): go build ./... all three OK; wisper ./tunnel/... PASS (14.6s/15.3s); x handler/tun + observer/stats PASS.

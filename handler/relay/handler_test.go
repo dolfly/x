@@ -7,17 +7,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/auth"
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/handler"
-	"github.com/go-gost/core/limiter/rate"
-	"github.com/go-gost/core/observer"
-	"github.com/go-gost/core/recorder"
-	"github.com/go-gost/relay"
-	xbypass "github.com/go-gost/x/bypass"
-	rate_limiter "github.com/go-gost/x/limiter/rate"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/auth"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/handler"
+	"github.com/dolfly/core/limiter/rate"
+	"github.com/dolfly/core/observer"
+	"github.com/dolfly/core/recorder"
+	"github.com/dolfly/relay"
+	xbypass "github.com/dolfly/x/bypass"
+	rate_limiter "github.com/dolfly/x/limiter/rate"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // ---------------------------------------------------------------------------

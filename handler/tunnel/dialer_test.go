@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/sd"
+	"github.com/dolfly/core/sd"
 )
 
 // fakePool implements a minimal Connector-like thing for Dialer tests.

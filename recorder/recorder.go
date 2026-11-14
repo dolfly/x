@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-gost/core/recorder"
-	xctx "github.com/go-gost/x/ctx"
+	"github.com/dolfly/core/recorder"
+	xctx "github.com/dolfly/x/ctx"
 )
 
 // MetadataRecorder wraps a Recorder and automatically appends metadata

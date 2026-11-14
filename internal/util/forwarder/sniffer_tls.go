@@ -12,16 +12,16 @@ import (
 	"time"
 
 	"crypto/x509"
-	"github.com/go-gost/core/bypass"
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/hop"
-	dissector "github.com/go-gost/tls-dissector"
-	xbypass "github.com/go-gost/x/bypass"
-	xio "github.com/go-gost/x/internal/io"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/util/sniffing"
-	tls_util "github.com/go-gost/x/internal/util/tls"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/bypass"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/hop"
+	dissector "github.com/dolfly/tls-dissector"
+	xbypass "github.com/dolfly/x/bypass"
+	xio "github.com/dolfly/x/internal/io"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/util/sniffing"
+	tls_util "github.com/dolfly/x/internal/util/tls"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 // HandleTLS sniffs and proxies a TLS connection. It parses the ClientHello

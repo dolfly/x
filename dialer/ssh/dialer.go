@@ -6,13 +6,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/dialer"
-	md "github.com/go-gost/core/metadata"
-	xctx "github.com/go-gost/x/ctx"
-	xnet "github.com/go-gost/x/internal/net"
-	"github.com/go-gost/x/internal/net/proxyproto"
-	ssh_util "github.com/go-gost/x/internal/util/ssh"
-	"github.com/go-gost/x/registry"
+	"github.com/dolfly/core/dialer"
+	md "github.com/dolfly/core/metadata"
+	xctx "github.com/dolfly/x/ctx"
+	xnet "github.com/dolfly/x/internal/net"
+	"github.com/dolfly/x/internal/net/proxyproto"
+	ssh_util "github.com/dolfly/x/internal/util/ssh"
+	"github.com/dolfly/x/registry"
 	"golang.org/x/crypto/ssh"
 )
 
@@ -103,7 +103,7 @@ func (d *sshDialer) Dial(ctx context.Context, addr string, opts ...dialer.DialOp
 
 		d.sessions[addr] = session
 	}
-	channel, reqs, err := session.OpenChannel(ssh_util.GostSSHTunnelRequest)
+	channel, reqs, err := session.OpenChannel(ssh_util.TnetSSHTunnelRequest)
 	if err != nil {
 		// The cached session is unusable (typically dead but not yet detected
 		// by IsClosed, e.g. an idle connection silently dropped by NAT). Tear

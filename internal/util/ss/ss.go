@@ -3,10 +3,10 @@ package ss
 import (
 	"strings"
 
-	"github.com/go-gost/go-shadowsocks2/core"
-	"github.com/go-gost/go-shadowsocks2/utils"
+	"github.com/dolfly/go-shadowsocks2/core"
+	"github.com/dolfly/go-shadowsocks2/utils"
 
-	"github.com/go-gost/x/internal/util/ss/none"
+	"github.com/dolfly/x/internal/util/ss/none"
 )
 
 // ShadowCipher derives a cipher from method + password.

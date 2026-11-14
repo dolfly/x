@@ -1,7 +1,7 @@
 // Package httpcache provides an HTTP response cache layer over the generic
 // core cache.Cache interface. It is shared by the forwarder and sniffing
 // sniffers to cache upstream HTTP responses for reverse-proxy / CDN-mirror
-// use cases (see gost issue #349).
+// use cases (see tnet issue #349).
 //
 // The generic cache stores opaque []byte; this package owns all HTTP policy
 // (which methods/statuses are cacheable, per-status TTLs, serve-stale, body
@@ -17,9 +17,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-gost/core/cache"
-	mdata "github.com/go-gost/core/metadata"
-	mdutil "github.com/go-gost/x/metadata/util"
+	"github.com/dolfly/core/cache"
+	mdata "github.com/dolfly/core/metadata"
+	mdutil "github.com/dolfly/x/metadata/util"
 )
 
 // Policy holds the HTTP caching rules for a service.
@@ -70,7 +70,7 @@ const (
 	mdKeyTTL          = "cache.ttl"
 	mdKeyStatusPrefix = "cache.status." // per-status TTL: cache.status.200 = 60m
 	mdKeyServeStale   = "cache.serveStale"
-	mdKeyMethods      = "cache.methods" // slice of cacheable methods
+	mdKeyMethods      = "cache.methods"      // slice of cacheable methods
 	mdKeyMaxBodyBytes = "cache.maxBodyBytes" //
 )
 

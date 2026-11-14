@@ -11,12 +11,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/connector"
-	http2connector "github.com/go-gost/x/connector/http2"
-	ictx "github.com/go-gost/x/internal/ctx"
-	"github.com/go-gost/x/internal/net/httptunnel"
-	"github.com/go-gost/x/logger"
-	"github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/connector"
+	http2connector "github.com/dolfly/x/connector/http2"
+	ictx "github.com/dolfly/x/internal/ctx"
+	"github.com/dolfly/x/internal/net/httptunnel"
+	"github.com/dolfly/x/logger"
+	"github.com/dolfly/x/metadata"
 	xhttp2 "golang.org/x/net/http2"
 )
 

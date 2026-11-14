@@ -4,7 +4,7 @@ import (
 	"net"
 	"testing"
 
-	"github.com/go-gost/gosocks5"
+	"github.com/dolfly/gosocks5"
 )
 
 type dummyConn struct{ net.Conn }

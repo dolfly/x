@@ -9,7 +9,7 @@ import (
 )
 
 func TestDecodeServerName(t *testing.T) {
-	// Helper: encode a hostname using the GOST v2 encoding scheme
+	// Helper: encode a hostname using the TNET v2 encoding scheme
 	encodeName := func(name string) string {
 		v := []byte(name)
 		b := make([]byte, 4)
@@ -307,7 +307,7 @@ func TestNormalizeHostPort(t *testing.T) {
 }
 
 func TestBuildConnectResponse(t *testing.T) {
-	got := buildConnectResponse("gost/3.0")
+	got := buildConnectResponse("tnet/3.0")
 	if len(got) == 0 {
 		t.Error("buildConnectResponse returned empty")
 	}
@@ -318,7 +318,7 @@ func TestBuildConnectResponse(t *testing.T) {
 	if !contains(s, "Connection established") {
 		t.Errorf("expected Connection established in response: %s", s)
 	}
-	if !contains(s, "gost/3.0") {
+	if !contains(s, "tnet/3.0") {
 		t.Errorf("expected proxy agent in response: %s", s)
 	}
 }
@@ -397,7 +397,7 @@ func TestNormalizeRequest_NonAbsolute_InvalidHost(t *testing.T) {
 
 func TestNormalizeRequest_UDPProtocol(t *testing.T) {
 	req, _ := http.NewRequest("GET", "http://example.com:8080/path", nil)
-	req.Header.Set("X-Gost-Protocol", "udp")
+	req.Header.Set("X-Tnet-Protocol", "udp")
 	nr := normalizeRequest(req)
 	if nr.Network != "udp" {
 		t.Errorf("got network %q, want udp", nr.Network)
@@ -405,7 +405,7 @@ func TestNormalizeRequest_UDPProtocol(t *testing.T) {
 }
 
 func TestNormalizeRequest_GostTarget(t *testing.T) {
-	// Encode a hostname using the GOST v2 encoding scheme
+	// Encode a hostname using the TNET v2 encoding scheme
 	encodeName := func(name string) string {
 		v := []byte(name)
 		b := make([]byte, 4)
@@ -415,7 +415,7 @@ func TestNormalizeRequest_GostTarget(t *testing.T) {
 	}
 
 	req, _ := http.NewRequest("GET", "http://example.com/path", nil)
-	req.Header.Set("Gost-Target", encodeName("real-target.com:443"))
+	req.Header.Set("Tnet-Target", encodeName("real-target.com:443"))
 	nr := normalizeRequest(req)
 	if nr.Addr != "real-target.com:443" {
 		t.Errorf("got addr %q, want real-target.com:443", nr.Addr)
@@ -437,7 +437,7 @@ func TestNormalizeRequest_XGostTarget(t *testing.T) {
 	}
 
 	req, _ := http.NewRequest("GET", "http://example.com/path", nil)
-	req.Header.Set("X-Gost-Target", encodeName("alternate-target.com:443"))
+	req.Header.Set("X-Tnet-Target", encodeName("alternate-target.com:443"))
 	nr := normalizeRequest(req)
 	if nr.Addr != "alternate-target.com:443" {
 		t.Errorf("got addr %q, want alternate-target.com:443", nr.Addr)

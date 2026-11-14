@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/cache"
+	"github.com/dolfly/core/cache"
 )
 
 func TestSetGet(t *testing.T) {
@@ -127,7 +127,7 @@ func TestMaxSizeLRU(t *testing.T) {
 	ctx := context.Background()
 	c.Set(ctx, "a", []byte("1"))
 	c.Set(ctx, "b", []byte("2"))
-	c.Get(ctx, "a")        // touch a
+	c.Get(ctx, "a")              // touch a
 	c.Set(ctx, "c", []byte("3")) // LRU-evicts b (a's lastAccess is newer)
 
 	if _, err := c.Get(ctx, "b"); err != cache.ErrNotFound {
@@ -141,9 +141,9 @@ func TestMaxSizeLRU(t *testing.T) {
 func TestMaxBytesEviction(t *testing.T) {
 	c := NewMemoryCache(Options{MaxBytes: 4})
 	ctx := context.Background()
-	c.Set(ctx, "a", []byte{1, 2})   // 2 bytes, total=2
-	c.Set(ctx, "b", []byte{3, 4})   // 2 bytes, total=4
-	c.Set(ctx, "c", []byte{5})      // 1 byte, total=5 > 4 → evicts oldest (a)
+	c.Set(ctx, "a", []byte{1, 2}) // 2 bytes, total=2
+	c.Set(ctx, "b", []byte{3, 4}) // 2 bytes, total=4
+	c.Set(ctx, "c", []byte{5})    // 1 byte, total=5 > 4 → evicts oldest (a)
 
 	if _, err := c.Get(ctx, "a"); err != cache.ErrNotFound {
 		t.Fatal("a should have been evicted (maxBytes)")

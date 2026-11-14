@@ -5,7 +5,7 @@ import (
 	"net"
 	"sync"
 
-	"github.com/go-gost/x/internal/util/sniffing"
+	"github.com/dolfly/x/internal/util/sniffing"
 )
 
 // HandleFunc handles a connection whose protocol has been detected as proto,

@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-gost/core/sd"
-	"github.com/go-gost/relay"
-	"github.com/go-gost/x/selector"
+	"github.com/dolfly/core/sd"
+	"github.com/dolfly/relay"
+	"github.com/dolfly/x/selector"
 )
 
 // MaxWeight is the exclusive takeover weight (255). A connector at MaxWeight

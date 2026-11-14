@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/go-gost/core/handler"
-	xrecorder "github.com/go-gost/x/recorder"
+	"github.com/dolfly/core/handler"
+	xrecorder "github.com/dolfly/x/recorder"
 )
 
 func TestDecodeServerName(t *testing.T) {

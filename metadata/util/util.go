@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-gost/core/metadata"
+	"github.com/dolfly/core/metadata"
 )
 
 // IsExists reports whether at least one of the given keys is present in md.

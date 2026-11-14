@@ -6,7 +6,7 @@ import (
 	"net"
 	"testing"
 
-	xio "github.com/go-gost/x/internal/io"
+	xio "github.com/dolfly/x/internal/io"
 )
 
 func TestIsIPv4(t *testing.T) {

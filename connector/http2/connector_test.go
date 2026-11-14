@@ -12,12 +12,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/connector"
-	"github.com/go-gost/core/dialer"
-	http2connector "github.com/go-gost/x/connector/http2"
-	http2dialer "github.com/go-gost/x/dialer/http2"
-	"github.com/go-gost/x/logger"
-	"github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/connector"
+	"github.com/dolfly/core/dialer"
+	http2connector "github.com/dolfly/x/connector/http2"
+	http2dialer "github.com/dolfly/x/dialer/http2"
+	"github.com/dolfly/x/logger"
+	"github.com/dolfly/x/metadata"
 )
 
 const testWait = 3 * time.Second

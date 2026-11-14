@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/chain"
-	"github.com/go-gost/core/connector"
+	"github.com/dolfly/core/chain"
+	"github.com/dolfly/core/connector"
 
-	xlogger "github.com/go-gost/x/logger"
+	xlogger "github.com/dolfly/x/logger"
 )
 
 // testTransport implements chain.Transporter with real TCP dials.

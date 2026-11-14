@@ -12,9 +12,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-gost/core/dialer"
-	xlogger "github.com/go-gost/x/logger"
-	xmd "github.com/go-gost/x/metadata"
+	"github.com/dolfly/core/dialer"
+	xlogger "github.com/dolfly/x/logger"
+	xmd "github.com/dolfly/x/metadata"
 )
 
 // echoTunnel accepts CONNECT and echoes the request body back.
